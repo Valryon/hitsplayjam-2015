@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BallScript : MonoBehaviour {
+public class BallScript : MonoBehaviour 
+{
+  private Vector3 startPosition;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+  void Awake()
+  {
+    startPosition = this.transform.position;
+  }
+
+  public void Reset()
+  {
+    this.transform.position = startPosition;
+  }
 }

@@ -1,15 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GoalScript : MonoBehaviour {
+public class GoalScript : MonoBehaviour 
+{
+  public int team = 0;
+  public int score = 0;
 
-	// Use this for initialization
-	void Start () {
+	void Start () 
+  {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update () 
+  {
 	
 	}
+
+  void OnTriggerEnter(Collider c)
+  {
+    BallScript ball = c.gameObject.GetComponent<BallScript> ();
+    if (ball != null) 
+    {
+      Goal ();
+
+      // Reset ball
+      ball.Reset();
+    }
+  }
+
+  private void Goal()
+  {
+    score++;
+  }
 }
