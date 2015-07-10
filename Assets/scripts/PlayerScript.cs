@@ -34,15 +34,33 @@ public class PlayerScript : MonoBehaviour {
       if(team == GameScript.TEAM1)
       {
         x = Input.GetAxis ("Horizontal");
+        if( x < -0.25f) x = -1f;
+        else if( x > 0.25f) x = 1f;
+
         z = Input.GetAxis ("Vertical");
+        if( z < -0.25f) z = -1f;
+        else if( z > 0.25f) z = 1f;
       }
       // Team 2: ZQSD
       else if(team == GameScript.TEAM2)
       {
-        x = 0f; //Input.GetKeyDown(KeyCode.Q);
-        z = 0f; //Input.GetAxis ("Vertical");
+        if(Input.GetKey(KeyCode.Q))
+        {
+          x = -1f; 
+        }
+        else if(Input.GetKey(KeyCode.D))
+        {
+          x = 1f;
+        }
+        if(Input.GetKey(KeyCode.Z))
+        {
+          z = 1f; 
+        }
+        else if(Input.GetKey(KeyCode.S))
+        {
+          z = -1f;
+        }
       }
-
 
       movement = new Vector3 (x, 0, z) * speed;
     }

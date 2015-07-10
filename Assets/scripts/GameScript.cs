@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class GameScript : MonoBehaviour 
 {
   public const int TEAM1 = 1;
-  public const int TEAM2 = 1;
+  public const int TEAM2 = 2;
 
   public List<PlayerScript> team1;
   public List<PlayerScript> team2;
@@ -17,9 +17,10 @@ public class GameScript : MonoBehaviour
   {
     var players = FindObjectsOfType<PlayerScript> ();
 
-    team1 = players.Where (p => p.team == 1).ToList ();
+    team1 = players.Where (p => p.team == TEAM1).ToList ();
     SelectTeam(team1[0], TEAM1);
-    team2 = players.Where (p => p.team == 2).ToList ();
+
+    team2 = players.Where (p => p.team == TEAM2).ToList ();
     SelectTeam(team2[0], TEAM2);
   }
 
