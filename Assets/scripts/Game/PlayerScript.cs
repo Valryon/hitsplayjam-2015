@@ -181,6 +181,14 @@ public class PlayerScript : MonoBehaviour
     set;
   }
 
+  public bool HasBall 
+  {
+    get
+    {
+      return (ball != null);
+    }
+  }
+
   /// <summary>
   /// The football player is currently selected and played by the player
   /// </summary>
