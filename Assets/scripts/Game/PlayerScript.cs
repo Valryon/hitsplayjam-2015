@@ -182,9 +182,17 @@ public class PlayerScript : MonoBehaviour
         if (pass)
           Pass ();
       }else{
-        //Skynet prend le controle :) 
-        if(definition.role == ROLE.Defense)
-          Defending();
+        var gs  = GameObject.FindObjectOfType<GameScript>();
+        if(gs.attacking !=0)
+        {
+          //Skynet prend le controle :) 
+          if(definition.role == ROLE.Defense)
+            Defending();
+          if(definition.role == ROLE.Attack)
+            Attacking();
+          if(definition.role == ROLE.Keeper)
+            Keeping();
+        }
 
       }
     }
@@ -248,6 +256,31 @@ public class PlayerScript : MonoBehaviour
       dz = Mathf.Max (0, dz);
     else
       dz = Mathf.Min (0, dz);
+
+
+
+
+    movement = definition.speed * new Vector3 (dx,0,dz);
+    
+
+  }
+
+
+  private void Keeping(){
+    var gs = GameObject.FindObjectOfType<GameScript> ();
+    var b = gs.ball.transform.position;
+    var side = (team == 2) ? -1 : 1;
+    var p = transform.position;
+    var dx = 0;
+    if (p.x != side * 32) {
+      dx = side;
+    }
+    var dz = 0f;
+    if (Mathf.Abs (p.z) < 5)
+      dz = Mathf.Sign (b.z);
+    else {
+      dz = Mathf.Sign (p.z) * -1;
+    }
 
 
 
