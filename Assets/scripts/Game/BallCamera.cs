@@ -6,19 +6,23 @@ public class BallCamera : MonoBehaviour
   public static bool FollowBall = true;
 
   private BallScript ball;
-  private float targetX;
+
   private float speed = 0.07f;
+  private float speedBoost = 1f;
   private float directionX;
 
   void Start()
   {
     ball = FindObjectOfType<BallScript> ();
+    ball.OnShoot += () => 
+    {
+      speedBoost = 10f;
+    };
     ball.BallReset += () =>  
     {
+      speedBoost = 1f;
       this.transform.position = new Vector3(ball.transform.position.x, this.transform.position.y, this.transform.position.z);
     };
-
-    targetX = this.transform.position.x;
   }
 
 	void Update () 
@@ -29,6 +33,10 @@ public class BallCamera : MonoBehaviour
     directionX -= 0.1f;
     if (directionX < 0f)
       directionX = 0f;
+
+    speedBoost -= 0.1f;
+    if (speedBoost < 1f)
+      speedBoost = 1f;
 
     // Rect on screen. If ball is outside, follow it.
     Vector3 viewportCoords = Camera.main.WorldToViewportPoint (ball.transform.position);
@@ -44,7 +52,7 @@ public class BallCamera : MonoBehaviour
       directionX = 1f;
     }
 
-    float currentX = this.transform.position.x + (directionX * speed);
+    float currentX = this.transform.position.x + (directionX * speed * speedBoost);
 
     this.transform.position = new Vector3 (currentX, this.transform.position.y, this.transform.position.z);
 	}

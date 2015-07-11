@@ -30,6 +30,14 @@ public class GameScript : MonoBehaviour
       Debug.LogError("No players WTF");
     }
 
+    foreach (var p in players) 
+    {
+      p.OnBallPick += (pickingPlayer) =>
+      {
+        SelectTeam(pickingPlayer, pickingPlayer.team);
+      };
+    }
+
     team1 = players.Where (p => p.team == TEAM1).OrderBy(p => p.number).ToList ();
     team2 = players.Where (p => p.team == TEAM2).OrderBy(p => p.number).ToList ();
 

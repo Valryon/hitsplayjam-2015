@@ -8,6 +8,7 @@ public class BallScript : MonoBehaviour
   public bool checkCollision ;
 
   public event System.Action BallReset; 
+  public event System.Action OnShoot; 
 
   private Rigidbody rbody;
   private Vector3 startPosition;
@@ -43,7 +44,7 @@ public class BallScript : MonoBehaviour
 
     rbody.velocity = Vector3.zero;
 
-    DisableFor (2f);
+    DisableFor (1.25f);
 
     if (BallReset != null)
       BallReset ();
@@ -73,6 +74,9 @@ public class BallScript : MonoBehaviour
 
     linkedPlayer = null;
     Rigidbody.AddForce (force, ForceMode.Force);
+
+    if (OnShoot != null)
+      OnShoot ();
   }
 
   public void DisableFor(float seconds)

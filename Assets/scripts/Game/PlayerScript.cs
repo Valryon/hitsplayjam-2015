@@ -3,11 +3,13 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour 
 {
-  public const float BALL_DISTANCE_FROM_PLAYER = 2f;
+  public const float BALL_DISTANCE_FROM_PLAYER = 1.25f;
 
   public int team = 1;
   public int number = 1;
   public PlayerDefinition definition;
+
+  public event System.Action<PlayerScript> OnBallPick;
 
 	private Vector3 movement;
 	private Rigidbody rbody;
@@ -149,9 +151,13 @@ public class PlayerScript : MonoBehaviour
       // Link?
       if(b.linkedPlayer == null && b.IsPickable)
       {
-        Debug.Log(this.name + " PREND LA BALLE");
         b.linkedPlayer = this;
         this.ball = b;
+
+        if(OnBallPick != null)
+        {
+          OnBallPick(this);
+        }
       }
     }
   }
