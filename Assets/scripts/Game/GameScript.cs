@@ -183,6 +183,8 @@ public class GameScript : MonoBehaviour
     player1 = null;
     player2.IsSelected = false;
     player2 = null;
+    ball.linkedPlayer.ball = null;
+    ball.linkedPlayer = null;
   }
 
 }

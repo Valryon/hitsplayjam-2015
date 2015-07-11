@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
 	private Rigidbody rbody;
   private Renderer render;
 
-  private BallScript ball;
+  public BallScript ball;
   private GameScript gameScript;
 
   private Vector3 ballDirection;
