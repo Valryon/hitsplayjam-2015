@@ -3,11 +3,13 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour 
 {
-  public const float BALL_DISTANCE_FROM_PLAYER = 2f;
+  public const float BALL_DISTANCE_FROM_PLAYER = 1.25f;
 
   public int team = 1;
   public int number = 1;
   public PlayerDefinition definition;
+
+  public event System.Action<PlayerScript> OnBallPick;
 
 	private Vector3 movement;
 	private Rigidbody rbody;
@@ -17,7 +19,7 @@ public class PlayerScript : MonoBehaviour
   private GameScript gameScript;
 
   private Vector3 ballDirection;
-
+  private Vector3 startPosition;
 
 
 	void Awake()
@@ -40,6 +42,7 @@ public class PlayerScript : MonoBehaviour
     BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
 
     IsActive = true;
+    startPosition = this.transform.position;
 	}
 
 	void Start () 
@@ -149,10 +152,13 @@ public class PlayerScript : MonoBehaviour
       // Link?
       if(b.linkedPlayer == null && b.IsPickable)
       {
-        Debug.Log(this.name + " PREND LA BALLE");
         b.linkedPlayer = this;
         this.ball = b;
-        this.ball.Picked(this);
+
+        if(OnBallPick != null)
+        {
+          OnBallPick(this);
+        }
       }
     }
   }
@@ -161,6 +167,20 @@ public class PlayerScript : MonoBehaviour
   {
     if (ball == null)
       return;
+
+    // Shooooot
+    const float forceBase = 1000f;
+    Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
+    Vector3 force = shootDirection * forceBase * definition.shootForce;
+
+    ball.Launch (force);
+
+    ball = null;
+  }
+
+  public void BallLost ()
+  {
+    ball = null;
   }
 
   private void Attack()
@@ -175,6 +195,14 @@ public class PlayerScript : MonoBehaviour
       return;
   }
 
+  public void BackToYourPlace()
+  {
+    StartCoroutine (Interpolators.Curve (Interpolators.EaseInOutCurve, this.transform.position, startPosition, 2f, 
+     (s) => 
+     {
+      this.transform.position = s;
+     }, null));
+  }
 
   public bool IsActive 
   {

@@ -22,21 +22,34 @@ public class GameScript : MonoBehaviour
 
   void Awake()
   {
+    // Ball
     ball = FindObjectOfType<BallScript> ();
 
+    // Players
     var players = FindObjectsOfType<PlayerScript> ();
     if (players.Length == 0) 
     {
       Debug.LogError("No players WTF");
     }
 
-    player1Index = 0;
-    team1 = players.Where (p => p.team == TEAM1).OrderBy(p => p.number).ToList ();
-    SelectTeam(team1[player1Index], TEAM1);
+    foreach (var p in players) 
+    {
+      p.OnBallPick += (pickingPlayer) =>
+      {
+        SelectTeam(pickingPlayer, pickingPlayer.team);
+      };
+    }
 
-    player2Index = 0;
+    team1 = players.Where (p => p.team == TEAM1).OrderBy(p => p.number).ToList ();
     team2 = players.Where (p => p.team == TEAM2).OrderBy(p => p.number).ToList ();
-    SelectTeam(team2[player2Index], TEAM2);
+
+    InputHandleSelection (true);
+
+    // Goal
+    foreach (GoalScript g in  FindObjectsOfType<GoalScript>()) 
+    {
+      g.OnGoal += GOAL;
+    }
   }
 
   void Start () 
@@ -45,32 +58,32 @@ public class GameScript : MonoBehaviour
 	
 	void Update () 
   {
-    InputHandleSelection ();
+    InputHandleSelection (false);
 	}
 
-  private void InputHandleSelection()
+  private void InputHandleSelection(bool forceSelection)
   {
     if (ball == null)
       return;
 
-    HandleSelectionForPlayer (TEAM1);
+    HandleSelectionForPlayer (TEAM1, forceSelection);
 
-    HandleSelectionForPlayer (TEAM2);
+    HandleSelectionForPlayer (TEAM2, forceSelection);
   }
 
-  private void HandleSelectionForPlayer(int teamNumber)
+  private void HandleSelectionForPlayer(int teamNumber, bool force)
   {
     List<PlayerScript> ps = null;
 
     // Team: change selected character
-    if (teamNumber == TEAM1 && Input.GetKeyDown(PlayerInputsScheme.Player1Action1))
+    if (teamNumber == TEAM1 && (force || Input.GetKeyDown(PlayerInputsScheme.Player1Action1)))
     {
       if(player1 == null || (player1 != null && player1.HasBall == false))
       {
         ps = team1;
       }
     }
-    else if (teamNumber == TEAM2 && Input.GetKeyDown(PlayerInputsScheme.Player2Action1)) 
+    else if (teamNumber == TEAM2 && (force || Input.GetKeyDown(PlayerInputsScheme.Player2Action1)) )
     {
       if(player2 == null || (player2 != null && player2.HasBall == false))
       {
@@ -126,6 +139,30 @@ public class GameScript : MonoBehaviour
       player2 = p;
       player2.IsSelected = true;
     }
+  }
+
+  private void GOAL(GoalScript goalScript)
+  {
+    // Text, particles, juice
+    BallCamera.FollowBall = false;
+    CameraShaker.ShakeCamera (0.5f, 1f);
+
+    foreach (var p in team1) 
+    {
+      p.BackToYourPlace();
+    }
+    foreach (var p in team2) 
+    {
+      p.BackToYourPlace();
+    }
+
+    // Wait
+    StartCoroutine (Timer.Start (3f, () =>
+    {
+      // Reset everything
+      ball.Reset();
+      BallCamera.FollowBall = true;
+    }));
   }
 
   public Color GetTeamColor (int team)
