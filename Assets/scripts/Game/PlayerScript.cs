@@ -6,12 +6,7 @@ public class PlayerScript : MonoBehaviour
   public const float BALL_DISTANCE_FROM_PLAYER = 1.25f;
 
 
-  public enum ROLE{
-    Defense,
-    Attack,
-    Idle,
-    Mad
-  };
+
 
   public int team = 1;
   public int number = 1;
@@ -188,7 +183,8 @@ public class PlayerScript : MonoBehaviour
           Pass ();
       }else{
         //Skynet prend le controle :) 
-
+        if(definition.role == ROLE.Defense)
+          Defending();
 
       }
     }
@@ -218,6 +214,23 @@ public class PlayerScript : MonoBehaviour
 
 
   private void Defending(){
+    var gs = GameObject.FindObjectOfType<GameScript> ();
+    var b = gs.ball.transform.position;
+    var dx = 0f;
+    if (team == 2)
+      dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
+    else
+      dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
+
+    var side = (transform.position.z < 0) ? -1 : 1; 
+    var dz = Mathf.Sign (b.z - transform.position.z);
+    if (side == 1)
+      dz = Mathf.Max (0, dz);
+    else
+      dz = Mathf.Min (0, dz);
+
+    movement = definition.speed * new Vector3 (dx,0,dz);
+
 
   }
 
