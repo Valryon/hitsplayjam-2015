@@ -15,7 +15,7 @@ public class CameraShaker : MonoBehaviour
 
   [Tooltip("Factor for each force if you want to enchance/reduce the effect globally")]
   public float factor = 1.75f;
-  public bool resetToOriginalPosition = true;
+  public bool resetToOriginalPosition = false;
 
   private Vector2 previousMouvement = Vector2.zero;
   private Vector3 originalPos;

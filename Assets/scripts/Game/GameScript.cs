@@ -147,6 +147,15 @@ public class GameScript : MonoBehaviour
     BallCamera.FollowBall = false;
     CameraShaker.ShakeCamera (0.5f, 1f);
 
+    foreach (var p in team1) 
+    {
+      p.BackToYourPlace();
+    }
+    foreach (var p in team2) 
+    {
+      p.BackToYourPlace();
+    }
+
     // Wait
     StartCoroutine (Timer.Start (3f, () =>
     {

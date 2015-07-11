@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
   private GameScript gameScript;
 
   private Vector3 ballDirection;
-
+  private Vector3 startPosition;
 
 
 	void Awake()
@@ -42,6 +42,7 @@ public class PlayerScript : MonoBehaviour
     BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
 
     IsActive = true;
+    startPosition = this.transform.position;
 	}
 
 	void Start () 
@@ -194,6 +195,14 @@ public class PlayerScript : MonoBehaviour
       return;
   }
 
+  public void BackToYourPlace()
+  {
+    StartCoroutine (Interpolators.Curve (Interpolators.EaseInOutCurve, this.transform.position, startPosition, 2f, 
+     (s) => 
+     {
+      this.transform.position = s;
+     }, null));
+  }
 
   public bool IsActive 
   {
