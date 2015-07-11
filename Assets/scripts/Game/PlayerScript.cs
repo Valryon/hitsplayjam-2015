@@ -114,8 +114,10 @@ public class PlayerScript : MonoBehaviour
     movement = Vector3.zero;
 
     // Move
-    if (IsActive){
-      if (IsSelected) {
+    if (IsActive)
+    {
+      if (IsSelected) 
+      {
         float x = 0f;
         float z = 0f;
         bool pass = false;
@@ -142,8 +144,8 @@ public class PlayerScript : MonoBehaviour
           shoot = Input.GetKeyDown (PlayerInputsScheme.Player1Action2);
           attack = Input.GetKeyDown (PlayerInputsScheme.Player1Action2);
         }
-          // Team 2: ZQSD
-          else if (team == GameScript.TEAM2) {
+        // Team 2: ZQSD
+        else if (team == GameScript.TEAM2) {
           if (Input.GetKey (KeyCode.Q)) {
             x = -1f; 
           } else if (Input.GetKey (KeyCode.D)) {
@@ -181,7 +183,10 @@ public class PlayerScript : MonoBehaviour
           Attack ();
         if (pass)
           Pass ();
-      }else{
+
+      } // Selected
+      else 
+      {
         var gs  = GameObject.FindObjectOfType<GameScript>();
         if(gs.attacking !=0)
         {
@@ -195,7 +200,8 @@ public class PlayerScript : MonoBehaviour
         }
 
       }
-    }
+    } // Active
+
     if (ball != null) 
     {
       BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
@@ -221,10 +227,12 @@ public class PlayerScript : MonoBehaviour
   }
 
 
-  private void Defending(){
+  private void Defending()
+  {
     var gs = GameObject.FindObjectOfType<GameScript> ();
     var b = gs.ball.transform.position;
     var dx = 0f;
+
     if (team == 2)
       dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
     else
@@ -232,49 +240,50 @@ public class PlayerScript : MonoBehaviour
 
     var side = (transform.position.z < 0) ? -1 : 1; 
     var dz = Mathf.Sign (b.z - transform.position.z);
+
     if (side == 1)
       dz = Mathf.Max (0, dz);
     else
       dz = Mathf.Min (0, dz);
 
     movement = definition.speed * new Vector3 (dx,0,dz);
-
-
   }
 
-  private void Attacking(){
+  private void Attacking()
+  {
     var gs = GameObject.FindObjectOfType<GameScript> ();
     var b = gs.ball.transform.position;
     var dx = 0f;
+
     if (gs.attacking == team)
       dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
     else
       dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
+
     var side = (transform.position.z < 0) ? -1 : 1; 
     var dz = Random.Range(-1f,1f);
+
     if (side == 1)
       dz = Mathf.Max (0, dz);
     else
       dz = Mathf.Min (0, dz);
 
-
-
-
     movement = definition.speed * new Vector3 (dx,0,dz);
-    
-
   }
 
 
-  private void Keeping(){
+  private void Keeping()
+  {
     var gs = GameObject.FindObjectOfType<GameScript> ();
     var b = gs.ball.transform.position;
     var side = (team == 2) ? -1 : 1;
     var p = transform.position;
     var dx = 0;
+
     if (p.x != side * 32) {
       dx = side;
     }
+
     var dz = 0f;
     if (Mathf.Abs (p.z) < 5)
       dz = Mathf.Sign (b.z);
@@ -282,11 +291,7 @@ public class PlayerScript : MonoBehaviour
       dz = Mathf.Sign (p.z) * -1;
     }
 
-
-
     movement = definition.speed * new Vector3 (dx,0,dz);
-    
-
   }
 
 
