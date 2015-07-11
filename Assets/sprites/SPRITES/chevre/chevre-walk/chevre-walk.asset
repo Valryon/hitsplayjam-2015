@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826ceec99a031ac418e62ae033e895ba, type: 3}
+  m_Name: chevre-walk
+  m_EditorClassIdentifier: 
+  name: walk
+  imagesPerSeconds: 24
+  loop: 0
+  randomFirstFrame: 0
+  frames:
+  - {fileID: 2800000, guid: 9be9734445768406b85cf149dc847427, type: 3}
+  - {fileID: 2800000, guid: 0fcbd14568af3486281edf20847c0451, type: 3}
+  - {fileID: 2800000, guid: e44737888827742978c1fda7983e2820, type: 3}
+  - {fileID: 2800000, guid: b468fadce982a4fd2ab3c1c7fb8dcb89, type: 3}
+  allowAutoUpdate: 1

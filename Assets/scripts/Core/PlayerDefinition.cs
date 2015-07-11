@@ -10,6 +10,10 @@ public class PlayerDefinition : ScriptableObject
 
   public string shiityName;
   public bool isGoalKeeper = false;
-  public float speed = 5f;
-  public float shootForce = 1f;
+
+  [Range(1,5)]
+  public int speed = 1;
+
+  [Range(1,5)]
+  public int shootForce = 1;
 }

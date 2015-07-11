@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 public class SimpleAnimationMenus
 {
-  [MenuItem("Assets/Create/PXN/Simple Sprite Animation")]
+  [MenuItem("Assets/Create/SFF/Simple Animation")]
   public static void CreateSpriteFrameAnimation()
   {
     var anim = ScriptableObjectUtility.CreateAsset<SimpleAnimation>(Selection.activeObject.name);

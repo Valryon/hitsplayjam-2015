@@ -44,7 +44,7 @@ public class SimpleAnimationEditor : Editor
         GUILayout.Label("Quick name");
         GUILayout.BeginVertical();
 
-        string[] options = { "default", "attack", "attackstart", "attackend", "load", "loaded", "unload", "destroy" };
+        string[] options = { "default", "walk" };
         int count = 0;
         const int max = 4;
 
