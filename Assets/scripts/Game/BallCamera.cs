@@ -33,16 +33,12 @@ public class BallCamera : MonoBehaviour
    
     if (viewportCoords.x < (0.5f - zoneSize)) 
     {
-      if(directionX < 0f) directionX -= 0.25f;
-      else directionX = -1f;
+      directionX = -1f;
     } 
     else if (viewportCoords.x > (0.5f + zoneSize)) 
     {
-      if(directionX > 0f) directionX += 0.25f;
-      else directionX = 1f;
+      directionX = 1f;
     }
-
-    Debug.Log (directionX);
 
     float currentX = this.transform.position.x + (directionX * speed);
 
