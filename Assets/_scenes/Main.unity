@@ -1281,6 +1281,11 @@ Prefab:
       propertyPath: m_Name
       value: Player_Team1_4
       objectReference: {fileID: 0}
+    - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+      propertyPath: definition
+      value: 
+      objectReference: {fileID: 11400000, guid: a2eed3b685a8a4c1993e270f42372add,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
   m_IsPrefabParent: 0
@@ -1622,6 +1627,11 @@ Prefab:
       propertyPath: m_Name
       value: Player_Team1_2
       objectReference: {fileID: 0}
+    - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+      propertyPath: definition
+      value: 
+      objectReference: {fileID: 11400000, guid: a2eed3b685a8a4c1993e270f42372add,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
   m_IsPrefabParent: 0
@@ -1805,7 +1815,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2990,23 +3000,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 426726, guid: 860973b857a374f4f9b6444bf75d5db8, type: 2}
       propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 122736, guid: 860973b857a374f4f9b6444bf75d5db8, type: 2}
-      propertyPath: m_TagString
-      value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 426726, guid: 860973b857a374f4f9b6444bf75d5db8, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 426726, guid: 860973b857a374f4f9b6444bf75d5db8, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 426726, guid: 860973b857a374f4f9b6444bf75d5db8, type: 2}
-      propertyPath: m_LocalScale.z
-      value: .5
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 860973b857a374f4f9b6444bf75d5db8, type: 2}

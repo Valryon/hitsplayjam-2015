@@ -58,7 +58,7 @@ public class PlayerScript : MonoBehaviour
     startPosition = this.transform.position;
 
     flip = (team == GameScript.TEAM1 ? 1 : -1);
-    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
+    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip * definition.scale, this.transform.localScale.y * definition.scale, this.transform.localScale.z * definition.scale);
 	}
 
 	void Start () 
@@ -317,5 +317,13 @@ public class PlayerScript : MonoBehaviour
   {
     get;
     set;
+  }
+
+  public Rigidbody Rigidbody
+  {
+    get
+    {
+      return rbody;
+    }
   }
 }

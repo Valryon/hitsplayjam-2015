@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
+  m_Name: Chevre
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 0}
+  shiityName: "Genevi\xE8vre la ch\xE8vre"
+  defaultAnimationTeam1: {fileID: 11400000, guid: 7ed6bf4fc1b894e3faa1f7a43b0a2c0e,
+    type: 2}
+  animationsTeam1:
+  - {fileID: 11400000, guid: 7ed6bf4fc1b894e3faa1f7a43b0a2c0e, type: 2}
+  - {fileID: 11400000, guid: 28c27a0a54d21484b94869b3d0de1ed0, type: 2}
+  defaultAnimationTeam2: {fileID: 11400000, guid: c2c193343ca1744079be499b029b6bd9,
+    type: 2}
+  animationsTeam2:
+  - {fileID: 11400000, guid: c2c193343ca1744079be499b029b6bd9, type: 2}
+  - {fileID: 11400000, guid: 85f0dca2f2a1546f6957bc79d6df7945, type: 2}
+  isGoalKeeper: 0
+  scale: 1.5
+  speed: 3
+  shootForce: 3
