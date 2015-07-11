@@ -31,6 +31,7 @@ GameObject:
   - 64: {fileID: 6456940}
   - 23: {fileID: 2376872}
   - 54: {fileID: 5492024}
+  - 114: {fileID: 11496990}
   m_Layer: 0
   m_Name: Renderer
   m_TagString: Untagged
@@ -162,6 +163,17 @@ MonoBehaviour:
   team: 1
   number: 1
   definition: {fileID: 11400000, guid: 7d522a14e0dbe48c9a0fe8ecb109bdec, type: 2}
+--- !u!114 &11496990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d433386660e9f4a52a50725d80147e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &13510282
 SphereCollider:
   m_ObjectHideFlags: 1
