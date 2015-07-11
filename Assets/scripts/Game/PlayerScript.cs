@@ -5,6 +5,14 @@ public class PlayerScript : MonoBehaviour
 {
   public const float BALL_DISTANCE_FROM_PLAYER = 1.25f;
 
+
+  public enum ROLE{
+    Defense,
+    Attack,
+    Idle,
+    Mad
+  };
+
   public int team = 1;
   public int number = 1;
   public PlayerDefinition definition;
@@ -64,88 +72,79 @@ public class PlayerScript : MonoBehaviour
     movement = Vector3.zero;
 
     // Move
-    if (IsSelected && IsActive) 
-    {
-      float x = 0f;
-      float z = 0f;
-      bool pass = false;
-      bool shoot = false;
-      bool attack = false;
+    if (IsActive){
+      if (IsSelected) {
+        float x = 0f;
+        float z = 0f;
+        bool pass = false;
+        bool shoot = false;
+        bool attack = false;
 
-      // Team 1: arrows
-      if (team == GameScript.TEAM1) 
-      {
-        x = Input.GetAxis ("Horizontal");
-        if (x < -0.25f)
-        {
-          x = -1f;
+        // Team 1: arrows
+        if (team == GameScript.TEAM1) {
+          x = Input.GetAxis ("Horizontal");
+          if (x < -0.25f) {
+            x = -1f;
+          } else if (x > 0.25f) {
+            x = 1f;
+          }
+
+          z = Input.GetAxis ("Vertical");
+          if (z < -0.25f) {
+            z = -1f;
+          } else if (z > 0.25f) {
+            z = 1f;
+          }
+
+          pass = Input.GetKeyDown (PlayerInputsScheme.Player1Action1);
+          shoot = Input.GetKeyDown (PlayerInputsScheme.Player1Action2);
+          attack = Input.GetKeyDown (PlayerInputsScheme.Player1Action2);
         }
-        else if (x > 0.25f)
-        {
-          x = 1f;
+          // Team 2: ZQSD
+          else if (team == GameScript.TEAM2) {
+          if (Input.GetKey (KeyCode.Q)) {
+            x = -1f; 
+          } else if (Input.GetKey (KeyCode.D)) {
+            x = 1f;
+          }
+          if (Input.GetKey (KeyCode.Z)) {
+            z = 1f; 
+          } else if (Input.GetKey (KeyCode.S)) {
+            z = -1f;
+          }
+
+          pass = Input.GetKeyDown (PlayerInputsScheme.Player2Action1);
+          shoot = Input.GetKeyDown (PlayerInputsScheme.Player2Action2);
+          attack = Input.GetKeyDown (PlayerInputsScheme.Player2Action2);
         }
 
-        z = Input.GetAxis ("Vertical");
-        if (z < -0.25f)
-        {
-          z = -1f;
-        }
-        else if (z > 0.25f)
-        {
-          z = 1f;
+        float speedPenalty = 1f;
+        if (ball != null) {
+          speedPenalty = 0.9f;
         }
 
-        pass = Input.GetKeyDown(PlayerInputsScheme.Player1Action1);
-        shoot = Input.GetKeyDown(PlayerInputsScheme.Player1Action2);
-        attack = Input.GetKeyDown(PlayerInputsScheme.Player1Action2);
+        Vector3 direction = new Vector3 (x, 0, z);
+        movement = direction * definition.speed * speedPenalty;
+
+        // Change ball position
+        const float deadZone = 0.5f;
+        if (Mathf.Abs (direction.x) > deadZone || Mathf.Abs (direction.z) > deadZone) {
+          // Putain c'est pourri ça marche mal
+          ballDirection = new Vector3 (direction.x, 0, direction.z);
+        }
+
+        if (shoot)
+          Shoot ();
+        if (attack)
+          Attack ();
+        if (pass)
+          Pass ();
+      }else{
+        //Skynet prend le controle :) 
+
+
       }
-      // Team 2: ZQSD
-      else if (team == GameScript.TEAM2) 
-      {
-        if (Input.GetKey (KeyCode.Q)) 
-        {
-          x = -1f; 
-        } 
-        else if (Input.GetKey (KeyCode.D)) 
-        {
-          x = 1f;
-        }
-        if (Input.GetKey (KeyCode.Z)) 
-        {
-          z = 1f; 
-        }
-        else if (Input.GetKey (KeyCode.S)) 
-        {
-          z = -1f;
-        }
-
-        pass = Input.GetKeyDown(PlayerInputsScheme.Player2Action1);
-        shoot = Input.GetKeyDown(PlayerInputsScheme.Player2Action2);
-        attack = Input.GetKeyDown(PlayerInputsScheme.Player2Action2);
-      }
-
-      float speedPenalty = 1f;
-      if(ball != null)
-      {
-        speedPenalty = 0.9f;
-      }
-
-      Vector3 direction =  new Vector3 (x, 0, z);
-      movement = direction * definition.speed * speedPenalty;
-
-      // Change ball position
-      const float deadZone = 0.5f;
-      if(Mathf.Abs(direction.x) > deadZone || Mathf.Abs(direction.z) > deadZone)
-      {
-        // Putain c'est pourri ça marche mal
-        ballDirection = new Vector3(direction.x, 0, direction.z);
-      }
-
-      if(shoot) Shoot();
-      if(attack) Attack();
-      if(pass) Pass();
     }
-
     if (ball != null) 
     {
       BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
@@ -169,6 +168,12 @@ public class PlayerScript : MonoBehaviour
       this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
     }
   }
+
+
+  private void Defending(){
+
+  }
+
 
 	void FixedUpdate()
 	{
