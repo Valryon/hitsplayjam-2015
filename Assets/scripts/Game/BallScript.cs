@@ -8,11 +8,12 @@ public class BallScript : MonoBehaviour
 
   private Rigidbody rbody;
   private Vector3 startPosition;
+  public bool checkCollision ;
 	
   void Awake()
   {
     rbody = GetComponent<Rigidbody> ();
-
+    this.setActive (true);
     startPosition = this.transform.position;
     IsPickable = true;
   }
