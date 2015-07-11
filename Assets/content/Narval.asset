@@ -11,8 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Narval
   m_EditorClassIdentifier: 
-  avatar: {fileID: 0}
-  shiityName: Raynal le Narval
+  avatar: {fileID: 21300000, guid: d8a0ca1a6baa24ff8bf87e5e061f1e24, type: 3}
+  avatarBg: {fileID: 21300000, guid: d6c1af4eb8b784ffda95128816668b45, type: 3}
+  avatarBgNb: {fileID: 21300000, guid: 2b38ad0c403464ccfad33a04105723dc, type: 3}
+  shiityName: Pascal le Narval
   biography: 
   defaultAnimationTeam1: {fileID: 11400000, guid: 75460736f3f6f44e0ac5be9436ae0062,
     type: 2}
