@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: {fileID: 0}
   shiityName: Joe le Mulot
+  biography: 
   defaultAnimationTeam1: {fileID: 11400000, guid: 6ff2552e23ca4471894334cb4f69d359,
     type: 2}
   animationsTeam1:
@@ -24,5 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 123081d39052146bf95964471885230e, type: 2}
   - {fileID: 11400000, guid: 7ec0d4d7367db4bb1bf09468f2acccf5, type: 2}
   isGoalKeeper: 0
+  scaleX: 1
+  scaleZ: 1
   speed: 5
   shootForce: 1
+  lobForce: 1
+  specialScriptName: MulotScript

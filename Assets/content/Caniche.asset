@@ -26,8 +26,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e9aa59c9194fd479d96183d0dc998159, type: 2}
   isGoalKeeper: 0
   role: 1
-  scaleX: 1
-  scaleZ: 1
+  scaleX: 1.5
+  scaleZ: 1.5
   speed: 4
   shootForce: 2
   lobForce: 1
+  specialScriptName: CanicheScript

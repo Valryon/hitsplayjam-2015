@@ -29,3 +29,5 @@ MonoBehaviour:
   scaleZ: .75
   speed: 5
   shootForce: 1
+  lobForce: 1
+  specialScriptName: GoelandScript

@@ -25,7 +25,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf1836902933f4a3ba8f86d48a266c1b, type: 2}
   - {fileID: 11400000, guid: 8740e418b8640484986ef54112b2dd5d, type: 2}
   isGoalKeeper: 0
+  role: 0
   scaleX: 1
-  scaleZ: .5
+  scaleY: .25
   speed: 4
   shootForce: 2
+  lobForce: 1
+  specialScriptName: FourmiScript

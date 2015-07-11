@@ -54,8 +54,54 @@ public class PlayerScript : MonoBehaviour
     startPosition = this.transform.position;
 
     flip = (team == GameScript.TEAM1 ? 1 : -1);
-    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip * definition.scaleX, this.transform.localScale.y, this.transform.localScale.z * definition.scaleZ);
+    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip * definition.scaleX, this.transform.localScale.y* definition.scaleY, this.transform.localScale.z);
+
+    // Add special scripts
+    if (string.IsNullOrEmpty (definition.specialScriptName) == false) {
+      AddComponent(definition.specialScriptName);
+    }
+
+    this.gameObject.name = definition.name;
 	}
+
+  private void AddComponent(string scriptName)
+  {
+    switch (scriptName.ToLower()) {
+
+    case "canichescript":
+      gameObject.AddComponent<CanicheScript>();
+      break;
+    case "chevrescript":
+      gameObject.AddComponent<ChevreScript>();
+      break;
+    case "fourmiscript":
+      gameObject.AddComponent<FourmiScript>();
+      break;
+    case "goelandscript":
+      gameObject.AddComponent<GoelandScript>();
+      break;
+    case "mulotscript":
+      gameObject.AddComponent<MulotScript>();
+      break;
+    case "narvalscript":
+      gameObject.AddComponent<NarvalScript>();
+      break;
+    case "pandascript":
+      gameObject.AddComponent<PandaScript>();
+      break;
+    case "paresseuxscript":
+      gameObject.AddComponent<ParesseuxScript>();
+      break;
+    case "poulescript":
+      gameObject.AddComponent<PouleScript>();
+      break;
+    case "tortuescript":
+      gameObject.AddComponent<TortueScript>();
+      break;
+    default:
+      break;
+    }
+  }
 
 	void Start () 
 	{

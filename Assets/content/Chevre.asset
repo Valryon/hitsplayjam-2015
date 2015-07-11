@@ -29,3 +29,5 @@ MonoBehaviour:
   scaleZ: 2
   speed: 3
   shootForce: 3
+  lobForce: 1
+  specialScriptName: ChevreScript
