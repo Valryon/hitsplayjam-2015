@@ -7,12 +7,12 @@ public class BallScript : MonoBehaviour
 
   private Rigidbody rbody;
   private Vector3 startPosition;
-	
+  public bool checkCollision;
 
   void Awake()
   {
     rbody = GetComponent<Rigidbody> ();
-
+    checkCollision = true;
     startPosition = this.transform.position;
   }
 
@@ -34,4 +34,11 @@ public class BallScript : MonoBehaviour
     Debug.Log ("poc by ");
 
   }
+
+  public void setActive(bool active){
+    var rb = this.GetComponent<Rigidbody> ();
+    rb.isKinematic = !active;
+    checkCollision = active;
+  }
+
 }

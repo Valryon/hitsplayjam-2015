@@ -127,6 +127,14 @@ public class GameScript : MonoBehaviour
   }
 
   public void setLineOutSituation(Vector3 position, int team){
+
+    StartCoroutine (_coLineOut(position, team));
+
+   
+
+  }
+
+  private IEnumerator _coLineOut(Vector3 position, int team){
     var ballp = position;
     var gs = GameObject.FindObjectOfType<GameScript> ();
     List<PlayerScript> te, to;
@@ -139,7 +147,7 @@ public class GameScript : MonoBehaviour
     }
     var ste = te.OrderBy (t => Vector3.Distance (t.transform.position, ballp)).ToList();
     var sto = to.OrderBy (t => Vector3.Distance (t.transform.position, ballp)).ToList();
-
+    
     //send opponents close to the ball
     for (int i =0; i<2; i++) {
       PlayerScript o  = sto[i];
@@ -163,13 +171,10 @@ public class GameScript : MonoBehaviour
         o.transform.position= step;
       },null));
     }
+    yield return new WaitForSeconds (1.1f);
+    var ball = FindObjectOfType<BallScript> ();
+    ball.transform.position = ballp;
+    ball.transform.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 
-
-
-
-  }
-
-  private IEnumerator _coLineOut(Vector3 position, int team){
-    return null;
   }
 }
