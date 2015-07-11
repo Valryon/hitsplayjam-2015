@@ -56,12 +56,12 @@ public class GameScript : MonoBehaviour
     List<PlayerScript> ps = null;
 
     // Team: change selected character
-    if (Input.GetKeyDown(KeyCode.RightShift)) 
+    if (Input.GetKeyDown(PlayerInputsScheme.Player1Action1) )
     {
       teamNumber = 1;
       ps = team1;
     }
-    if (Input.GetKeyDown(KeyCode.E)) 
+    if (Input.GetKeyDown(PlayerInputsScheme.Player2Action1)) 
     {
       teamNumber = 2;
       ps = team2;

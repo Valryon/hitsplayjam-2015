@@ -56,6 +56,9 @@ public class PlayerScript : MonoBehaviour
     {
       float x = 0f;
       float z = 0f;
+      bool pass = false;
+      bool shoot = false;
+      bool attack = false;
 
       // Team 1: arrows
       if (team == GameScript.TEAM1) 
@@ -79,6 +82,10 @@ public class PlayerScript : MonoBehaviour
         {
           z = 1f;
         }
+
+        pass = Input.GetKeyDown(PlayerInputsScheme.Player1Action1);
+        shoot = Input.GetKeyDown(PlayerInputsScheme.Player1Action2);
+        attack = Input.GetKeyDown(PlayerInputsScheme.Player1Action2);
       }
       // Team 2: ZQSD
       else if (team == GameScript.TEAM2) 
@@ -99,6 +106,10 @@ public class PlayerScript : MonoBehaviour
         {
           z = -1f;
         }
+
+        pass = Input.GetKeyDown(PlayerInputsScheme.Player2Action1);
+        shoot = Input.GetKeyDown(PlayerInputsScheme.Player2Action2);
+        attack = Input.GetKeyDown(PlayerInputsScheme.Player2Action2);
       }
 
       Vector3 direction =  new Vector3 (x, 0, z);
@@ -111,6 +122,10 @@ public class PlayerScript : MonoBehaviour
         // Putain c'est pourri ça marche mal
         ballDirection = new Vector3(direction.x, 0, direction.z);
       }
+
+      if(shoot) Shoot();
+      if(attack) Attack();
+      if(pass) Pass();
     }
 
     if (ball != null) 
@@ -139,6 +154,24 @@ public class PlayerScript : MonoBehaviour
         this.ball = b;
       }
     }
+  }
+
+  private void Shoot()
+  {
+    if (ball == null)
+      return;
+  }
+
+  private void Attack()
+  {
+    if (ball != null)
+      return;
+  }
+
+  private void Pass()
+  {
+    if (ball == null)
+      return;
   }
 
 
