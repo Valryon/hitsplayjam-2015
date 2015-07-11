@@ -16,8 +16,12 @@ public class GameScript : MonoBehaviour
   private PlayerScript player1, player2;
   private int player1Index, player2Index;
 
+  private BallScript ball;
+
   void Awake()
   {
+    ball = FindObjectOfType<BallScript> ();
+
     var players = FindObjectsOfType<PlayerScript> ();
     if (players.Length == 0) 
     {
@@ -40,26 +44,54 @@ public class GameScript : MonoBehaviour
 	
 	void Update () 
   {
-	  // Team: change selected character
+    InputHandleSelection ();
+	}
+
+  private void InputHandleSelection()
+  {
+    if (ball == null)
+      return;
+
+    int teamNumber = 0;
+    int index = 0;
+    List<PlayerScript> ps = null;
+
+    // Team: change selected character
     if (Input.GetKeyDown(KeyCode.RightShift)) 
     {
-      player1Index++;
-      if(player1Index >= team1.Count)
-      {
-        player1Index = 0;
-      }
-      SelectTeam(team1[player1Index], TEAM1);
+      teamNumber = 1;
+      ps = team1;
     }
     if (Input.GetKeyDown(KeyCode.E)) 
     {
-      player2Index++;
-      if(player2Index >= team2.Count)
-      {
-        player2Index = 0;
-      }
-      SelectTeam(team2[player2Index], TEAM2);
+      teamNumber = 2;
+      ps = team2;
     }
-	}
+
+    // Not input? Nothing to do
+    if (ps == null)
+      return;
+    
+    // Get nearest player from the ball
+    float minDistance = float.MaxValue;
+    PlayerScript closestPlayer = null;
+    
+    foreach(var p in ps)
+    {
+      var distance = Vector3.Distance(p.transform.position, ball.transform.position);
+
+      if(distance < minDistance)
+      {
+        minDistance = distance;
+        closestPlayer = p;
+      }
+    }
+
+    index = ps.IndexOf (closestPlayer);
+
+    // Gogo
+    SelectTeam(ps[index], teamNumber);
+  }
 
   private void SelectTeam(PlayerScript p, int team)
   {
