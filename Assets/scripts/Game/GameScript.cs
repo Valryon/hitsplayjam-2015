@@ -162,6 +162,7 @@ public class GameScript : MonoBehaviour
       // Reset everything
       ball.Reset();
       BallCamera.FollowBall = true;
+      CameraShaker.Clean();
     }));
   }
 
