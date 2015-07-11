@@ -11,6 +11,7 @@ public class PlayerDefinition : ScriptableObject
 {
   [Header("Menu")]
   public Sprite avatar;
+  public Sprite avatarSelected;
   public string shiityName;
   public string biography;
 
