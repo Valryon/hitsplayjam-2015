@@ -9,21 +9,31 @@ public class GameScript : MonoBehaviour
   public const int TEAM2 = 2;
 
   public List<PlayerScript> team1;
+  public Color team1Color = Color.Lerp(Color.red, Color.blue, 0.5f);
   public List<PlayerScript> team2;
+  public Color team2Color = Color.yellow;
 
   private PlayerScript player1, player2;
   private int player1Index, player2Index;
 
+  private BallScript ball;
+
   void Awake()
   {
+    ball = FindObjectOfType<BallScript> ();
+
     var players = FindObjectsOfType<PlayerScript> ();
+    if (players.Length == 0) 
+    {
+      Debug.LogError("No players WTF");
+    }
 
     player1Index = 0;
-    team1 = players.Where (p => p.team == TEAM1).ToList ();
+    team1 = players.Where (p => p.team == TEAM1).OrderBy(p => p.number).ToList ();
     SelectTeam(team1[player1Index], TEAM1);
 
     player2Index = 0;
-    team2 = players.Where (p => p.team == TEAM2).ToList ();
+    team2 = players.Where (p => p.team == TEAM2).OrderBy(p => p.number).ToList ();
     SelectTeam(team2[player2Index], TEAM2);
   }
 
@@ -34,26 +44,54 @@ public class GameScript : MonoBehaviour
 	
 	void Update () 
   {
-	  // Team: change selected character
+    InputHandleSelection ();
+	}
+
+  private void InputHandleSelection()
+  {
+    if (ball == null)
+      return;
+
+    int teamNumber = 0;
+    int index = 0;
+    List<PlayerScript> ps = null;
+
+    // Team: change selected character
     if (Input.GetKeyDown(KeyCode.RightShift)) 
     {
-      player1Index++;
-      if(player1Index >= team1.Count)
-      {
-        player1Index = 0;
-      }
-      SelectTeam(team1[player1Index], TEAM1);
+      teamNumber = 1;
+      ps = team1;
     }
     if (Input.GetKeyDown(KeyCode.E)) 
     {
-      player2Index++;
-      if(player2Index >= team2.Count)
-      {
-        player2Index = 0;
-      }
-      SelectTeam(team2[player2Index], TEAM2);
+      teamNumber = 2;
+      ps = team2;
     }
-	}
+
+    // Not input? Nothing to do
+    if (ps == null)
+      return;
+    
+    // Get nearest player from the ball
+    float minDistance = float.MaxValue;
+    PlayerScript closestPlayer = null;
+    
+    foreach(var p in ps)
+    {
+      var distance = Vector3.Distance(p.transform.position, ball.transform.position);
+
+      if(distance < minDistance)
+      {
+        minDistance = distance;
+        closestPlayer = p;
+      }
+    }
+
+    index = ps.IndexOf (closestPlayer);
+
+    // Gogo
+    SelectTeam(ps[index], teamNumber);
+  }
 
   private void SelectTeam(PlayerScript p, int team)
   {
@@ -74,6 +112,18 @@ public class GameScript : MonoBehaviour
       }
       player2 = p;
       player2.IsSelected = true;
+    }
+  }
+
+  public Color GetTeamColor (int team)
+  {
+    if (team == TEAM1) 
+    {
+      return team1Color;
+    }
+    else 
+    {
+      return team2Color;
     }
   }
 

@@ -9,11 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
-  m_Name: Tortue
+  m_Name: Biquette
   m_EditorClassIdentifier: 
   avatar: {fileID: 0}
   sprite: {fileID: 0}
-  shiityName: 
+  shiityName: BIQUETTE
+  isGoalKeeper: 0
   speed: 5
   shootForce: 1
   energy: 1
