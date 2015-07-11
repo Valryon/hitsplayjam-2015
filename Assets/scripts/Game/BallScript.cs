@@ -14,13 +14,14 @@ public class BallScript : MonoBehaviour
     rbody = GetComponent<Rigidbody> ();
 
     startPosition = this.transform.position;
+    IsPickable = true;
   }
 
   void Update()
   {
     if (linkedPlayer != null) 
     {
-      this.transform.position = linkedPlayer.ballPosition.position;
+      this.transform.position = linkedPlayer.transform.position + linkedPlayer.BallRelativePosition;
     }
   }
 
