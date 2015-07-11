@@ -18,10 +18,12 @@ public class GameScript : MonoBehaviour
   public PlayerScript player1, player2;
   private int player1Index, player2Index;
 
-  private BallScript ball;
+  public BallScript ball;
 
   private float timeLeft;
   private bool paused;
+
+  public int attacking = 0;
 
   private float soundShootCooldown;
 

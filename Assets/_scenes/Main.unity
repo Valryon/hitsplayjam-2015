@@ -6042,8 +6042,8 @@ MonoBehaviour:
   score1: {fileID: 1611038213}
   score2: {fileID: 195265793}
   timer: {fileID: 695877791}
-  player1: {fileID: 428734774}
-  player2: {fileID: 650314416}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &1672766126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6852,6 +6852,8 @@ MonoBehaviour:
   team2: []
   player1: {fileID: 0}
   player2: {fileID: 0}
+  ball: {fileID: 0}
+  attacking: 0
 --- !u!4 &2004985159
 Transform:
   m_ObjectHideFlags: 0

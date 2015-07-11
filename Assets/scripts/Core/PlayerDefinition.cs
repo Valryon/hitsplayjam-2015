@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum ROLE{
+  Defense,
+  Attack,
+  Keeper  
+};
+
 public class PlayerDefinition : ScriptableObject 
 {
   [Header("Menu")]
@@ -19,6 +25,7 @@ public class PlayerDefinition : ScriptableObject
   [Header("Stats")]
 
   public bool isGoalKeeper = false;
+  public ROLE role;
 
   public float scaleX = 1f;
   public float scaleZ = 1f;
