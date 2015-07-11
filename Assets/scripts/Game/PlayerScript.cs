@@ -13,7 +13,6 @@ public class PlayerScript : MonoBehaviour
 
 	private Vector3 movement;
 	private Rigidbody rbody;
-  private Renderer render;
 
   public BallScript ball;
 
@@ -21,13 +20,12 @@ public class PlayerScript : MonoBehaviour
   private SimpleAnimator animator;
   private Vector3 ballDirection;
   private Vector3 startPosition;
-
+  private float flip;
   private bool touchingBall;
 
 	void Awake()
 	{
 		rbody = GetComponent<Rigidbody> ();
-    render = GetComponentInChildren<Renderer> ();
     animator = GetComponentInChildren<SimpleAnimator> ();
 
     if (definition == null) 
@@ -37,9 +35,6 @@ public class PlayerScript : MonoBehaviour
 
     gameScript = FindObjectOfType<GameScript> ();
 
-    // Apply sprite and stuff
-    this.render.material.color = gameScript.GetTeamColor(team);
-
     animator.defaultAnimation = definition.defaultAnimation;
     animator.clips = definition.animations;
 
@@ -48,6 +43,8 @@ public class PlayerScript : MonoBehaviour
 
     IsActive = true;
     startPosition = this.transform.position;
+
+    flip = (team == GameScript.TEAM1 ? -1 : 1); 
 	}
 
 	void Start () 
@@ -147,6 +144,19 @@ public class PlayerScript : MonoBehaviour
     {
       BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
     }
+
+    // Auto flip
+    if (movement.x > 0)
+      flip = -1f;
+    else if (movement.x < 0)
+      flip = 1f;
+
+    if (movement.magnitude > 0) 
+    {
+      animator.Play ("walk");
+    }
+      
+    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
   }
 
 	void FixedUpdate()

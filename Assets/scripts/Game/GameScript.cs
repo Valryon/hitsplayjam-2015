@@ -13,9 +13,7 @@ public class GameScript : MonoBehaviour
   public float time = 60f;
 
   public List<PlayerScript> team1;
-  public Color team1Color = Color.Lerp(Color.red, Color.blue, 0.5f);
   public List<PlayerScript> team2;
-  public Color team2Color = Color.yellow;
 
   public PlayerScript player1, player2;
   private int player1Index, player2Index;
@@ -195,24 +193,9 @@ public class GameScript : MonoBehaviour
     return closestPlayer;
   }
 
-  public Color GetTeamColor (int team)
+  public void setLineOutSituation(Vector3 position, int team)
   {
-    if (team == TEAM1) 
-    {
-      return team1Color;
-    }
-    else 
-    {
-      return team2Color;
-    }
-  }
-
-  public void setLineOutSituation(Vector3 position, int team){
-
     StartCoroutine (_coLineOut(position, team));
-
-   
-
   }
 
   private IEnumerator _coLineOut(Vector3 position, int team){
