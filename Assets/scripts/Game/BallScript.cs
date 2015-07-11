@@ -115,6 +115,9 @@ public class BallScript : MonoBehaviour
   {
     this.linkedPlayer = p;
     lastTeamTouch = p.team;
+    var gs = GameObject.FindObjectOfType<GameScript> ();
+    gs.attacking = p.team;
+
   }
 
   public bool IsPickable 
