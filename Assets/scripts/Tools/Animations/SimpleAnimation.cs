@@ -13,7 +13,7 @@ public class SimpleAnimation : ScriptableObject
   public float imagesPerSeconds = 24f;
   public bool loop = false;
   public bool randomFirstFrame = false;
-  public Sprite[] frames;
+  public Texture[] frames;
 
   /// <summary>
   /// Allow global update via menu

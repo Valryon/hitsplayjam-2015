@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
   public BallScript ball;
 
   private GameScript gameScript;
-
+  private SimpleAnimator animator;
   private Vector3 ballDirection;
   private Vector3 startPosition;
 
@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		rbody = GetComponent<Rigidbody> ();
     render = GetComponentInChildren<Renderer> ();
+    animator = GetComponentInChildren<SimpleAnimator> ();
 
     if (definition == null) 
     {
@@ -38,7 +39,9 @@ public class PlayerScript : MonoBehaviour
 
     // Apply sprite and stuff
     this.render.material.color = gameScript.GetTeamColor(team);
-    this.render.material.mainTexture = definition.sprite;
+
+    animator.defaultAnimation = definition.defaultAnimation;
+    animator.clips = definition.animations;
 
     ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
     BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
@@ -49,6 +52,7 @@ public class PlayerScript : MonoBehaviour
 
 	void Start () 
 	{
+
 	}
 
 	void Update () 

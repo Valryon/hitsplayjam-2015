@@ -1,14 +1,11 @@
-﻿// Copyright © 2013-2014 Pixelnest Studio
-// This file is subject to the terms and conditions defined in
-// file 'LICENSE.md', which is part of this source code package.
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
 /// Simple animator
 /// </summary>
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Renderer))]
 public sealed class SimpleAnimator : MonoBehaviour
 {
   public bool debugMode = false;
@@ -29,7 +26,7 @@ public sealed class SimpleAnimator : MonoBehaviour
   public event System.Action<GameObject> OnDestruction;
 
   private SimpleAnimation defaultAnimationSaved;
-  private SpriteRenderer spriteRenderer;
+  private Renderer render;
   private SimpleAnimation currentAnimation;
   private bool firstInit;
   private int currentFrame;
@@ -38,7 +35,7 @@ public sealed class SimpleAnimator : MonoBehaviour
 
   void Awake()
   {
-    spriteRenderer = GetComponent<SpriteRenderer>();
+    render = GetComponent<Renderer>();
 
     defaultAnimationSaved = defaultAnimation;
   }
@@ -142,9 +139,9 @@ public sealed class SimpleAnimator : MonoBehaviour
 
   void ChangeSprite()
   {
-    if (currentAnimation != null && spriteRenderer != null)
+    if (currentAnimation != null && render != null)
     {
-      spriteRenderer.sprite = currentAnimation.frames[currentFrame];
+      render.material.mainTexture = currentAnimation.frames[currentFrame];
     }
   }
 

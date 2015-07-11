@@ -2871,6 +2871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502f7215791d04910a639b539d1cb08d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 60
   team1: []
   team1Color: {r: .5, g: 0, b: .5, a: 1}
   team2: []

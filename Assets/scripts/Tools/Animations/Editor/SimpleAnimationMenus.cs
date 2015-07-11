@@ -27,15 +27,10 @@ public class SimpleAnimationMenus
       // Get the directory
       string dir = Path.GetDirectoryName(path);
 
-      if(anim.name.ToLower().Contains("boucle") || anim.name.ToLower().Contains("static"))
-      {
-        anim.loop = true;
-      }
-
       if (Directory.Exists(dir))
       {
         // List all sprites from the dir
-        List<Sprite> sprites = new List<Sprite>();
+        List<Texture> sprites = new List<Texture>();
 
         if(clean == false)
         {
@@ -46,10 +41,10 @@ public class SimpleAnimationMenus
         {
           foreach (var asset in AssetDatabase.LoadAllAssetsAtPath(file))
           {
-            if (asset is Sprite)
+            if (asset is Texture)
             {
               // Add them to the anim
-              sprites.Add(asset as Sprite);
+              sprites.Add(asset as Texture);
             }
           }
         }
