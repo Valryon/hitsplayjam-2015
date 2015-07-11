@@ -154,6 +154,7 @@ public class CameraShaker : MonoBehaviour
       instance.startTime = 0f;
       instance.force = 0f;
       instance.startForce = 0f;
+      instance.previousMouvement = Vector2.zero;
     }
   }
 }

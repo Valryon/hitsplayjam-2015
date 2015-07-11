@@ -8,10 +8,11 @@ public class BallCamera : MonoBehaviour
   private BallScript ball;
 
   private float speed = 0.07f;
+  private float speedZ = 1f;
   private float speedBoost = 1f;
   private float directionX, directionSign;
 
-  private float previousY, baseY;
+  private float targetZ, diffZ;
 
   void Start()
   {
@@ -26,8 +27,7 @@ public class BallCamera : MonoBehaviour
       this.transform.position = new Vector3(ball.transform.position.x, this.transform.position.y, this.transform.position.z);
     };
 
-    previousY = ball.transform.position.y;
-    baseY = previousY - this.transform.position.y;
+    diffZ = this.transform.position.z - ball.transform.position.z;
   }
 
 	void Update () 
@@ -65,10 +65,11 @@ public class BallCamera : MonoBehaviour
     }
 
     float currentX = this.transform.position.x + (directionX * speed * speedBoost);
-    float diffY = ball.transform.position.y - previousY;
-    diffY = 0;
-    this.transform.position = new Vector3 (currentX, this.transform.position.y + diffY, this.transform.position.z);
 
-    previousY = ball.transform.position.y;
+    targetZ = ball.transform.position.z + diffZ;
+
+    // Bad interpolation
+    float currentZ = Mathf.Lerp (this.transform.position.z, targetZ, Time.deltaTime * speedZ);
+    this.transform.position = new Vector3 (currentX, this.transform.position.y, currentZ);
 	}
 }
