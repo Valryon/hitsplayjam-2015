@@ -31,4 +31,6 @@ public class PlayerDefinition : ScriptableObject
 
   [Range(1,5)]
   public int lobForce = 1;
+
+  public string specialScriptName;
 }

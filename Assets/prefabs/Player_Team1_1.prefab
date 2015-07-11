@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 115534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.7000008, y: -1, z: -8.5}
+  m_LocalPosition: {x: 20.5200005, y: 0, z: 10.6300001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454248}
@@ -107,7 +107,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &11416418
 MonoBehaviour:
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c61a9e3f93f4f57868fbd80175818b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 2
+  team: 1
   number: 1
-  definition: {fileID: 11400000, guid: fbaeee5ab820249b0b2d4b1a2910aef9, type: 2}
+  definition: {fileID: 11400000, guid: 651d3895e8fb84d0b921ba5aa1c1d85f, type: 2}
   ball: {fileID: 0}
 --- !u!114 &11424892
 MonoBehaviour:

@@ -29,3 +29,5 @@ MonoBehaviour:
   scaleZ: 6
   speed: 1
   shootForce: 5
+  lobForce: 1
+  specialScriptName: NarvalScript
