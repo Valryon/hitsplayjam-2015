@@ -35,8 +35,13 @@ public class PlayerScript : MonoBehaviour
 
     gameScript = FindObjectOfType<GameScript> ();
 
-    animator.defaultAnimation = definition.defaultAnimation;
-    animator.clips = definition.animations;
+    if (team == GameScript.TEAM1) {
+      animator.defaultAnimation = definition.defaultAnimationTeam1;
+      animator.clips = definition.animationsTeam1;
+    } else {
+      animator.defaultAnimation = definition.defaultAnimationTeam2;
+      animator.clips = definition.animationsTeam2;
+    }
 
     ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
     BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
@@ -44,7 +49,8 @@ public class PlayerScript : MonoBehaviour
     IsActive = true;
     startPosition = this.transform.position;
 
-    flip = (team == GameScript.TEAM1 ? -1 : 1); 
+    flip = (team == GameScript.TEAM1 ? 1 : -1);
+    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
 	}
 
 	void Start () 
@@ -145,6 +151,8 @@ public class PlayerScript : MonoBehaviour
       BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
     }
 
+    float previousFlip = flip;
+
     // Auto flip
     if (movement.x > 0)
       flip = -1f;
@@ -156,7 +164,10 @@ public class PlayerScript : MonoBehaviour
       animator.Play ("walk");
     }
       
-    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
+    if(previousFlip != flip)
+    {
+      this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
+    }
   }
 
 	void FixedUpdate()

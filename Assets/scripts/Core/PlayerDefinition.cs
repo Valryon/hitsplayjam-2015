@@ -3,12 +3,20 @@ using System.Collections;
 
 public class PlayerDefinition : ScriptableObject 
 {
+  [Header("Menu")]
   public Sprite avatar;
-
-  public SimpleAnimation defaultAnimation;
-  public SimpleAnimation[] animations;
-
   public string shiityName;
+
+  [Header("Team 1")]
+  public SimpleAnimation defaultAnimationTeam1;
+  public SimpleAnimation[] animationsTeam1;
+
+  [Header("Team 2")]
+  public SimpleAnimation defaultAnimationTeam2;
+  public SimpleAnimation[] animationsTeam2;
+
+  [Header("Stats")]
+
   public bool isGoalKeeper = false;
 
   [Range(1,5)]
