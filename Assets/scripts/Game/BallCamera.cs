@@ -29,7 +29,7 @@ public class BallCamera : MonoBehaviour
     // Rect on screen. If ball is outside, follow it.
     Vector3 viewportCoords = Camera.main.WorldToViewportPoint (ball.transform.position);
 
-    const float zoneSize = 0.15f;
+    const float zoneSize = 0.1f;
    
     if (viewportCoords.x < (0.5f - zoneSize)) 
     {

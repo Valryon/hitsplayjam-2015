@@ -187,6 +187,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: number
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+      propertyPath: team
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -554,6 +558,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: number
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+      propertyPath: team
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -741,6 +749,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: number
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+      propertyPath: team
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1122,6 +1134,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: number
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+      propertyPath: team
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1176,6 +1192,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: number
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+      propertyPath: team
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
