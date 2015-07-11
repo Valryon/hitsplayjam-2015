@@ -164,8 +164,8 @@ public class PlayerScript : MonoBehaviour
     }
       
     if(previousFlip != flip)
-    {
-      this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
+    { 
+      this.transform.localScale = new Vector3 (Mathf.Abs(this.transform.localScale.x) * flip, this.transform.localScale.y, this.transform.localScale.z);
     }
   }
 
