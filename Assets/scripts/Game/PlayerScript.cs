@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour {
 
   public int team = 1;
+  public bool isGoalKeeper = false;
 	public float speed = 5f;
 	public float shootForce = 1f;
 	public float energy = 1f;
