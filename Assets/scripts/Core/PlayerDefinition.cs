@@ -28,7 +28,7 @@ public class PlayerDefinition : ScriptableObject
   public ROLE role;
 
   public float scaleX = 1f;
-  public float scaleZ = 1f;
+  public float scaleY = 1f;
 
   [Range(1,5)]
   public int speed = 1;
