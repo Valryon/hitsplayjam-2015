@@ -13,7 +13,7 @@ public class GameScript : MonoBehaviour
   public List<PlayerScript> team2;
   public Color team2Color = Color.yellow;
 
-  private PlayerScript player1, player2;
+  public PlayerScript player1, player2;
   private int player1Index, player2Index;
 
   private BallScript ball;
@@ -177,4 +177,12 @@ public class GameScript : MonoBehaviour
     ball.transform.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 
   }
+
+  public void disableAllPLayer(){
+    player1.IsSelected = false;
+    player1 = null;
+    player2.IsSelected = false;
+    player2 = null;
+  }
+
 }

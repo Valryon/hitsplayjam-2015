@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
 
   private Vector3 ballDirection;
 
+
+
 	void Awake()
 	{
 		rbody = GetComponent<Rigidbody> ();
@@ -36,6 +38,8 @@ public class PlayerScript : MonoBehaviour
 
     ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
     BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
+
+    IsActive = true;
 	}
 
 	void Start () 
@@ -48,7 +52,7 @@ public class PlayerScript : MonoBehaviour
     movement = Vector3.zero;
 
     // Move
-    if (IsSelected) 
+    if (IsSelected && IsActive) 
     {
       float x = 0f;
       float z = 0f;
@@ -137,6 +141,12 @@ public class PlayerScript : MonoBehaviour
         this.ball = b;
       }
     }
+  }
+
+  public bool IsActive   
+  {
+    get;
+    set;
   }
 
   public bool IsSelected
