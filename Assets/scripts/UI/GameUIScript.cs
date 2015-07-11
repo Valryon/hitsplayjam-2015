@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -41,7 +41,7 @@ public class GameUIScript : MonoBehaviour
 	
 	}
 
-  public static void SetTtimerValue(float t)
+  public static void SetTimerValue(float t)
   {
     if (instance != null) 
     {

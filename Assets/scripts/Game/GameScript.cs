@@ -10,6 +10,8 @@ public class GameScript : MonoBehaviour
 
   private  const float OFFSET_PLAYER = 1;
 
+  public float time = 60f;
+
   public List<PlayerScript> team1;
   public Color team1Color = Color.Lerp(Color.red, Color.blue, 0.5f);
   public List<PlayerScript> team2;
@@ -19,6 +21,9 @@ public class GameScript : MonoBehaviour
   private int player1Index, player2Index;
 
   private BallScript ball;
+
+  private float timeLeft;
+  private bool paused;
 
   void Awake()
   {
@@ -54,11 +59,24 @@ public class GameScript : MonoBehaviour
 
   void Start () 
   {
+    timeLeft = time;
 	}
 	
 	void Update () 
   {
-    InputHandleSelection (false);
+    if (paused == false) 
+    {
+      timeLeft -= Time.deltaTime;
+      if(timeLeft <= 0f)
+      {
+        timeLeft = 0f;
+        GameOver();
+      }
+
+      GameUIScript.SetTimerValue(timeLeft);
+
+      InputHandleSelection (false);
+    }
 	}
 
   private void InputHandleSelection(bool forceSelection)
@@ -95,23 +113,7 @@ public class GameScript : MonoBehaviour
     if (ps == null)
       return;
     
-    // Get nearest player from the ball
-    float minDistance = float.MaxValue;
-    PlayerScript closestPlayer = null;
-    
-    foreach(var p in ps)
-    {
-      // Always allow change
-      if(p == player1 || p == player2) continue;
-
-      var distance = Vector3.Distance(p.transform.position, ball.transform.position);
-      
-      if(distance < minDistance)
-      {
-        minDistance = distance;
-        closestPlayer = p;
-      }
-    }
+    var closestPlayer = GetNearestPlayer (ps, ball.gameObject);
     
     int index = ps.IndexOf (closestPlayer);
     
@@ -163,6 +165,34 @@ public class GameScript : MonoBehaviour
       ball.Reset();
       BallCamera.FollowBall = true;
     }));
+  }
+
+  private void GameOver()
+  {
+
+  }
+
+  public PlayerScript GetNearestPlayer (List<PlayerScript> ps, GameObject from)
+  {
+    // Get nearest player from the ball
+    float minDistance = float.MaxValue;
+    PlayerScript closestPlayer = null;
+
+    foreach (var p in ps) 
+    {
+      // Always allow change
+      if (p == player1 || p == player2)
+        continue;
+
+      var distance = Vector3.Distance (p.transform.position, from.transform.position);
+      if (distance < minDistance) 
+      {
+        minDistance = distance;
+        closestPlayer = p;
+      }
+    }
+
+    return closestPlayer;
   }
 
   public Color GetTeamColor (int team)

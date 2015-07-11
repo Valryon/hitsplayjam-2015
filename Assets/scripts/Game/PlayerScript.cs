@@ -16,11 +16,13 @@ public class PlayerScript : MonoBehaviour
   private Renderer render;
 
   public BallScript ball;
+
   private GameScript gameScript;
 
   private Vector3 ballDirection;
   private Vector3 startPosition;
 
+  private bool touchingBall;
 
 	void Awake()
 	{
@@ -115,8 +117,14 @@ public class PlayerScript : MonoBehaviour
         attack = Input.GetKeyDown(PlayerInputsScheme.Player2Action2);
       }
 
+      float speedPenalty = 1f;
+      if(ball != null)
+      {
+        speedPenalty = 0.9f;
+      }
+
       Vector3 direction =  new Vector3 (x, 0, z);
-      movement = direction * definition.speed;
+      movement = direction * definition.speed * speedPenalty;
 
       // Change ball position
       const float deadZone = 0.5f;
@@ -149,11 +157,16 @@ public class PlayerScript : MonoBehaviour
     // Touching the ball
     if (b != null) 
     {
+      touchingBall = true;
+
       // Link?
       if(b.linkedPlayer == null && b.IsPickable)
       {
         b.linkedPlayer = this;
         this.ball = b;
+
+        // Reset ball direction
+        ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
 
         if(OnBallPick != null)
         {
@@ -163,17 +176,26 @@ public class PlayerScript : MonoBehaviour
     }
   }
 
+  void OnTriggerExit(Collider c)
+  {
+    BallScript b = c.GetComponent<BallScript> ();
+
+    if (b != null) 
+    {
+      touchingBall = false;
+    }
+  
+  }
+
   private void Shoot()
   {
     if (ball == null)
       return;
 
     // Shooooot
-    const float forceBase = 1000f;
     Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
-    Vector3 force = shootDirection * forceBase * definition.shootForce;
 
-    ball.Launch (force);
+    Shooting (shootDirection, 1000f);
 
     ball = null;
   }
@@ -187,12 +209,46 @@ public class PlayerScript : MonoBehaviour
   {
     if (ball != null)
       return;
+
+    if (touchingBall == false)
+      return;
+
+    Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
+
+    Shooting (shootDirection, 100f);
   }
 
   private void Pass()
   {
     if (ball == null)
       return;
+
+    PlayerScript nearest = gameScript.GetNearestPlayer ((team == GameScript.TEAM1 ? gameScript.team1 : gameScript.team2), this.gameObject);
+
+    if (nearest != null) 
+    {
+      // Small targeted shoot
+      Vector3 direction = (nearest.transform.position - this.transform.position);
+
+      Vector3 shootDirection = new Vector3 (direction.x, 0.15f, direction.z);
+
+      Shooting(shootDirection, 50f);
+
+      ball = null;
+    }
+  }
+
+  private void Shooting(Vector3 direction, float forceBase)
+  {
+    Vector3 force = direction * forceBase * definition.shootForce;
+
+    BallScript b = ball;
+    if (b == null) 
+    {
+      b = FindObjectOfType<BallScript>();
+    }
+  
+    b.Launch (force);
   }
 
   public void BackToYourPlace()

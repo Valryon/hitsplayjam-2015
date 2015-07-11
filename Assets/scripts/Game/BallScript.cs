@@ -43,6 +43,7 @@ public class BallScript : MonoBehaviour
 		lastTeamTouch = 0;
 
     rbody.velocity = Vector3.zero;
+    rbody.angularVelocity = Vector3.zero;
 
     DisableFor (1.25f);
 
@@ -69,8 +70,11 @@ public class BallScript : MonoBehaviour
 
   public void Launch (Vector3 force)
   {
+    rbody.velocity = Vector3.zero;
+    rbody.angularVelocity = Vector3.zero;
+
     // Ball cannot be picked for few seconds
-    DisableFor (1f);
+    DisableFor (0.5f);
 
     linkedPlayer = null;
     Rigidbody.AddForce (force, ForceMode.Force);
