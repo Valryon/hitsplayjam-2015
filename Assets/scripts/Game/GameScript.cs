@@ -8,6 +8,8 @@ public class GameScript : MonoBehaviour
   public const int TEAM1 = 1;
   public const int TEAM2 = 2;
 
+  private  const float OFFSET_PLAYER = 1;
+
   public List<PlayerScript> team1;
   public Color team1Color = Color.Lerp(Color.red, Color.blue, 0.5f);
   public List<PlayerScript> team2;
@@ -168,7 +170,7 @@ public class GameScript : MonoBehaviour
     //send player close to the ball
     {
       PlayerScript o = ste [0];
-      Vector3 goal = ballp;
+      Vector3 goal = ballp+Vector3.back* Mathf.Sign(ballp.z)* 2 * OFFSET_PLAYER;
       StartCoroutine (Interpolators.Curve (Interpolators.EaseInOutCurve, o.transform.position, goal, 1, step => {
         o.transform.position = step;
       }, null));
