@@ -5,17 +5,20 @@ public class BallScript : MonoBehaviour
 {
   public int lastTeamTouch;
   public PlayerScript linkedPlayer;
+  public bool checkCollision ;
 
   private Rigidbody rbody;
   private Vector3 startPosition;
-  public bool checkCollision ;
 	
   void Awake()
   {
-    rbody = GetComponent<Rigidbody> ();
     this.setActive (true);
-    startPosition = this.transform.position;
+
+    rbody = GetComponent<Rigidbody> ();
+
     IsPickable = true;
+
+    startPosition = this.transform.position;
   }
 
   void Update()
@@ -45,16 +48,16 @@ public class BallScript : MonoBehaviour
     Debug.Log ("poc by ");
   }
 
-  public bool IsPickable 
-  {
-    get;
-    set;
-  }
-
   public void setActive(bool active){
     var rb = this.GetComponent<Rigidbody> ();
     rb.isKinematic = !active;
     checkCollision = active;
+  }
+  
+  public bool IsPickable 
+  {
+    get;
+    set;
   }
 
 }

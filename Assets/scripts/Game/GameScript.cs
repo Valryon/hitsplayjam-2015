@@ -88,6 +88,9 @@ public class GameScript : MonoBehaviour
     
     foreach(var p in ps)
     {
+      // Always allow change
+      if(p == player1 || p == player2) continue;
+
       var distance = Vector3.Distance(p.transform.position, ball.transform.position);
       
       if(distance < minDistance)
