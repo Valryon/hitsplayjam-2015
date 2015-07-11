@@ -194,7 +194,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &193658566 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 193658565}
 --- !u!1001 &311880648
 Prefab:
@@ -244,7 +244,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &311880649 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 311880648}
 --- !u!4 &320896529
 Transform:
@@ -298,6 +298,7 @@ GameObject:
   - 92: {fileID: 451191228}
   - 124: {fileID: 451191227}
   - 81: {fileID: 451191226}
+  - 114: {fileID: 451191231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -370,6 +371,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &451191231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451191225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7d9124594fe4812ad758b9790c388c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &463615792
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +461,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &471903566 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 471903565}
 --- !u!1001 &485843723
 Prefab:
@@ -493,6 +505,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &485843724 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 485843723}
 --- !u!1001 &519169349
 Prefab:
   m_ObjectHideFlags: 0
@@ -545,7 +561,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &519169350 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 519169349}
 --- !u!1 &526454169
 GameObject:
@@ -572,7 +588,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1323269334}
+  - {fileID: 485843724}
   - {fileID: 471903566}
   - {fileID: 888303309}
   - {fileID: 311880649}
@@ -732,7 +748,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &811800862 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 811800861}
 --- !u!1 &825417437
 GameObject:
@@ -897,7 +913,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &888303309 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 888303308}
 --- !u!1 &920798108 stripped
 GameObject:
@@ -1113,7 +1129,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1121015565 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1121015564}
 --- !u!1001 &1279240230
 Prefab:
@@ -1167,7 +1183,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1279240231 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1279240230}
 --- !u!1001 &1305853560
 Prefab:
@@ -1222,12 +1238,8 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1305853561 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1305853560}
---- !u!4 &1323269334 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 464074, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
-  m_PrefabInternal: {fileID: 485843723}
 --- !u!1 &1457858391
 GameObject:
   m_ObjectHideFlags: 0
