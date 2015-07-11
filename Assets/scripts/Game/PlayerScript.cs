@@ -10,7 +10,8 @@ public class PlayerScript : MonoBehaviour
     Defense,
     Attack,
     Idle,
-    Mad
+    Mad,
+    Keeper  
   };
 
   public int team = 1;
@@ -141,7 +142,7 @@ public class PlayerScript : MonoBehaviour
           Pass ();
       }else{
         //Skynet prend le controle :) 
-
+        if()
 
       }
     }
@@ -171,6 +172,17 @@ public class PlayerScript : MonoBehaviour
 
 
   private void Defending(){
+    var b = ball.transform.position;
+    var dx = 0;
+    if (team == 2)
+      dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
+    else
+      dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
+
+
+
+    movement = definition.speed * Vector3 (dx,0,0);
+
 
   }
 
