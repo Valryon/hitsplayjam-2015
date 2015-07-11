@@ -7,18 +7,19 @@ public class BallScript : MonoBehaviour
   public PlayerScript linkedPlayer;
   public bool checkCollision ;
 
+  public event System.Action BallReset; 
+
   private Rigidbody rbody;
   private Vector3 startPosition;
 	
   void Awake()
   {
-    this.setActive (true);
-
     rbody = GetComponent<Rigidbody> ();
 
     IsPickable = true;
-
     startPosition = this.transform.position;
+
+    this.setActive (true);
   }
 
   void Update()
@@ -31,10 +32,21 @@ public class BallScript : MonoBehaviour
 
   public void Reset()
   {
+    if (linkedPlayer != null) 
+    {
+      linkedPlayer.BallLost();
+      linkedPlayer = null;
+    }
+
     this.transform.position = startPosition;
 		lastTeamTouch = 0;
 
     rbody.velocity = Vector3.zero;
+
+    DisableFor (2f);
+
+    if (BallReset != null)
+      BallReset ();
   }
 
 
@@ -48,10 +60,27 @@ public class BallScript : MonoBehaviour
     Debug.Log ("poc by ");
   }
 
-  public void setActive(bool active){
-    var rb = this.GetComponent<Rigidbody> ();
-    rb.isKinematic = !active;
+  public void setActive(bool active)
+  {
+    rbody.isKinematic = !active;
     checkCollision = active;
+  }
+
+  public void Launch (Vector3 force)
+  {
+    // Ball cannot be picked for few seconds
+    DisableFor (1f);
+
+    linkedPlayer = null;
+    Rigidbody.AddForce (force, ForceMode.Force);
+  }
+
+  public void DisableFor(float seconds)
+  {
+    IsPickable = false;
+    StartCoroutine (Timer.Start (seconds, () => {
+      IsPickable = true;
+    }));
   }
   
   public bool IsPickable 
@@ -60,4 +89,11 @@ public class BallScript : MonoBehaviour
     set;
   }
 
+  public Rigidbody Rigidbody
+  {
+    get
+    {
+      return rbody;
+    }
+  }
 }

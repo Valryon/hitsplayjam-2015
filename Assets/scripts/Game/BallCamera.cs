@@ -13,6 +13,10 @@ public class BallCamera : MonoBehaviour
   void Start()
   {
     ball = FindObjectOfType<BallScript> ();
+    ball.BallReset += () =>  
+    {
+      this.transform.position = new Vector3(ball.transform.position.x, this.transform.position.y, this.transform.position.z);
+    };
 
     targetX = this.transform.position.x;
   }

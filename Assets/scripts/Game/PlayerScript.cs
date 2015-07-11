@@ -160,6 +160,20 @@ public class PlayerScript : MonoBehaviour
   {
     if (ball == null)
       return;
+
+    // Shooooot
+    const float forceBase = 1000f;
+    Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
+    Vector3 force = shootDirection * forceBase * definition.shootForce;
+
+    ball.Launch (force);
+
+    ball = null;
+  }
+
+  public void BallLost ()
+  {
+    ball = null;
   }
 
   private void Attack()
