@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
   public PlayerDefinition definition;
 
   public event System.Action<PlayerScript> OnBallPick;
+  public event System.Action<PlayerScript> OnShoot;
 
 	private Vector3 movement;
 	private Rigidbody rbody;
@@ -279,6 +280,8 @@ public class PlayerScript : MonoBehaviour
     }
   
     b.Launch (force);
+
+    if (OnShoot != null) OnShoot (this);
   }
 
   public void BackToYourPlace()
