@@ -23,6 +23,8 @@ public class GameScript : MonoBehaviour
   private float timeLeft;
   private bool paused;
 
+  private float soundShootCooldown;
+
   void Awake()
   {
     // Ball
@@ -40,6 +42,10 @@ public class GameScript : MonoBehaviour
       p.OnBallPick += (pickingPlayer) =>
       {
         SelectTeam(pickingPlayer, pickingPlayer.team);
+      };
+      p.OnShoot += (pl) => 
+      {
+        soundShootCooldown = 2f;
       };
     }
 
@@ -62,6 +68,8 @@ public class GameScript : MonoBehaviour
 	
 	void Update () 
   {
+    soundShootCooldown -= Time.deltaTime;
+
     if (paused == false) 
     {
       timeLeft -= Time.deltaTime;
@@ -139,10 +147,14 @@ public class GameScript : MonoBehaviour
       player2 = p;
       player2.IsSelected = true;
     }
+
+    GameUIScript.SetPlayer(team, p);
   }
 
   private void GOAL(GoalScript goalScript)
   {
+    SoundsScript.Play ("but", goalScript.transform.position);
+
     // Text, particles, juice
     BallCamera.FollowBall = false;
     CameraShaker.ShakeCamera (0.5f, 1f);

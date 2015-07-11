@@ -12,6 +12,7 @@ public class BallScript : MonoBehaviour
 
   private Rigidbody rbody;
   private Vector3 startPosition;
+  private float rotationSpeed;
 	
   void Awake()
   {
@@ -25,9 +26,28 @@ public class BallScript : MonoBehaviour
 
   void Update()
   {
-    if (linkedPlayer != null) 
+    if (linkedPlayer != null) {
+      Vector3 v = linkedPlayer.Rigidbody.velocity;
+
+      if(v.magnitude > 0f)
+      {
+        rotationSpeed += (0.1f * Mathf.Sign(v.x));
+        rotationSpeed = Mathf.Clamp(rotationSpeed, -1f, 1f);
+      }
+      else
+      {
+        rotationSpeed = 0f;
+      }
+
+      this.transform.position = new Vector3 (linkedPlayer.transform.position.x + linkedPlayer.BallRelativePosition.x, 
+                                            this.transform.position.y, 
+                                            linkedPlayer.transform.position.z + linkedPlayer.BallRelativePosition.z); 
+
+      this.transform.Rotate(Vector3.one * rotationSpeed * 10f);
+    } 
+    else 
     {
-      this.transform.position = linkedPlayer.transform.position + linkedPlayer.BallRelativePosition;
+      rotationSpeed = 0f;
     }
   }
 
@@ -90,10 +110,13 @@ public class BallScript : MonoBehaviour
       IsPickable = true;
     }));
   }
-  public void Picked(PlayerScript p ){
+
+  public void Picked(PlayerScript p )
+  {
     this.linkedPlayer = p;
     lastTeamTouch = p.team;
   }
+
   public bool IsPickable 
   {
     get;

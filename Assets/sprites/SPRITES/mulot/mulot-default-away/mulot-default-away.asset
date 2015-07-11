@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: default
   imagesPerSeconds: 24
-  loop: 0
+  loop: 1
   randomFirstFrame: 0
   frames:
   - {fileID: 2800000, guid: 3776ef4c5ba9c497397627af24750fe3, type: 3}

@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
   public PlayerDefinition definition;
 
   public event System.Action<PlayerScript> OnBallPick;
+  public event System.Action<PlayerScript> OnShoot;
 
 	private Vector3 movement;
 	private Rigidbody rbody;
@@ -59,7 +60,7 @@ public class PlayerScript : MonoBehaviour
     startPosition = this.transform.position;
 
     flip = (team == GameScript.TEAM1 ? 1 : -1);
-    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
+    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip * definition.scaleX, this.transform.localScale.y, this.transform.localScale.z * definition.scaleZ);
 	}
 
 	void Start () 
@@ -165,8 +166,8 @@ public class PlayerScript : MonoBehaviour
     }
       
     if(previousFlip != flip)
-    {
-      this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y);
+    { 
+      this.transform.localScale = new Vector3 (Mathf.Abs(this.transform.localScale.x) * flip, this.transform.localScale.y, this.transform.localScale.z);
     }
   }
 
@@ -272,7 +273,7 @@ public class PlayerScript : MonoBehaviour
       // Small targeted shoot
       Vector3 direction = (nearest.transform.position - this.transform.position);
 
-      Vector3 shootDirection = new Vector3 (direction.x, 0.15f, direction.z);
+      Vector3 shootDirection = new Vector3 (direction.x, 0.15f * definition.lobForce, direction.z);
 
       Shooting(shootDirection, 50f);
 
@@ -291,6 +292,10 @@ public class PlayerScript : MonoBehaviour
     }
   
     b.Launch (force);
+
+    SoundsScript.Play ("balle", this.transform.position);
+
+    if (OnShoot != null) OnShoot (this);
   }
 
   public void BackToYourPlace()
@@ -329,5 +334,13 @@ public class PlayerScript : MonoBehaviour
   {
     get;
     set;
+  }
+
+  public Rigidbody Rigidbody
+  {
+    get
+    {
+      return rbody;
+    }
   }
 }

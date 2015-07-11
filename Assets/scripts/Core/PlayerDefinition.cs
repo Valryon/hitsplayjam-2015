@@ -6,6 +6,7 @@ public class PlayerDefinition : ScriptableObject
   [Header("Menu")]
   public Sprite avatar;
   public string shiityName;
+  public string biography;
 
   [Header("Team 1")]
   public SimpleAnimation defaultAnimationTeam1;
@@ -19,9 +20,15 @@ public class PlayerDefinition : ScriptableObject
 
   public bool isGoalKeeper = false;
 
+  public float scaleX = 1f;
+  public float scaleZ = 1f;
+
   [Range(1,5)]
   public int speed = 1;
 
   [Range(1,5)]
   public int shootForce = 1;
+
+  [Range(1,5)]
+  public int lobForce = 1;
 }

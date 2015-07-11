@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826ceec99a031ac418e62ae033e895ba, type: 3}
+  m_Name: narval-wal-away
+  m_EditorClassIdentifier: 
+  name: walk
+  imagesPerSeconds: 24
+  loop: 0
+  randomFirstFrame: 0
+  frames:
+  - {fileID: 2800000, guid: e84caf0ff20504710bac1e6805c65f75, type: 3}
+  - {fileID: 2800000, guid: 3808070a00c284703a12f2b2f778e2a0, type: 3}
+  - {fileID: 2800000, guid: 3f468a4a4b91642e7bd8e3beed3067f0, type: 3}
+  - {fileID: 2800000, guid: 74e50ac27a3f54b73b0de94e0160e16f, type: 3}
+  allowAutoUpdate: 1
