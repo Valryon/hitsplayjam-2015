@@ -39,7 +39,6 @@ public class GameScript : MonoBehaviour
 
   void Start () 
   {
-    setLineOutSituation (Vector3.zero, 0);
 	}
 	
 	void Update () 
