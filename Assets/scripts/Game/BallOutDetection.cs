@@ -22,9 +22,8 @@ public class BallOutDetection : MonoBehaviour {
     var ball = other.GetComponent<BallScript> ();
 		if (teamSide == 0) {
 			Debug.Log ("C'est la touche");
-      GameScript gs = GetComponent<GameScript>();
-
-//      gs.setLineOutSituation(Vector3.zero,(ball.lastTeamTouch==1)?2:1);
+      GameScript gs = FindObjectOfType<GameScript>();
+      gs.setLineOutSituation(Vector3.zero,(ball.lastTeamTouch==1)?2:1);
 		}
     else if (teamSide == ball.lastTeamTouch) {
       Debug.Log ("C'est le corner !!");

@@ -29,7 +29,7 @@ public class GameScript : MonoBehaviour
 
   void Start () 
   {
-	
+    setLineOutSituation (Vector3.zero, 0);
 	}
 	
 	void Update () 
@@ -78,6 +78,35 @@ public class GameScript : MonoBehaviour
   }
 
   public void setLineOutSituation(Vector3 position, int team){
-     
+    var ballp = position;
+    var gs = GameObject.FindObjectOfType<GameScript> ();
+    List<PlayerScript> te, to;
+    if (team == TEAM1) {
+      te = team1;
+      to = team2;
+    } else {
+      to = team1;
+      te = team2;
+    }
+    var ste = te.OrderBy (t => Vector3.Distance (t.transform.position, ballp)).ToList();
+    var sto = to.OrderBy (t => Vector3.Distance (t.transform.position, ballp)).ToList();
+
+    //send opponents close to the ball
+    for (int i =0; i<2; i++) {
+      PlayerScript o  = sto[i];
+      Vector3 goal  = 2f*(o.transform.position+ position)/3f;
+
+      StartCoroutine( Interpolators.Curve(Interpolators.EaseInOutCurve,o.transform.position,goal,1,step => {
+        o.transform.position= step;
+      },null));
+      
+    }
+
+
+
+  }
+
+  private IEnumerator _coLineOut(Vector3 position, int team){
+    return null;
   }
 }
