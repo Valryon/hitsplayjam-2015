@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d433386660e9f4a52a50725d80147e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAngle: 270
 --- !u!135 &13510282
 SphereCollider:
   m_ObjectHideFlags: 1

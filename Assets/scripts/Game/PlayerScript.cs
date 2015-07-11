@@ -137,6 +137,9 @@ public class PlayerScript : MonoBehaviour
     }
   }
 
+  /// <summary>
+  /// The football player is currently selected and played by the player
+  /// </summary>
   public bool IsSelected
   {
     get;

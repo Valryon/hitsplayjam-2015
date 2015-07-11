@@ -3,10 +3,13 @@ using System.Collections;
 
 public class BillboardScript : MonoBehaviour 
 {
+  public float xAngle = 270;
+
 	void Update () 
   {
-    float angle = Camera.main.transform.rotation.eulerAngles.y;
-
-    this.transform.rotation = Quaternion.Euler (this.transform.rotation.eulerAngles.x, angle, this.transform.rotation.eulerAngles.z);
+    Vector3 rot = Camera.main.transform.rotation.eulerAngles;
+    rot.x = xAngle;
+    rot.z = 0;
+    transform.rotation = Quaternion.Euler(rot);
 	}
 }
