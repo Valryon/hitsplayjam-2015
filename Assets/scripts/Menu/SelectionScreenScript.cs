@@ -4,17 +4,20 @@ using System.Collections.Generic;
 
 public class SelectionScreenScript : MonoBehaviour 
 {
-  public SelectionScreenItemScript[] selectionPanels;
-  public SelectionScreenItemScript currentSelection;
+  public SelectionScreenItemScript prefab;
+  public List<PlayerDefinition> defs;
+
+  private SelectionScreenItemScript[] selectionPanels;
+  private SelectionScreenItemScript currentSelection;
 
   void Awake()
   {
-    selectionPanels = FindObjectsOfType<SelectionScreenScript> ();
+    selectionPanels = FindObjectsOfType<SelectionScreenItemScript> ();
 
     Select (selectionPanels [0]);
   }
 
-  private void Select(SelectionScreenScript s)
+  private void Select(SelectionScreenItemScript s)
   {
     if (currentSelection != null) 
     {
