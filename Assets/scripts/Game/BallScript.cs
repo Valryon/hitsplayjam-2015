@@ -70,7 +70,7 @@ public class BallScript : MonoBehaviour
   public void Launch (Vector3 force)
   {
     // Ball cannot be picked for few seconds
-    DisableFor (1f);
+    DisableFor (0.5f);
 
     linkedPlayer = null;
     Rigidbody.AddForce (force, ForceMode.Force);
