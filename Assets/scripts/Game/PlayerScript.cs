@@ -10,10 +10,12 @@ public class PlayerScript : MonoBehaviour {
 
 	private Vector3 movement;
 	private Rigidbody rbody;
+  private Collider col;
 
 	void Awake()
 	{
 		rbody = GetComponent<Rigidbody> ();
+    col = GetComponent<Collider> ();
 	}
 
 	void Start () 

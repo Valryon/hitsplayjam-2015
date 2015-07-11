@@ -3,19 +3,25 @@ using System.Collections;
 
 public class BallScript : MonoBehaviour 
 {
+  public int lastTeamTouch;
+
+  private Rigidbody rbody;
   private Vector3 startPosition;
-	public int lastTeamTouch;
+	
 
   void Awake()
   {
+    rbody = GetComponent<Rigidbody> ();
+
     startPosition = this.transform.position;
-	
   }
 
   public void Reset()
   {
     this.transform.position = startPosition;
 		lastTeamTouch = 0;
+
+    rbody.velocity = Vector3.zero;
   }
 
 
