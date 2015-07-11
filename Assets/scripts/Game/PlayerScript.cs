@@ -117,8 +117,14 @@ public class PlayerScript : MonoBehaviour
         attack = Input.GetKeyDown(PlayerInputsScheme.Player2Action2);
       }
 
+      float speedPenalty = 1f;
+      if(ball != null)
+      {
+        speedPenalty = 0.9f;
+      }
+
       Vector3 direction =  new Vector3 (x, 0, z);
-      movement = direction * definition.speed;
+      movement = direction * definition.speed * speedPenalty;
 
       // Change ball position
       const float deadZone = 0.5f;
