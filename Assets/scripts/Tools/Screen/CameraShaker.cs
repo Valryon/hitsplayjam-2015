@@ -145,4 +145,15 @@ public class CameraShaker : MonoBehaviour
   {
     if (instance != null) instance.shakeEnabled = !DisableTotally;
   }
+
+  public static void Clean ()
+  {
+    if (instance != null) 
+    {
+      instance.time = 0f;
+      instance.startTime = 0f;
+      instance.force = 0f;
+      instance.startForce = 0f;
+    }
+  }
 }

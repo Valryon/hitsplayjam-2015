@@ -11,6 +11,8 @@ public class BallCamera : MonoBehaviour
   private float speedBoost = 1f;
   private float directionX, directionSign;
 
+  private float previousY, baseY;
+
   void Start()
   {
     ball = FindObjectOfType<BallScript> ();
@@ -23,12 +25,18 @@ public class BallCamera : MonoBehaviour
       speedBoost = 1f;
       this.transform.position = new Vector3(ball.transform.position.x, this.transform.position.y, this.transform.position.z);
     };
+
+    previousY = ball.transform.position.y;
+    baseY = previousY - this.transform.position.y;
   }
 
 	void Update () 
   {
     if (ball == null || FollowBall == false)
       return;
+
+    // Smooth and smart X scrolling.
+    // Stupid Y scrolling.
 
     directionX -= 0.1f * directionSign;
     if (directionSign > 0f && directionX < 0f)
@@ -57,7 +65,10 @@ public class BallCamera : MonoBehaviour
     }
 
     float currentX = this.transform.position.x + (directionX * speed * speedBoost);
+    float diffY = ball.transform.position.y - previousY;
+    diffY = 0;
+    this.transform.position = new Vector3 (currentX, this.transform.position.y + diffY, this.transform.position.z);
 
-    this.transform.position = new Vector3 (currentX, this.transform.position.y, this.transform.position.z);
+    previousY = ball.transform.position.y;
 	}
 }
