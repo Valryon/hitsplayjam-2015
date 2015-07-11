@@ -101,19 +101,11 @@ public class PlayerScript : MonoBehaviour
       movement = direction * definition.speed;
 
       // Change ball position
-      if(direction.x != 0f || direction.z != 0f)
+      const float deadZone = 0.2f;
+      if(Mathf.Abs(direction.x) > deadZone || Mathf.Abs(direction.z) > deadZone)
       {
-        float ballX = 0f;
-        float ballZ = 0f;
-
-        if(Mathf.Abs(direction.x) > 0.2f)
-        {
-          ballX = 1f * Mathf.Sign(direction.x);
-        }
-        if(Mathf.Abs(direction.z) > 0.2f)
-        {
-          ballZ = 1f * Mathf.Sign(direction.z);
-        }
+        float ballX = Mathf.Sign(direction.x);
+        float ballZ = Mathf.Sign(direction.z);
 
         ballDirection = new Vector3(ballX, 0, ballZ);
       }
@@ -121,7 +113,6 @@ public class PlayerScript : MonoBehaviour
 
     if (ball != null) 
     {
-      Debug.Log(ballDirection);
       BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
     }
   }
