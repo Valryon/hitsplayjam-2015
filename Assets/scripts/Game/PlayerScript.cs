@@ -152,6 +152,7 @@ public class PlayerScript : MonoBehaviour
         Debug.Log(this.name + " PREND LA BALLE");
         b.linkedPlayer = this;
         this.ball = b;
+        this.ball.Picked(this);
       }
     }
   }

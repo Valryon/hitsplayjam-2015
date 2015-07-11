@@ -38,22 +38,17 @@ public class BallScript : MonoBehaviour
   }
 
 
-  void OnCollisionEnter(Collision other)
-  {
-    var col = other.collider;
-    if (col.tag != "Player")
-      return;
-    var p = col.GetComponent<PlayerScript> ();
-    lastTeamTouch = p.team;
-    Debug.Log ("poc by ");
-  }
-
   public void setActive(bool active){
     var rb = this.GetComponent<Rigidbody> ();
     rb.isKinematic = !active;
     checkCollision = active;
   }
-  
+
+  public void Picked(PlayerScript p ){
+    this.linkedPlayer = p;
+    lastTeamTouch = p.team;
+  }
+
   public bool IsPickable 
   {
     get;

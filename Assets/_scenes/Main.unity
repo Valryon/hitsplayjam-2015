@@ -959,7 +959,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a9e7e855328484e87d28cd5171485c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .600000024
+      value: -2.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a9e7e855328484e87d28cd5171485c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1053,6 +1053,10 @@ Prefab:
     - target: {fileID: 108632, guid: bca2af83d635f45f68dfc02b640de032, type: 2}
       propertyPath: m_Name
       value: Goal Team 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469164, guid: bca2af83d635f45f68dfc02b640de032, type: 2}
+      propertyPath: team
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bca2af83d635f45f68dfc02b640de032, type: 2}
@@ -1328,7 +1332,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a9e7e855328484e87d28cd5171485c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .600000024
+      value: -2.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a9e7e855328484e87d28cd5171485c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1488,7 +1492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a9e7e855328484e87d28cd5171485c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .600000024
+      value: -2.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a9e7e855328484e87d28cd5171485c, type: 3}
       propertyPath: m_LocalPosition.z

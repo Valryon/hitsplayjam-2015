@@ -25,9 +25,10 @@ public class BallOutDetection : MonoBehaviour {
 		if (teamSide == 0) {
 			Debug.Log ("C'est la touche");
       Vector3 g = ball.transform.position;
-      g.y =0;
+
       GameScript gs = FindObjectOfType<GameScript>();
       ball.setActive( false);
+
       gs.setLineOutSituation(g,(ball.lastTeamTouch==1)?2:1);
 		}
     else if (teamSide == ball.lastTeamTouch) {

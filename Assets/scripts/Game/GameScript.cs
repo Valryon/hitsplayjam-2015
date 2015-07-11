@@ -150,6 +150,7 @@ public class GameScript : MonoBehaviour
 
   private IEnumerator _coLineOut(Vector3 position, int team){
     var ballp = position;
+
     var gs = GameObject.FindObjectOfType<GameScript> ();
     List<PlayerScript> te, to;
     if (team == TEAM1) {
@@ -161,11 +162,18 @@ public class GameScript : MonoBehaviour
     }
     var ste = te.OrderBy (t => Vector3.Distance (t.transform.position, ballp)).ToList();
     var sto = to.OrderBy (t => Vector3.Distance (t.transform.position, ballp)).ToList();
-    
+    var sign = Mathf.Sign (ballp.z);
+
     //send opponents close to the ball
     for (int i =0; i<2; i++) {
       PlayerScript o  = sto[i];
-      Vector3 goal  = 2f*(o.transform.position+ position)/3f;
+      ballp.y = o.transform.position.y;
+
+      Vector3 goal  = ballp;
+      Vector2 offset = Random.insideUnitCircle*Random.Range(3.5f,6f);
+      goal.x  = goal.x + offset.x ;
+      goal.z  = goal.z + Mathf.Abs(offset.y)*-sign;
+      Debug.Log("player "+o.transform.position  +"ball "+ballp+"goal" +goal);
       StartCoroutine( Interpolators.Curve(Interpolators.EaseInOutCurve,o.transform.position,goal,1,step => {
         o.transform.position= step;
       },null));
@@ -173,14 +181,21 @@ public class GameScript : MonoBehaviour
     //send player close to the ball
     {
       PlayerScript o = ste [0];
-      Vector3 goal = ballp+Vector3.back* Mathf.Sign(ballp.z)* 2 * OFFSET_PLAYER;
+      ballp.y = o.transform.position.y;
+      Vector3 goal = ballp+Vector3.forward* Mathf.Sign(ballp.z)* 2 * OFFSET_PLAYER;
       StartCoroutine (Interpolators.Curve (Interpolators.EaseInOutCurve, o.transform.position, goal, 1, step => {
         o.transform.position = step;
       }, null));
     }
     for (int i =1; i<3; i++) {
       PlayerScript o  = ste[i];
-      Vector3 goal  = 2f*(o.transform.position+ position)/3f;
+      ballp.y = o.transform.position.y;
+
+      Vector3 goal  = ballp;
+      Vector2 offset = Random.insideUnitCircle*Random.Range(3.5f,6f);
+      goal.x  = offset.x;
+      goal.z  = Mathf.Abs(offset.y)*-sign;
+      Debug.Log("player "+o.transform.position  +"ball "+ballp+"goal" +goal);
       StartCoroutine( Interpolators.Curve(Interpolators.EaseInOutCurve,o.transform.position,goal,1,step => {
         o.transform.position= step;
       },null));
@@ -202,3 +217,4 @@ public class GameScript : MonoBehaviour
   }
 
 }
+  
