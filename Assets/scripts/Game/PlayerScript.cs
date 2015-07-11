@@ -1,27 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerScript : MonoBehaviour {
-
+public class PlayerScript : MonoBehaviour 
+{
   public int team = 1;
-  public bool isGoalKeeper = false;
-	public float speed = 5f;
-	public float shootForce = 1f;
-	public float energy = 1f;
+  public int number = 1;
+  public PlayerDefinition definition;
 
 	private Vector3 movement;
 	private Rigidbody rbody;
-  private Collider col;
+  private Renderer render;
+
+  private GameScript gameScript;
 
 	void Awake()
 	{
 		rbody = GetComponent<Rigidbody> ();
-    col = GetComponent<Collider> ();
+    render = GetComponentInChildren<Renderer> ();
+
+    if (definition == null) 
+    {
+      Debug.LogError("Missing shiity definition, shitload of errors incoming");
+    }
+
+    gameScript = FindObjectOfType<GameScript> ();
+
+    // Apply sprite and stuff
+    this.render.material.color = gameScript.GetTeamColor(team);
+    this.render.material.mainTexture = definition.sprite;
 	}
 
 	void Start () 
 	{
-	
 	}
 
 	void Update () 
@@ -65,7 +75,7 @@ public class PlayerScript : MonoBehaviour {
         }
       }
 
-      movement = new Vector3 (x, 0, z) * speed;
+      movement = new Vector3 (x, 0, z) * definition.speed;
     }
 	}
 

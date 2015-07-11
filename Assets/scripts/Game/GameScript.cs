@@ -9,7 +9,9 @@ public class GameScript : MonoBehaviour
   public const int TEAM2 = 2;
 
   public List<PlayerScript> team1;
+  public Color team1Color = Color.Lerp(Color.red, Color.blue, 0.5f);
   public List<PlayerScript> team2;
+  public Color team2Color = Color.yellow;
 
   private PlayerScript player1, player2;
   private int player1Index, player2Index;
@@ -17,13 +19,17 @@ public class GameScript : MonoBehaviour
   void Awake()
   {
     var players = FindObjectsOfType<PlayerScript> ();
+    if (players.Length == 0) 
+    {
+      Debug.LogError("No players WTF");
+    }
 
     player1Index = 0;
-    team1 = players.Where (p => p.team == TEAM1).ToList ();
+    team1 = players.Where (p => p.team == TEAM1).OrderBy(p => p.number).ToList ();
     SelectTeam(team1[player1Index], TEAM1);
 
     player2Index = 0;
-    team2 = players.Where (p => p.team == TEAM2).ToList ();
+    team2 = players.Where (p => p.team == TEAM2).OrderBy(p => p.number).ToList ();
     SelectTeam(team2[player2Index], TEAM2);
   }
 
@@ -74,6 +80,18 @@ public class GameScript : MonoBehaviour
       }
       player2 = p;
       player2.IsSelected = true;
+    }
+  }
+
+  public Color GetTeamColor (int team)
+  {
+    if (team == TEAM1) 
+    {
+      return team1Color;
+    }
+    else 
+    {
+      return team2Color;
     }
   }
 
