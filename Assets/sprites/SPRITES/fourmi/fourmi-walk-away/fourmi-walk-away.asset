@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826ceec99a031ac418e62ae033e895ba, type: 3}
+  m_Name: fourmi-walk-away
+  m_EditorClassIdentifier: 
+  name: walk
+  imagesPerSeconds: 24
+  loop: 0
+  randomFirstFrame: 0
+  frames:
+  - {fileID: 2800000, guid: 1d364cc44cf9e4c8ebfa489aacc5cb90, type: 3}
+  - {fileID: 2800000, guid: d3637ca9901d54bf0b16e5417c52d05b, type: 3}
+  - {fileID: 2800000, guid: d51b929d9423d459495175e468b4afa4, type: 3}
+  - {fileID: 2800000, guid: e4a21739bf541402b82940dd4c190745, type: 3}
+  allowAutoUpdate: 1

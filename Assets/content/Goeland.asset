@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
+  m_Name: Goeland
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 0}
+  shiityName: Ronan Goeland
+  defaultAnimationTeam1: {fileID: 11400000, guid: ccee0d2adffb046e39af72dba5579d99,
+    type: 2}
+  animationsTeam1:
+  - {fileID: 11400000, guid: ccee0d2adffb046e39af72dba5579d99, type: 2}
+  - {fileID: 11400000, guid: 10955975cae8146aeb63853d6f1cdf9d, type: 2}
+  defaultAnimationTeam2: {fileID: 11400000, guid: 008c2cbfd74cc46d59506502433c4ab7,
+    type: 2}
+  animationsTeam2:
+  - {fileID: 11400000, guid: 008c2cbfd74cc46d59506502433c4ab7, type: 2}
+  - {fileID: 11400000, guid: b250e4018fe2c44dc87ff303fd3e1d33, type: 2}
+  isGoalKeeper: 0
+  scale: 1
+  speed: 5
+  shootForce: 1

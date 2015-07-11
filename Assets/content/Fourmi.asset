@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
+  m_Name: Fourmi
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 0}
+  shiityName: Jean-Mimi La Fourmi
+  defaultAnimationTeam1: {fileID: 11400000, guid: c048aa381073b4a3bac1c306331b632f,
+    type: 2}
+  animationsTeam1:
+  - {fileID: 11400000, guid: c048aa381073b4a3bac1c306331b632f, type: 2}
+  - {fileID: 11400000, guid: 409a41222b1bd43d2939a7ff9ec86879, type: 2}
+  defaultAnimationTeam2: {fileID: 11400000, guid: 0f050a411577b4f089b9a6bb7be0add5,
+    type: 2}
+  animationsTeam2:
+  - {fileID: 11400000, guid: cf1836902933f4a3ba8f86d48a266c1b, type: 2}
+  - {fileID: 11400000, guid: 8740e418b8640484986ef54112b2dd5d, type: 2}
+  isGoalKeeper: 0
+  scale: .75
+  speed: 4
+  shootForce: 2
