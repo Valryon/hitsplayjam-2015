@@ -159,6 +159,9 @@ public class PlayerScript : MonoBehaviour
         b.linkedPlayer = this;
         this.ball = b;
 
+        // Reset ball direction
+        ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
+
         if(OnBallPick != null)
         {
           OnBallPick(this);
