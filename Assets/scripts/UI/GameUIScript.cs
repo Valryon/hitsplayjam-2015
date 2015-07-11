@@ -10,6 +10,8 @@ public class GameUIScript : MonoBehaviour
   public Text score1;
   public Text score2;
   public Text timer;
+  public Text player1;
+  public Text player2;
 
 	void Awake () 
   {
@@ -22,6 +24,8 @@ public class GameUIScript : MonoBehaviour
 
     score1.text = "0";
     score2.text = "0";
+    player1.text = "";
+    player2.text = "";
 	}
 
   private void Goal(GoalScript g)
@@ -48,4 +52,15 @@ public class GameUIScript : MonoBehaviour
       instance.timer.text = t.ToString("00.00");
     }
   }
+
+  public static void SetPlayer(int team, PlayerScript p)
+  {
+    if (team == GameScript.TEAM1) {
+      instance.player1.text = p.definition.shiityName;
+    } else {
+      instance.player2.text = p.definition.shiityName;
+    }
+  }
+
+
 }

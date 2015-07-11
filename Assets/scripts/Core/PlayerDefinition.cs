@@ -6,6 +6,7 @@ public class PlayerDefinition : ScriptableObject
   [Header("Menu")]
   public Sprite avatar;
   public string shiityName;
+  public string biography;
 
   [Header("Team 1")]
   public SimpleAnimation defaultAnimationTeam1;

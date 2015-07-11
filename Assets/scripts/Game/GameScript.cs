@@ -139,6 +139,8 @@ public class GameScript : MonoBehaviour
       player2 = p;
       player2.IsSelected = true;
     }
+
+    GameUIScript.SetPlayer(team, p);
   }
 
   private void GOAL(GoalScript goalScript)
