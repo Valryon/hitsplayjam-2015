@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826ceec99a031ac418e62ae033e895ba, type: 3}
+  m_Name: panda-walk
+  m_EditorClassIdentifier: 
+  name: walk
+  imagesPerSeconds: 24
+  loop: 0
+  randomFirstFrame: 0
+  frames:
+  - {fileID: 2800000, guid: 6b33f4fff04ce42c6b9e2b911f681d70, type: 3}
+  - {fileID: 2800000, guid: 5d331dc926e4b4ac28f1ec293b4d286a, type: 3}
+  - {fileID: 2800000, guid: d93fef0b24b9c490a8d8c5a703216bd0, type: 3}
+  - {fileID: 2800000, guid: 53c387a5eba2645d68b39bff0922ff32, type: 3}
+  allowAutoUpdate: 1

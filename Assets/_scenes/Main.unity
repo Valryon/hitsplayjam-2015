@@ -5065,7 +5065,7 @@ Prefab:
     - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: definition
       value: 
-      objectReference: {fileID: 11400000, guid: 7d522a14e0dbe48c9a0fe8ecb109bdec,
+      objectReference: {fileID: 11400000, guid: bac1c204880d240f3bc61cdd08e53faf,
         type: 2}
     - target: {fileID: 11416418, guid: 05b9b2f1d4e1a4a258d0481736041b03, type: 2}
       propertyPath: team
