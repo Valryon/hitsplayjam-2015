@@ -144,12 +144,26 @@ public class GameScript : MonoBehaviour
     for (int i =0; i<2; i++) {
       PlayerScript o  = sto[i];
       Vector3 goal  = 2f*(o.transform.position+ position)/3f;
-
       StartCoroutine( Interpolators.Curve(Interpolators.EaseInOutCurve,o.transform.position,goal,1,step => {
         o.transform.position= step;
       },null));
-      
     }
+    //send player close to the ball
+    {
+      PlayerScript o = ste [0];
+      Vector3 goal = ballp;
+      StartCoroutine (Interpolators.Curve (Interpolators.EaseInOutCurve, o.transform.position, goal, 1, step => {
+        o.transform.position = step;
+      }, null));
+    }
+    for (int i =1; i<3; i++) {
+      PlayerScript o  = ste[i];
+      Vector3 goal  = 2f*(o.transform.position+ position)/3f;
+      StartCoroutine( Interpolators.Curve(Interpolators.EaseInOutCurve,o.transform.position,goal,1,step => {
+        o.transform.position= step;
+      },null));
+    }
+
 
 
 
