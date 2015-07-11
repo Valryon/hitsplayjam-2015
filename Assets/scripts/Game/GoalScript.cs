@@ -40,7 +40,7 @@ public class GoalScript : MonoBehaviour
       OnGoal (this);
     }
 
-    StartCoroutine(Timer.Start(2f, () => {
+    StartCoroutine(Timer.Start(5f, () => {
       col.enabled = true;
     }));
   }
