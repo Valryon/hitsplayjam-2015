@@ -25,8 +25,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2c193343ca1744079be499b029b6bd9, type: 2}
   - {fileID: 11400000, guid: 85f0dca2f2a1546f6957bc79d6df7945, type: 2}
   isGoalKeeper: 0
+  role: 0
   scaleX: 2
-  scaleZ: 2
+  scaleY: 2
   speed: 3
   shootForce: 3
   lobForce: 1
