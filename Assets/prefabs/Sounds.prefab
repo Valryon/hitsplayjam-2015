@@ -49,6 +49,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 36352c2a7a18144cd846e805821e376d, type: 3}
     - {fileID: 8300000, guid: 5f116aa22897442ef846f978ca06ddb4, type: 3}
     - {fileID: 8300000, guid: 6ae839133129f4c8193a9944c51ad2a3, type: 3}
+  - name: oh
+    clips:
+    - {fileID: 8300000, guid: d35265058fec44105998e65cf4c2f81d, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

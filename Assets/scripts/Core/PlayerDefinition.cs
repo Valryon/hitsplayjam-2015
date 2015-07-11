@@ -28,4 +28,7 @@ public class PlayerDefinition : ScriptableObject
 
   [Range(1,5)]
   public int shootForce = 1;
+
+  [Range(1,5)]
+  public int lobForce = 1;
 }

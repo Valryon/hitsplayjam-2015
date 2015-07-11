@@ -261,7 +261,7 @@ public class PlayerScript : MonoBehaviour
       // Small targeted shoot
       Vector3 direction = (nearest.transform.position - this.transform.position);
 
-      Vector3 shootDirection = new Vector3 (direction.x, 0.15f, direction.z);
+      Vector3 shootDirection = new Vector3 (direction.x, 0.15f * definition.lobForce, direction.z);
 
       Shooting(shootDirection, 50f);
 
