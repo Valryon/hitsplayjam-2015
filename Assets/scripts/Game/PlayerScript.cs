@@ -281,6 +281,8 @@ public class PlayerScript : MonoBehaviour
   
     b.Launch (force);
 
+    SoundsScript.Play ("balle", this.transform.position);
+
     if (OnShoot != null) OnShoot (this);
   }
 

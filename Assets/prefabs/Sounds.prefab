@@ -52,6 +52,15 @@ MonoBehaviour:
   - name: oh
     clips:
     - {fileID: 8300000, guid: d35265058fec44105998e65cf4c2f81d, type: 3}
+  - name: panda
+    clips:
+    - {fileID: 8300000, guid: 25604b44ecb164a1e89a42d7615d49cc, type: 3}
+  - name: narval
+    clips:
+    - {fileID: 8300000, guid: e91c927f18e6a465987093dedf1250e1, type: 3}
+  - name: balle
+    clips:
+    - {fileID: 8300000, guid: d132ca00772ff49cb98129adfa2f6b3e, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
