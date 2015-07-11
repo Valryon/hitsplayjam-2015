@@ -76,4 +76,8 @@ public class GameScript : MonoBehaviour
       player2.IsSelected = true;
     }
   }
+
+  public void setLineOutSituation(Vector3 position, int team){
+     
+  }
 }
