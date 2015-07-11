@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: panda-walk-away
   m_EditorClassIdentifier: 
   name: walk
-  imagesPerSeconds: 24
+  imagesPerSeconds: 12
   loop: 0
   randomFirstFrame: 0
   frames:
