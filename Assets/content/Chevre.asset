@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: {fileID: 0}
   shiityName: "Genevi\xE8vre la ch\xE8vre"
+  biography: 
   defaultAnimationTeam1: {fileID: 11400000, guid: 7ed6bf4fc1b894e3faa1f7a43b0a2c0e,
     type: 2}
   animationsTeam1:
@@ -24,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2c193343ca1744079be499b029b6bd9, type: 2}
   - {fileID: 11400000, guid: 85f0dca2f2a1546f6957bc79d6df7945, type: 2}
   isGoalKeeper: 0
-  scale: 1.5
+  scaleX: 1.5
+  scaleZ: 1.5
   speed: 3
   shootForce: 3

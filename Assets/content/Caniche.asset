@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: {fileID: 0}
   shiityName: Omar Caniche
+  biography: 
   defaultAnimationTeam1: {fileID: 11400000, guid: 522da5d8a17b743ec933d85f9bed1e1f,
     type: 2}
   animationsTeam1:
@@ -24,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f050a411577b4f089b9a6bb7be0add5, type: 2}
   - {fileID: 11400000, guid: e9aa59c9194fd479d96183d0dc998159, type: 2}
   isGoalKeeper: 0
-  scale: 1.25
+  scaleX: 1.5
+  scaleZ: 1.5
   speed: 4
   shootForce: 2

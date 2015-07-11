@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatar: {fileID: 0}
   shiityName: Jean-Mimi La Fourmi
+  biography: 
   defaultAnimationTeam1: {fileID: 11400000, guid: c048aa381073b4a3bac1c306331b632f,
     type: 2}
   animationsTeam1:
@@ -24,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf1836902933f4a3ba8f86d48a266c1b, type: 2}
   - {fileID: 11400000, guid: 8740e418b8640484986ef54112b2dd5d, type: 2}
   isGoalKeeper: 0
-  scale: .75
+  scaleX: 1
+  scaleZ: .5
   speed: 4
   shootForce: 2

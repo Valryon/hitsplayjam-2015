@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
+  m_Name: Narval
+  m_EditorClassIdentifier: 
+  avatar: {fileID: 0}
+  shiityName: Raynal le Narval
+  biography: 
+  defaultAnimationTeam1: {fileID: 11400000, guid: 75460736f3f6f44e0ac5be9436ae0062,
+    type: 2}
+  animationsTeam1:
+  - {fileID: 11400000, guid: 75460736f3f6f44e0ac5be9436ae0062, type: 2}
+  - {fileID: 11400000, guid: fb7be7f9f85e54204bf450a28ea391ed, type: 2}
+  defaultAnimationTeam2: {fileID: 11400000, guid: d734d06d97ef94320af2fc9b8c8d14e8,
+    type: 2}
+  animationsTeam2:
+  - {fileID: 11400000, guid: d734d06d97ef94320af2fc9b8c8d14e8, type: 2}
+  - {fileID: 11400000, guid: 659f402a12e314835b5e9670cc74823c, type: 2}
+  isGoalKeeper: 0
+  scaleX: 6
+  scaleZ: 6
+  speed: 1
+  shootForce: 5

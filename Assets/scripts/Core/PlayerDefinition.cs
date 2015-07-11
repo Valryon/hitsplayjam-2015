@@ -20,7 +20,8 @@ public class PlayerDefinition : ScriptableObject
 
   public bool isGoalKeeper = false;
 
-  public float scale = 1f;
+  public float scaleX = 1f;
+  public float scaleZ = 1f;
 
   [Range(1,5)]
   public int speed = 1;
