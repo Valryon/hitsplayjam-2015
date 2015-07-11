@@ -51,23 +51,32 @@ public class GameScript : MonoBehaviour
     if (ball == null)
       return;
 
-    int teamNumber = 0;
-    int index = 0;
+    HandleSelectionForPlayer (TEAM1);
+
+    HandleSelectionForPlayer (TEAM2);
+  }
+
+  private void HandleSelectionForPlayer(int teamNumber)
+  {
     List<PlayerScript> ps = null;
 
     // Team: change selected character
-    if (Input.GetKeyDown(KeyCode.RightShift)) 
+    if (teamNumber == TEAM1 && Input.GetKeyDown(PlayerInputsScheme.Player1Action1))
     {
-      teamNumber = 1;
-      ps = team1;
+      if(player1 == null || (player1 != null && player1.HasBall == false))
+      {
+        ps = team1;
+      }
     }
-    if (Input.GetKeyDown(KeyCode.E)) 
+    else if (teamNumber == TEAM2 && Input.GetKeyDown(PlayerInputsScheme.Player2Action1)) 
     {
-      teamNumber = 2;
-      ps = team2;
+      if(player2 == null || (player2 != null && player2.HasBall == false))
+      {
+        ps = team2;
+      }
     }
-
-    // Not input? Nothing to do
+    
+    // No input? Nothing to do
     if (ps == null)
       return;
     
@@ -78,16 +87,16 @@ public class GameScript : MonoBehaviour
     foreach(var p in ps)
     {
       var distance = Vector3.Distance(p.transform.position, ball.transform.position);
-
+      
       if(distance < minDistance)
       {
         minDistance = distance;
         closestPlayer = p;
       }
     }
-
-    index = ps.IndexOf (closestPlayer);
-
+    
+    int index = ps.IndexOf (closestPlayer);
+    
     // Gogo
     SelectTeam(ps[index], teamNumber);
   }
