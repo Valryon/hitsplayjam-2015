@@ -9,7 +9,7 @@ public class BallCamera : MonoBehaviour
 
   private float speed = 0.07f;
   private float speedBoost = 1f;
-  private float directionX;
+  private float directionX, directionSign;
 
   void Start()
   {
@@ -30,8 +30,10 @@ public class BallCamera : MonoBehaviour
     if (ball == null || FollowBall == false)
       return;
 
-    directionX -= 0.1f;
-    if (directionX < 0f)
+    directionX -= 0.1f * directionSign;
+    if (directionSign > 0f && directionX < 0f)
+      directionX = 0f;
+    else if (directionSign < 0f && directionX > 0f)
       directionX = 0f;
 
     speedBoost -= 0.1f;
@@ -46,10 +48,12 @@ public class BallCamera : MonoBehaviour
     if (viewportCoords.x < (0.5f - zoneSize)) 
     {
       directionX = -1f;
+      directionSign = -1f;
     } 
     else if (viewportCoords.x > (0.5f + zoneSize)) 
     {
       directionX = 1f;
+      directionSign = 1f;
     }
 
     float currentX = this.transform.position.x + (directionX * speed * speedBoost);

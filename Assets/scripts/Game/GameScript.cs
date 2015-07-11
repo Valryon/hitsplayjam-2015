@@ -22,8 +22,10 @@ public class GameScript : MonoBehaviour
 
   void Awake()
   {
+    // Ball
     ball = FindObjectOfType<BallScript> ();
 
+    // Players
     var players = FindObjectsOfType<PlayerScript> ();
     if (players.Length == 0) 
     {
@@ -42,6 +44,12 @@ public class GameScript : MonoBehaviour
     team2 = players.Where (p => p.team == TEAM2).OrderBy(p => p.number).ToList ();
 
     InputHandleSelection (true);
+
+    // Goal
+    foreach (GoalScript g in  FindObjectsOfType<GoalScript>()) 
+    {
+      g.OnGoal += GOAL;
+    }
   }
 
   void Start () 
@@ -131,6 +139,21 @@ public class GameScript : MonoBehaviour
       player2 = p;
       player2.IsSelected = true;
     }
+  }
+
+  private void GOAL(GoalScript goalScript)
+  {
+    // Text, particles, juice
+    BallCamera.FollowBall = false;
+    CameraShaker.ShakeCamera (0.5f, 1f);
+
+    // Wait
+    StartCoroutine (Timer.Start (3f, () =>
+    {
+      // Reset everything
+      ball.Reset();
+      BallCamera.FollowBall = true;
+    }));
   }
 
   public Color GetTeamColor (int team)

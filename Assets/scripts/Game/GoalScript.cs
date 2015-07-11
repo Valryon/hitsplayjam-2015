@@ -6,9 +6,13 @@ public class GoalScript : MonoBehaviour
   public int team = 0;
   public int score = 0;
 
+  public System.Action<GoalScript> OnGoal;
+
+  private Collider col;
+
 	void Start () 
   {
-	
+    col = GetComponent<Collider> ();
 	}
 	
 	void Update () 
@@ -22,14 +26,22 @@ public class GoalScript : MonoBehaviour
     if (ball != null) 
     {
       Goal ();
-
-      // Reset ball
-      ball.Reset();
     }
   }
 
   private void Goal()
   {
     score++;
+
+    col.enabled = false;
+
+    if (OnGoal != null) 
+    {
+      OnGoal (this);
+    }
+
+    StartCoroutine(Timer.Start(2f, () => {
+      col.enabled = true;
+    }));
   }
 }
