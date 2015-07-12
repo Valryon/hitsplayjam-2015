@@ -22,4 +22,6 @@ MonoBehaviour:
   avatarMenu: {fileID: 21300000, guid: fedb8a0a766e24674a5d50c16897fca9, type: 3}
   avatarMenuNb: {fileID: 21300000, guid: 316438b52c6094f95a09b5938c152c3f, type: 3}
   shiityName: "Genevi\xE8vre la ch\xE8vre"
-  biography: 
+  biography: "Genevi\xE8ve est douce, Genevi\xE8ve est fra\xEEche, mais Genevi\xE8ve
+    n\u2019est vraiment pas pratique. Elle a une f\xE2cheuse tendance \xE0 brouter
+    l\u2019herbe du terrain. "

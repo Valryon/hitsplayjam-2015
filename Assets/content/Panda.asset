@@ -22,4 +22,5 @@ MonoBehaviour:
   avatarMenu: {fileID: 21300000, guid: 12aa26a1a509747028094d6abc25ab79, type: 3}
   avatarMenuNb: {fileID: 21300000, guid: 49e981310ed4540199549499de2ac0f5, type: 3}
   shiityName: Charles Panda
-  biography: 
+  biography: "Dernier de son esp\xE8ce, il n\u2019est pas tr\xE8s fort mais il en
+    sait trop pour qu\u2019on puisse le virer."

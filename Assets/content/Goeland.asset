@@ -22,4 +22,5 @@ MonoBehaviour:
   avatarMenu: {fileID: 21300000, guid: a5179b48c44fe4a0eb57afbfe89092cf, type: 3}
   avatarMenuNb: {fileID: 21300000, guid: db6f618b027c54c238bbdc34ccce3b4e, type: 3}
   shiityName: Ronan Goeland
-  biography: 
+  biography: "Pour la centi\xE8me fois, je suis un go\xEBland et pas une mouette !
+    Et je vous emmerde !"

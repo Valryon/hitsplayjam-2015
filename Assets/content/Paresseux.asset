@@ -21,5 +21,6 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: f424d7837e654428c9d31ba63505bd30, type: 3}
   avatarMenu: {fileID: 21300000, guid: 1fcf9392294f44b5c9c971200aebbcef, type: 3}
   avatarMenuNb: {fileID: 21300000, guid: d0a98f604c2e941b9b9f824073a2cb0a, type: 3}
-  shiityName: Joe le Paresseux
-  biography: 
+  shiityName: Jo le Paresseux
+  biography: "Pour lui, c\u2019est tous les jours dimanche, il ne travaille jamais.
+    La tradition cat\xE9chistique le pr\xE9occupe \xE0 chaque instant. "
