@@ -19,19 +19,23 @@ public class SoundsScript : MonoBehaviour
     instance = this;
   }
 
-  public static void Play(string name, Vector3 position)
+  public static AudioClip Play(string name, Vector3 position)
   {
     if (instance == null)
-      return;
+      return null;
 
     foreach (var e in instance.list) 
     {
       if(e.name.ToLower() == name.ToLower())
       {
-        PlayClip(e.clips[Random.Range(0, e.clips.Length)], position);
-        return;
+        var c = e.clips[Random.Range(0, e.clips.Length)];
+        PlayClip(c, position);
+
+        return c;
       }
     }
+
+    return null;
   }
 
   private static void PlayClip(AudioClip c, Vector3 position)

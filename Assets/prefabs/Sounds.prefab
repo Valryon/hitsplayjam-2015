@@ -64,6 +64,17 @@ MonoBehaviour:
   - name: tatata
     clips:
     - {fileID: 8300000, guid: 76a55e434800947d4b8e67f948b99da8, type: 3}
+  - name: play
+    clips:
+    - {fileID: 8300000, guid: e964677993f774ef78036c5082b8843d, type: 3}
+  - name: title
+    clips:
+    - {fileID: 8300000, guid: 820b71c5eb705451b8630ab68fe022bf, type: 3}
+    - {fileID: 8300000, guid: e91dd56c66cc84017a1062ef76c98f8b, type: 3}
+    - {fileID: 8300000, guid: 005378f9e191f46fab3163aa2dc24e99, type: 3}
+    - {fileID: 8300000, guid: 2e06e45694a4349a08682ce5c8fa1fc4, type: 3}
+    - {fileID: 8300000, guid: 8769844ed01954748a3f7876a2936466, type: 3}
+    - {fileID: 8300000, guid: 59b67364b2c5f48cfb410b91ac0ea5e1, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

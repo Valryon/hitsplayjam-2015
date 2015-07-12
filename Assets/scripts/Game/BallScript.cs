@@ -85,7 +85,7 @@ public class BallScript : MonoBehaviour
     if (col.tag != "Player")
       return;
     var p = col.GetComponent<PlayerScript> ();
-    lastTeamTouch = p.team;
+    lastTeamTouch = p.definition.team;
     Debug.Log ("poc by ");
   }
 
@@ -120,9 +120,9 @@ public class BallScript : MonoBehaviour
   public void Picked(PlayerScript p )
   {
     this.linkedPlayer = p;
-    lastTeamTouch = p.team;
+    lastTeamTouch = p.definition.team;
     var gs = GameObject.FindObjectOfType<GameScript> ();
-    gs.attacking = p.team;
+    gs.attacking = p.definition.team;
 
   }
 

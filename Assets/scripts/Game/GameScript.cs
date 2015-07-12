@@ -49,7 +49,7 @@ public class GameScript : MonoBehaviour
     {
       p.OnBallPick += (pickingPlayer) =>
       {
-        SelectTeam(pickingPlayer, pickingPlayer.team);
+        SelectTeam(pickingPlayer, pickingPlayer.definition.team);
       };
       p.OnShoot += (pl) => 
       {
@@ -57,8 +57,8 @@ public class GameScript : MonoBehaviour
       };
     }
 
-    team1 = players.Where (p => p.team == TEAM1).OrderBy(p => p.number).ToList ();
-    team2 = players.Where (p => p.team == TEAM2).OrderBy(p => p.number).ToList ();
+    team1 = players.Where (p => p.definition.team == TEAM1).ToList ();
+    team2 = players.Where (p => p.definition.team == TEAM2).ToList ();
 
     InputHandleSelection (true);
 
