@@ -25,3 +25,4 @@ MonoBehaviour:
   biography: "Pascal a toujours voulu \xEAtre un Digimon. Un jour, s\u2019\xE9criant
     \xAB C\u2019est assez ! \xBB, il a quitt\xE9 le bassin d\u2019Arcachon pour s\u2019engager
     dans l\u2019EAG, et toucher son r\xEAve du doigt \u2013non !- de la corne."
+  sound: {fileID: 8300000, guid: e91c927f18e6a465987093dedf1250e1, type: 3}

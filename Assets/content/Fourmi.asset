@@ -23,3 +23,4 @@ MonoBehaviour:
   avatarMenuNb: {fileID: 21300000, guid: d9c54cb4a9d8848ca96e2a76aff993e1, type: 3}
   shiityName: Marie la Fourmi
   biography: "Elle aimerait p\xEAcher \xE0 l\u2019\xCEle de Sein."
+  sound: {fileID: 8300000, guid: a95adda9449b54f0cb7cf38cf7a19267, type: 3}

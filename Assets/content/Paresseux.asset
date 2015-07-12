@@ -24,3 +24,4 @@ MonoBehaviour:
   shiityName: Jo le Paresseux
   biography: "Pour lui, c\u2019est tous les jours dimanche, il ne travaille jamais.
     La tradition cat\xE9chistique le pr\xE9occupe \xE0 chaque instant. "
+  sound: {fileID: 8300000, guid: 3a9485b21f43b4f77b1da2962a6d5bf2, type: 3}

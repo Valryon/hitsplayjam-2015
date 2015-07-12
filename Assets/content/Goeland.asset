@@ -24,3 +24,4 @@ MonoBehaviour:
   shiityName: Ronan Goeland
   biography: "Pour la centi\xE8me fois, je suis un go\xEBland et pas une mouette !
     Et je vous emmerde !"
+  sound: {fileID: 8300000, guid: 4a8882179b885435d9dc87eda1c9dade, type: 3}

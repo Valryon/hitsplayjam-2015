@@ -25,3 +25,4 @@ MonoBehaviour:
   biography: "Genevi\xE8ve est douce, Genevi\xE8ve est fra\xEEche, mais Genevi\xE8ve
     n\u2019est vraiment pas pratique. Elle a une f\xE2cheuse tendance \xE0 brouter
     l\u2019herbe du terrain. "
+  sound: {fileID: 8300000, guid: 47e9d8c53dbdf49b2b4547a3d3738fc4, type: 3}

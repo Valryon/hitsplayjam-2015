@@ -23,3 +23,4 @@ MonoBehaviour:
   avatarMenuNb: {fileID: 21300000, guid: 57d31601b8a0e486eb10547b4019e310, type: 3}
   shiityName: Omar Caniche
   biography: "Il \xE9tait surnomm\xE9 Laurence. Le foot, c\u2019est son dada. "
+  sound: {fileID: 8300000, guid: f6473b0160593417093cb6efcfa3a92f, type: 3}

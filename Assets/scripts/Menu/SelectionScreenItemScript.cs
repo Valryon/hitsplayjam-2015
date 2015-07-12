@@ -30,6 +30,8 @@ public class SelectionScreenItemScript : Selectable
 
     popupName.text = defition.shiityName;
     popupBio.text = defition.biography;
+
+    AudioSource.PlayClipAtPoint (defition.sound, Vector3.zero);
   }
 
   public override void OnPointerExit (UnityEngine.EventSystems.PointerEventData eventData)

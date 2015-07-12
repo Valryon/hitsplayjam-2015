@@ -24,3 +24,4 @@ MonoBehaviour:
   shiityName: "Agn\xE8s la Poule"
   biography: "Son r\xEAve, c\u2019est d\u2019aller en quart de finale, pour enfin
     passer les poules\u2026"
+  sound: {fileID: 8300000, guid: d64e063146d89470ab6ee54e1826b2bd, type: 3}

@@ -24,3 +24,4 @@ MonoBehaviour:
   shiityName: Charles Panda
   biography: "Dernier de son esp\xE8ce, il n\u2019est pas tr\xE8s fort mais il en
     sait trop pour qu\u2019on puisse le virer."
+  sound: {fileID: 8300000, guid: 25604b44ecb164a1e89a42d7615d49cc, type: 3}
