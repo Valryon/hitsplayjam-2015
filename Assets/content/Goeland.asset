@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Goeland
   m_EditorClassIdentifier: 
-  team: 2
+  team: 1
   role: 1
-  speed: 2
-  shootForce: 300
-  passForce: 200
+  speed: 4
+  shootForce: 600
+  passForce: 400
   lobForceFactor: 1
   attackForce: 40
   avatar: {fileID: 21300000, guid: e892c0d670e484d15a40375032d47e71, type: 3}

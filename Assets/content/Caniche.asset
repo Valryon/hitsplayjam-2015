@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   role: 0
-  speed: 3
-  shootForce: 300
-  passForce: 200
-  lobForceFactor: 1
+  speed: 5
+  shootForce: 1000
+  passForce: 400
+  lobForceFactor: 2
   attackForce: 40
   avatar: {fileID: 21300000, guid: 6b01b72e6e193450a9af4eb6c1474358, type: 3}
   avatarMenu: {fileID: 21300000, guid: ae296ea4ac50142db8dcd3cd4a52efa7, type: 3}

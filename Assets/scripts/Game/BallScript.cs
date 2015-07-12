@@ -8,6 +8,7 @@ public class BallScript : MonoBehaviour
   public bool checkCollision ;
 
   public event System.Action BallReset; 
+  public event System.Action<PlayerScript> BallPicked; 
   public event System.Action<bool, bool> OnShoot; 
 
   private Rigidbody rbody;
@@ -123,6 +124,8 @@ public class BallScript : MonoBehaviour
     lastTeamTouch = p.definition.team;
     var gs = GameObject.FindObjectOfType<GameScript> ();
     gs.attacking = p.definition.team;
+
+    if(BallPicked != null) BallPicked(p);
 
   }
 

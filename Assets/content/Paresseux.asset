@@ -14,10 +14,10 @@ MonoBehaviour:
   team: 2
   role: 2
   speed: 1
-  shootForce: 300
-  passForce: 200
+  shootForce: 200
+  passForce: 400
   lobForceFactor: 1
-  attackForce: 40
+  attackForce: 20
   avatar: {fileID: 21300000, guid: f424d7837e654428c9d31ba63505bd30, type: 3}
   avatarMenu: {fileID: 21300000, guid: 1fcf9392294f44b5c9c971200aebbcef, type: 3}
   avatarMenuNb: {fileID: 21300000, guid: d0a98f604c2e941b9b9f824073a2cb0a, type: 3}

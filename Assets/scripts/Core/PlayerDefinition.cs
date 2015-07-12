@@ -19,7 +19,7 @@ public class PlayerDefinition : ScriptableObject
   public int speed = 1;
   public int shootForce = 350;
   public int passForce = 200;
-  public int lobForceFactor = 1;
+  public float lobForceFactor = 1f;
   public int attackForce = 40;
 
   [Header("Menu")]

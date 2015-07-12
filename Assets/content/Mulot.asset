@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Mulot
   m_EditorClassIdentifier: 
-  team: 2
-  role: 1
+  team: 1
+  role: 0
   speed: 3
-  shootForce: 300
-  passForce: 200
+  shootForce: 600
+  passForce: 600
   lobForceFactor: 1
   attackForce: 40
   avatar: {fileID: 21300000, guid: b55733f70b1fb4d2ebffdc28c408b362, type: 3}
