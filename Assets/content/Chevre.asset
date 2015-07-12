@@ -11,13 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Chevre
   m_EditorClassIdentifier: 
+  team: 2
   role: 0
   speed: 3
   shootForce: 2
   lobForce: 2
+  attackForce: 0
   avatar: {fileID: 21300000, guid: aa8dd9fdbbe534bf391e051f896af26e, type: 3}
   avatarBg: {fileID: 21300000, guid: 6bbba15b936464df8ba6d8991533c932, type: 3}
   avatarBgNb: {fileID: 21300000, guid: ff310a73d4e2648d3be1a49cb041fc2b, type: 3}
   shiityName: "Genevi\xE8vre la ch\xE8vre"
   biography: 
-  specialScriptName: ChevreScript

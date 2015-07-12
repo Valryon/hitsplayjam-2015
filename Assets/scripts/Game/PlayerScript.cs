@@ -14,10 +14,6 @@ public class PlayerScript : MonoBehaviour
   public SimpleAnimation defaultAnimationTeam2;
   public SimpleAnimation[] animationsTeam2;
 
-  [Header("Affectation")]
-  public int team = 1;
-  public int number = 1;
-
   public event System.Action<PlayerScript> OnBallPick;
   public event System.Action<PlayerScript> OnShoot;
 
@@ -47,7 +43,7 @@ public class PlayerScript : MonoBehaviour
 
     gameScript = FindObjectOfType<GameScript> ();
 
-    if (team == GameScript.TEAM1) {
+    if (definition.team == GameScript.TEAM1) {
       animator.defaultAnimation = defaultAnimationTeam1;
       animator.clips = animationsTeam1;
     } else {
@@ -55,13 +51,13 @@ public class PlayerScript : MonoBehaviour
       animator.clips = animationsTeam2;
     }
 
-    ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
+    ballDirection = new Vector3 (definition.team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
     BallRelativePosition = Vector3.Scale(ballDirection, ballDistance);
 
     IsActive = true;
 
 
-    flip = (team == GameScript.TEAM1 ? -1 : 1);
+    flip = (definition.team == GameScript.TEAM1 ? -1 : 1);
     this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y, this.transform.localScale.z);
    
     this.gameObject.name = definition.name;
@@ -89,7 +85,7 @@ public class PlayerScript : MonoBehaviour
         bool attack = false;
 
         // Team 1: arrows
-        if (team == GameScript.TEAM1) {
+        if (definition.team == GameScript.TEAM1) {
           x = Input.GetAxis ("Horizontal");
           if (x < -0.25f) {
             x = -1f;
@@ -109,7 +105,7 @@ public class PlayerScript : MonoBehaviour
           attack = Input.GetKeyDown (PlayerInputsScheme.Player1Action2);
         }
         // Team 2: ZQSD
-        else if (team == GameScript.TEAM2) {
+        else if (definition.team == GameScript.TEAM2) {
           if (Input.GetKey (KeyCode.Q)) {
             x = -1f; 
           } else if (Input.GetKey (KeyCode.D)) {
@@ -183,7 +179,7 @@ public class PlayerScript : MonoBehaviour
     var b = gs.ball.transform.position;
     var dx = 0f;
 
-    if (team == 2)
+    if (definition.team == 2)
       dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
     else
       dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
@@ -227,7 +223,7 @@ public class PlayerScript : MonoBehaviour
     var b = gs.ball.transform.position;
     var dx = 0f;
 
-    if (gs.attacking == team)
+    if (gs.attacking == definition.team)
       dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
     else
       dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
@@ -248,7 +244,7 @@ public class PlayerScript : MonoBehaviour
   {
     var gs = GameObject.FindObjectOfType<GameScript> ();
     var b = gs.ball.transform.position;
-    var side = (team == 2) ? -1 : 1;
+    var side = (definition.team == 2) ? -1 : 1;
     var p = transform.position;
     var dx = 0;
 
@@ -305,7 +301,7 @@ public class PlayerScript : MonoBehaviour
         this.ball = b;
 
         // Reset ball direction
-        ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0);
+        ballDirection = new Vector3 (definition.team == GameScript.TEAM1 ? -1 : 1, 0, 0);
 
         if (OnBallPick != null) 
         {
@@ -366,7 +362,7 @@ public class PlayerScript : MonoBehaviour
     if (ball == null)
       return;
 
-    PlayerScript nearest = gameScript.GetNearestPlayer ((team == GameScript.TEAM1 ? gameScript.team1 : gameScript.team2), this.gameObject);
+    PlayerScript nearest = gameScript.GetNearestPlayer ((definition.team == GameScript.TEAM1 ? gameScript.team1 : gameScript.team2), this.gameObject);
 
     if (nearest != null) 
     {

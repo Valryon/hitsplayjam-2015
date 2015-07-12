@@ -10,18 +10,16 @@ public enum ROLE
 
 public class PlayerDefinition : ScriptableObject 
 {
+  [Header("Affectation")]
+  [Range(1,2)]
+  public int team = 1;
+
   [Header("Stats")]
-  
   public ROLE role = ROLE.Defense;
-  
-  [Range(1,5)]
   public int speed = 1;
-  
-  [Range(1,5)]
   public int shootForce = 1;
-  
-  [Range(1,5)]
   public int lobForce = 1;
+  public int attackForce;
 
   [Header("Menu")]
   public Sprite avatar;

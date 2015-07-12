@@ -11,10 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Poule
   m_EditorClassIdentifier: 
+  team: 2
   role: 1
   speed: 2
   shootForce: 2
   lobForce: 2
+  attackForce: 0
   avatar: {fileID: 21300000, guid: c4889fa6cd7ce42c9885ef6246002be3, type: 3}
   avatarBg: {fileID: 21300000, guid: ed66aa472c62c4defbd57a3241f31c78, type: 3}
   avatarBgNb: {fileID: 21300000, guid: 998f71078cb8d41ebafa1ad0663d1ec7, type: 3}
