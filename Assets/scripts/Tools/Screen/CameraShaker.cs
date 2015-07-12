@@ -18,7 +18,7 @@ public class CameraShaker : MonoBehaviour
   public bool resetToOriginalPosition = false;
 
   private Vector2 previousMouvement = Vector2.zero;
-  private Vector3 originalPos;
+//  private Vector3 originalPos;
 
   private float startForce, force;
   private float startTime, time;
@@ -29,7 +29,7 @@ public class CameraShaker : MonoBehaviour
   {
     instance = this;
 
-    originalPos = Camera.main.transform.localPosition;
+//    originalPos = Camera.main.transform.localPosition;
   }
 
   void AddShake(float newForce, float newDuration, bool cumulative)
@@ -76,16 +76,7 @@ public class CameraShaker : MonoBehaviour
       }
       else
       {
-        time = 0f;
-        startTime = 0f;
-        force = 0f;
-        startForce = 0f;
-
-        // Reset only if no other shake are running!
-        if (resetToOriginalPosition)
-        {
-          Camera.main.transform.localPosition = originalPos;
-        }
+        Clean ();
       }
     }
   }

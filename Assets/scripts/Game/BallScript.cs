@@ -41,9 +41,7 @@ public class BallScript : MonoBehaviour
         rotationSpeed = 0f;
       }
 
-      this.transform.position = new Vector3 (linkedPlayer.transform.position.x + linkedPlayer.BallRelativePosition.x, 
-                                            this.transform.position.y, 
-                                            linkedPlayer.transform.position.z + linkedPlayer.BallRelativePosition.z); 
+      ApplyBallPosition (); 
 
       this.transform.Rotate(Vector3.one * rotationSpeed * 10f);
     } 
@@ -51,6 +49,11 @@ public class BallScript : MonoBehaviour
     {
       rotationSpeed = 0f;
     }
+  }
+
+  public void ApplyBallPosition ()
+  {
+    this.transform.position = new Vector3 (linkedPlayer.transform.position.x + linkedPlayer.BallRelativePosition.x, this.transform.position.y, linkedPlayer.transform.position.z + linkedPlayer.BallRelativePosition.z);
   }
 
   public void Reset()
@@ -72,7 +75,6 @@ public class BallScript : MonoBehaviour
     if (BallReset != null)
       BallReset ();
   }
-
 
   void OnCollisionEnter(Collision other)
   {

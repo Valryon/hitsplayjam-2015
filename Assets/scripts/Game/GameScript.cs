@@ -216,7 +216,7 @@ public class GameScript : MonoBehaviour
   private IEnumerator _coLineOut(Vector3 position, int team){
     var ballp = position;
 
-    var gs = GameObject.FindObjectOfType<GameScript> ();
+//    var gs = GameObject.FindObjectOfType<GameScript> ();
     List<PlayerScript> te, to;
     if (team == TEAM1) {
       te = team1;

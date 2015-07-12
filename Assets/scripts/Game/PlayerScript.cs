@@ -215,23 +215,7 @@ public class PlayerScript : MonoBehaviour
       BallRelativePosition = Vector3.Scale(ballDirection, ballDistance);
     }
 
-    float previousFlip = flip;
-
-    // Auto flip
-    if (movement.x > 0)
-      flip = 1f;
-    else if (movement.x < 0)
-      flip = -1f;
-
-    if (movement.magnitude > 0) 
-    {
-      animator.Play ("walk");
-    }
-      
-    if(previousFlip != flip)
-    { 
-      this.transform.localScale = new Vector3 (Mathf.Abs(this.transform.localScale.x) * flip, this.transform.localScale.y, this.transform.localScale.z);
-    }
+    UpdateFlip ();
   }
 
 
@@ -255,6 +239,28 @@ public class PlayerScript : MonoBehaviour
       dz = Mathf.Min (0, dz);
 
     movement = definition.speed * new Vector3 (dx,0,dz);
+  }
+
+  private void UpdateFlip ()
+  {
+    float previousFlip = flip;
+
+    // Auto flip
+    if (movement.x > 0)
+      flip = 1f;
+    else
+      if (movement.x < 0)
+        flip = -1f;
+
+    if (movement.magnitude > 0) 
+    {
+      animator.Play ("walk");
+    }
+
+    if (previousFlip != flip) 
+    {
+      this.transform.localScale = new Vector3 (Mathf.Abs (this.transform.localScale.x) * flip, this.transform.localScale.y, this.transform.localScale.z);
+    }
   }
 
   private void Attacking()
@@ -409,6 +415,9 @@ public class PlayerScript : MonoBehaviour
 
       Vector3 shootDirection = new Vector3 (direction.x, 0.15f, direction.z);
 
+      BallRelativePosition = Vector3.Scale(Vector3.Normalize(shootDirection), ballDistance);
+      ball.ApplyBallPosition();
+
       Shooting(shootDirection, 200f, true);
 
       ball = null;
@@ -436,11 +445,23 @@ public class PlayerScript : MonoBehaviour
 
   public void BackToYourPlace()
   {
+    IsActive = false;
+
     StartCoroutine (Interpolators.Curve (Interpolators.EaseInOutCurve, this.transform.position, startPosition, 2f, 
      (s) => 
      {
-      this.transform.position = s;
-     }, null));
+      // Hack flip
+      movement = Vector3.Normalize(s) * -1;
+      UpdateFlip();
+      movement = Vector2.zero;
+
+      animator.Play("walk");
+
+      this.transform.position = new Vector3(s.x, this.transform.position.y, s.z);
+     }, 
+    () => {
+      IsActive = true;
+    }));
   }
 
   public bool IsActive 
