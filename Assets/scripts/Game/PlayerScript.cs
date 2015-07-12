@@ -328,9 +328,9 @@ public class PlayerScript : MonoBehaviour
       return;
 
     // Shooooot
-    Vector3 shootDirection = new Vector3 (ballDirection.x, 0.25f * definition.lobForce, ballDirection.z);
+    Vector3 shootDirection = new Vector3 (ballDirection.x, 0.25f * definition.lobForceFactor, ballDirection.z);
 
-    Shooting (shootDirection, 350f, false);
+    Shooting (shootDirection, definition.shootForce, false);
 
     ball = null;
 
@@ -352,7 +352,7 @@ public class PlayerScript : MonoBehaviour
 
     Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
 
-    Shooting (shootDirection, 40f, false);
+    Shooting (shootDirection, definition.attackForce, false);
 
     CameraShaker.ShakeCamera (0.1f, 0.15f);
   }
@@ -375,7 +375,7 @@ public class PlayerScript : MonoBehaviour
       BallRelativePosition = Vector3.Scale(Vector3.Normalize(shootDirection), ballDistance);
       ball.ApplyBallPosition();
 
-      Shooting(shootDirection, 200f, true);
+      Shooting(shootDirection, definition.passForce, true);
 
       ball = null;
 

@@ -17,9 +17,10 @@ public class PlayerDefinition : ScriptableObject
   [Header("Stats")]
   public ROLE role = ROLE.Defense;
   public int speed = 1;
-  public int shootForce = 1;
-  public int lobForce = 1;
-  public int attackForce;
+  public int shootForce = 350;
+  public int passForce = 200;
+  public int lobForceFactor = 1;
+  public int attackForce = 40;
 
   [Header("Menu")]
   public Sprite avatar;
