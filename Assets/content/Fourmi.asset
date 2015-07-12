@@ -14,7 +14,7 @@ MonoBehaviour:
   team: 1
   role: 1
   speed: 5
-  shootForce: 1
+  shootForce: 300
   passForce: 200
   lobForceFactor: 1
   attackForce: 40
