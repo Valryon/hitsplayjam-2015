@@ -63,9 +63,60 @@ public class GameScript : MonoBehaviour
     }
   }
 
+  private PlayerScript getPlayer(List<PlayerScript> team, ROLE role){
+    foreach(PlayerScript p in team){
+      Debug.Log(p.name + "  role "+ p.definition.role + "  init "+ p.initialized);
+      if(p.definition.role == role &&  ! p.initialized)
+        return p;
+    }
+    foreach(PlayerScript p in team){
+      if(p.definition.role != ROLE.Keeper  &&  ! p.initialized)
+        return p;
+    }
+    return null;
+    
+  }
+
+  private void positionPlayers(List<PlayerScript> team, GameObject place){
+
+    foreach (Transform pos in place.transform) {
+
+      Debug.Log (pos);
+      var role = ROLE.Attack;
+      var r = pos.gameObject.name;
+      if (r == "goal")
+        role = ROLE.Keeper;
+      else if (r == "def" || r == "def2")
+        role = ROLE.Defense;
+      else
+        role = ROLE.Attack;
+      
+      var p = getPlayer (team, role);
+      p.startPosition  = pos.position;
+      p.initialized = true;
+      StartCoroutine (Interpolators.Curve (
+        Interpolators.EaseOutCurve,
+        p.transform.position,
+        pos.position,
+        4f,
+        step => p.transform.position = step,
+        null
+      ));
+    }
+  }
+
   void Start () 
   {
+
     timeLeft = time;
+    //placing players
+    GameObject place1 = GameObject.FindGameObjectsWithTag ("Places1")[0];
+    positionPlayers (team1, place1);
+    GameObject place2 = GameObject.FindGameObjectsWithTag ("Places2")[0];
+    positionPlayers (team2, place2);
+
+
+
 	}
 	
 	void Update () 
