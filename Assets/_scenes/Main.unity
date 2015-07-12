@@ -8305,7 +8305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502f7215791d04910a639b539d1cb08d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 60
+  time: 180
   crowd: {fileID: 478018768}
   team1: []
   team2: []
