@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_scenes/TitleScreen.unity
   - enabled: 1
+    path: Assets/_scenes/HowToPlay.unity
+  - enabled: 1
     path: Assets/_scenes/Selection.unity
   - enabled: 1
     path: Assets/_scenes/Main.unity
