@@ -9,15 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
-  m_Name: Panda
+  m_Name: Tortue
   m_EditorClassIdentifier: 
-  role: 2
+  role: 1
   speed: 1
-  shootForce: 5
-  lobForce: 5
-  avatar: {fileID: 0}
-  avatarBg: {fileID: 0}
-  avatarBgNb: {fileID: 0}
-  shiityName: Charles le Panda
+  shootForce: 3
+  lobForce: 1
+  avatar: {fileID: 21300000, guid: d8a0ca1a6baa24ff8bf87e5e061f1e24, type: 3}
+  avatarBg: {fileID: 21300000, guid: 53263ac63c1b84d59997b4b2dca3b177, type: 3}
+  avatarBgNb: {fileID: 21300000, guid: 5611085438c334660807d368ad46c151, type: 3}
+  shiityName: TODO
   biography: 
-  specialScriptName: PandaScript
+  specialScriptName: TortueScript
