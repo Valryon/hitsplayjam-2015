@@ -10,16 +10,16 @@ public class TitleScreenScript : MonoBehaviour
 
   void Awake()
   {
-    music.enabled = false;
+    music.Stop ();
     animator.Play("start");
   }
 
   void Start()
   {
-    SoundsScript.Play ("title", Vector3.zero);
+    var c = SoundsScript.Play ("title", Vector3.zero);
 
-    StartCoroutine (Timer.Start (1f, () => {
-      music.enabled = true;
+    StartCoroutine (Timer.Start (c.length / 2f, () => {
+      music.Play();
     }));
   }
 
