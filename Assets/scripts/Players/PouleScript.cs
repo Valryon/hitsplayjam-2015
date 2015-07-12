@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PouleScript : PlayerSpecialScript 
+public class PouleScript : PlayerScript 
 {
 
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MulotScript : PlayerSpecialScript 
+public class MulotScript : PlayerScript 
 {
 
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NarvalScript : PlayerSpecialScript 
+public class NarvalScript : PlayerScript 
 {
 
 }

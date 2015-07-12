@@ -1681,7 +1681,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454430, guid: 957c66594f9f44698ae093478985219a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11479282, guid: 957c66594f9f44698ae093478985219a, type: 2}
       propertyPath: team
@@ -2282,8 +2282,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 259271415}
   - {fileID: 788701929}
+  - {fileID: 259271415}
   - {fileID: 2104211392}
   - {fileID: 2047102374}
   - {fileID: 449077961}
@@ -7234,7 +7234,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442888, guid: 98e5bbdbb5464416f8fd8ed7e0d2b2e9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11440432, guid: 98e5bbdbb5464416f8fd8ed7e0d2b2e9, type: 2}
       propertyPath: team

@@ -29,6 +29,4 @@ public class PlayerDefinition : ScriptableObject
   public Sprite avatarBgNb;
   public string shiityName;
   public string biography;
-
-  public string specialScriptName;
 }

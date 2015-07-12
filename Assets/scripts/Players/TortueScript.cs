@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TortueScript : PlayerSpecialScript 
+public class TortueScript : PlayerScript 
 {
 
 }
