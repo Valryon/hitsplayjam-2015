@@ -11,12 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Tortue
   m_EditorClassIdentifier: 
+  team: 1
   role: 1
   speed: 1
-  shootForce: 3
-  lobForce: 1
+  shootForce: 300
+  passForce: 200
+  lobForceFactor: 1
+  attackForce: 40
   avatar: {fileID: 21300000, guid: f97dd2ee444ff41b394ecc2321ff003a, type: 3}
-  avatarBg: {fileID: 21300000, guid: 37229702b1460401592874f7c8c70942, type: 3}
-  avatarBgNb: {fileID: 21300000, guid: 483eaf898797845d8a5af4e3612317e0, type: 3}
+  avatarMenu: {fileID: 21300000, guid: 019cbb5d96b8b4426a0d56c15fe39e80, type: 3}
+  avatarMenuNb: {fileID: 21300000, guid: 821733c1ea1e84293b2cdcd5aa25d65a, type: 3}
   shiityName: Caroline la Tortue
   biography: 

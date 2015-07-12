@@ -14,11 +14,12 @@ MonoBehaviour:
   team: 2
   role: 1
   speed: 3
-  shootForce: 3
-  lobForce: 2
-  attackForce: 0
+  shootForce: 300
+  passForce: 200
+  lobForceFactor: 1
+  attackForce: 40
   avatar: {fileID: 21300000, guid: b55733f70b1fb4d2ebffdc28c408b362, type: 3}
-  avatarBg: {fileID: 21300000, guid: e71227afca4574c1ca23f8ff9abdbe59, type: 3}
-  avatarBgNb: {fileID: 21300000, guid: 755e9b0a7d7544015872dea628786989, type: 3}
+  avatarMenu: {fileID: 21300000, guid: 019cbb5d96b8b4426a0d56c15fe39e80, type: 3}
+  avatarMenuNb: {fileID: 21300000, guid: 821733c1ea1e84293b2cdcd5aa25d65a, type: 3}
   shiityName: "G\xE9rard Mulot"
   biography: 

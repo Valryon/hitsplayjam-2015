@@ -6,38 +6,19 @@ using UnityEngine.UI;
 public class SelectionScreenItemScript : MonoBehaviour 
 {
   public PlayerDefinition defition;
-  public Image image;
-  public Image fond;
-  public Image fondnb;
-  public Text text;
+  public Button button;
 
   void Awake()
   {
-    SetDefinition (defition);
+    SpriteState s = button.spriteState;
 
-    Deselect ();
+    s.highlightedSprite = defition.avatarMenu;
+    s.disabledSprite = defition.avatarMenuNb;
+    s.pressedSprite = defition.avatarMenu;
+    button.image.sprite = defition.avatarMenuNb;
+
+    button.spriteState = s;
   }
 
-  public void SetDefinition(PlayerDefinition d)
-  {
-    this.defition = d;
-
-    image.sprite = defition.avatar;
-    fond.sprite = defition.avatarBg;
-    fondnb.sprite = defition.avatarBgNb;
-
-    text.text = defition.shiityName;
-  }
-
-  public void Select()
-  {
-    fond.enabled = false;
-    transform.localScale = Vector3.one;
-  }
-
-  public void Deselect()
-  {
-    fond.enabled = true;
-    transform.localScale = Vector3.one * 0.65f;
-  }
+ 
 }
