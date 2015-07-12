@@ -420,9 +420,9 @@ public class PlayerScript : MonoBehaviour
     }
   }
 
-  private void Shooting(Vector3 direction, float forceBase, bool pass)
+  private void Shooting(Vector3 direction, float force, bool pass)
   {
-    Vector3 force = direction * forceBase * definition.shootForce;
+    Vector3 f = direction * force;
 
     BallScript b = ball;
     if (b == null) 
@@ -430,7 +430,7 @@ public class PlayerScript : MonoBehaviour
       b = FindObjectOfType<BallScript>();
     }
   
-    b.Launch (force, pass);
+    b.Launch (f, pass);
 
     SoundsScript.Play ("balle", this.transform.position);
 

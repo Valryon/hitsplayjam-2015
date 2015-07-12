@@ -165,8 +165,8 @@ public class GameScript : MonoBehaviour
       InputHandleSelection (false);
 
       // Crowd sound volume related to ball distance
-      float distance1 = Vector3.Distance (goal1.transform.position, ball.transform.position);
-      float distance2 = Vector3.Distance (goal2.transform.position, ball.transform.position);
+      float distance1 = Mathf.Abs (goal1.transform.position.x - ball.transform.position.x);
+      float distance2 = Mathf.Abs (goal2.transform.position.x - ball.transform.position.x);
 
       float distance = Mathf.Min(distance1, distance2);
 
