@@ -288,6 +288,9 @@ public class PlayerScript : MonoBehaviour
     if (this.ball != null)
       return;
 
+    if (IsActive == false)
+      return;
+
     BallScript b = c.GetComponent<BallScript> ();
 
     // Touching the ball

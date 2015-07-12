@@ -7,6 +7,7 @@ public class BallCamera : MonoBehaviour
 
   private BallScript ball;
 
+  private float speedWithPlayer = 0.15f;
   private float speed = 0.04f;
   private float speedZ = 1f;
   private float speedBoost = 1f;
@@ -76,7 +77,10 @@ public class BallCamera : MonoBehaviour
       directionSign = 1f;
     }
 
-    float currentX = this.transform.position.x + (directionX * speed * speedBoost);
+    float speedToUse = (ball.linkedPlayer != null ? speedWithPlayer : speed);
+    Debug.Log (speedToUse);
+
+    float currentX = this.transform.position.x + (directionX * speedToUse * speedBoost);
 
     targetZ = ball.transform.position.z + diffZ;
 
