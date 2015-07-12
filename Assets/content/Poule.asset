@@ -15,9 +15,8 @@ MonoBehaviour:
   speed: 2
   shootForce: 2
   lobForce: 2
-  avatar: {fileID: 21300000, guid: d8a0ca1a6baa24ff8bf87e5e061f1e24, type: 3}
-  avatarBg: {fileID: 21300000, guid: 53263ac63c1b84d59997b4b2dca3b177, type: 3}
-  avatarBgNb: {fileID: 21300000, guid: 5611085438c334660807d368ad46c151, type: 3}
-  shiityName: TODO
+  avatar: {fileID: 21300000, guid: c4889fa6cd7ce42c9885ef6246002be3, type: 3}
+  avatarBg: {fileID: 21300000, guid: ed66aa472c62c4defbd57a3241f31c78, type: 3}
+  avatarBgNb: {fileID: 21300000, guid: 998f71078cb8d41ebafa1ad0663d1ec7, type: 3}
+  shiityName: "Agn\xE8s la Poule"
   biography: 
-  specialScriptName: PouleScript

@@ -15,9 +15,8 @@ MonoBehaviour:
   speed: 3
   shootForce: 3
   lobForce: 2
-  avatar: {fileID: 0}
-  avatarBg: {fileID: 0}
-  avatarBgNb: {fileID: 0}
-  shiityName: Joe le Mulot
+  avatar: {fileID: 21300000, guid: b55733f70b1fb4d2ebffdc28c408b362, type: 3}
+  avatarBg: {fileID: 21300000, guid: e71227afca4574c1ca23f8ff9abdbe59, type: 3}
+  avatarBgNb: {fileID: 21300000, guid: 755e9b0a7d7544015872dea628786989, type: 3}
+  shiityName: "G\xE9rard Mulot"
   biography: 
-  specialScriptName: MulotScript

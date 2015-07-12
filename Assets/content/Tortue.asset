@@ -15,9 +15,8 @@ MonoBehaviour:
   speed: 1
   shootForce: 3
   lobForce: 1
-  avatar: {fileID: 21300000, guid: d8a0ca1a6baa24ff8bf87e5e061f1e24, type: 3}
-  avatarBg: {fileID: 21300000, guid: 53263ac63c1b84d59997b4b2dca3b177, type: 3}
-  avatarBgNb: {fileID: 21300000, guid: 5611085438c334660807d368ad46c151, type: 3}
-  shiityName: TODO
+  avatar: {fileID: 21300000, guid: f97dd2ee444ff41b394ecc2321ff003a, type: 3}
+  avatarBg: {fileID: 21300000, guid: 37229702b1460401592874f7c8c70942, type: 3}
+  avatarBgNb: {fileID: 21300000, guid: 483eaf898797845d8a5af4e3612317e0, type: 3}
+  shiityName: Caroline la Tortue
   biography: 
-  specialScriptName: TortueScript
