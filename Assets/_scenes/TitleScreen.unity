@@ -114,7 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd62a493cf284d0f83513aafdd41bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 1158894370}
   animator: {fileID: 1239207710}
+  button: {fileID: 803106684}
 --- !u!4 &310866621
 Transform:
   m_ObjectHideFlags: 0
