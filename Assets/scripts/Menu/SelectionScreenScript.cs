@@ -12,13 +12,7 @@ public class SelectionScreenScript : MonoBehaviour
   }
 
   void Update()
-  {
-    if (button.interactable) {
-      if(Input.anyKey)
-      {
-        StartGame();
-      }
-    }
+   {
   }
 
 	public void StartGame()
