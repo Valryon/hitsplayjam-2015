@@ -132,18 +132,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c61a9e3f93f4f57868fbd80175818b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  definition: {fileID: 11400000, guid: fbaeee5ab820249b0b2d4b1a2910aef9, type: 2}
-  ballDistance: {x: 2, y: 0, z: 1}
-  defaultAnimationTeam1: {fileID: 11400000, guid: ccee0d2adffb046e39af72dba5579d99,
+  definition: {fileID: 11400000, guid: f8ca84ca6f985436698e83b836745cb8, type: 2}
+  ballDistance: {x: 1, y: 0, z: 1}
+  defaultAnimationTeam1: {fileID: 11400000, guid: c048aa381073b4a3bac1c306331b632f,
     type: 2}
   animationsTeam1:
-  - {fileID: 11400000, guid: ccee0d2adffb046e39af72dba5579d99, type: 2}
-  - {fileID: 11400000, guid: 10955975cae8146aeb63853d6f1cdf9d, type: 2}
-  defaultAnimationTeam2: {fileID: 11400000, guid: 008c2cbfd74cc46d59506502433c4ab7,
+  - {fileID: 11400000, guid: c048aa381073b4a3bac1c306331b632f, type: 2}
+  - {fileID: 11400000, guid: 409a41222b1bd43d2939a7ff9ec86879, type: 2}
+  defaultAnimationTeam2: {fileID: 11400000, guid: cf1836902933f4a3ba8f86d48a266c1b,
     type: 2}
   animationsTeam2:
-  - {fileID: 11400000, guid: 008c2cbfd74cc46d59506502433c4ab7, type: 2}
-  - {fileID: 11400000, guid: b250e4018fe2c44dc87ff303fd3e1d33, type: 2}
+  - {fileID: 11400000, guid: cf1836902933f4a3ba8f86d48a266c1b, type: 2}
+  - {fileID: 11400000, guid: 8740e418b8640484986ef54112b2dd5d, type: 2}
   team: 2
   number: 1
   ball: {fileID: 0}

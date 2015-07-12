@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c61a9e3f93f4f57868fbd80175818b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  definition: {fileID: 11400000, guid: 651d3895e8fb84d0b921ba5aa1c1d85f, type: 2}
+  definition: {fileID: 11400000, guid: a2eed3b685a8a4c1993e270f42372add, type: 2}
   ballDistance: {x: 2, y: 0, z: 1}
   defaultAnimationTeam1: {fileID: 11400000, guid: 7ed6bf4fc1b894e3faa1f7a43b0a2c0e,
     type: 2}
@@ -128,10 +128,6 @@ MonoBehaviour:
   animationsTeam2:
   - {fileID: 11400000, guid: c2c193343ca1744079be499b029b6bd9, type: 2}
   - {fileID: 11400000, guid: 85f0dca2f2a1546f6957bc79d6df7945, type: 2}
-  role: 0
-  speed: 4
-  shootForce: 2
-  lobForce: 1
   team: 1
   number: 1
   ball: {fileID: 0}

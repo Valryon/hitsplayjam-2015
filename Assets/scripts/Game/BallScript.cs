@@ -8,15 +8,17 @@ public class BallScript : MonoBehaviour
   public bool checkCollision ;
 
   public event System.Action BallReset; 
-  public event System.Action OnShoot; 
+  public event System.Action<bool, bool> OnShoot; 
 
   private Rigidbody rbody;
+  private Collider collidr;
   private Vector3 startPosition;
   private float rotationSpeed;
 	
   void Awake()
   {
     rbody = GetComponent<Rigidbody> ();
+    collidr = GetComponent<Collider> ();
 
     IsPickable = true;
     startPosition = this.transform.position;
@@ -88,19 +90,18 @@ public class BallScript : MonoBehaviour
     checkCollision = active;
   }
 
-  public void Launch (Vector3 force)
+  public void Launch (Vector3 force, bool pass)
   {
     rbody.velocity = Vector3.zero;
     rbody.angularVelocity = Vector3.zero;
 
-    // Ball cannot be picked for few seconds
     DisableFor (0.5f);
 
     linkedPlayer = null;
     Rigidbody.AddForce (force, ForceMode.Force);
 
     if (OnShoot != null)
-      OnShoot ();
+      OnShoot (!pass, pass);
   }
 
   public void DisableFor(float seconds)

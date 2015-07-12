@@ -173,8 +173,10 @@ public class PlayerScript : MonoBehaviour
           speedPenalty = 0.9f;
         }
 
+        const float baseSpeed = 2f;
+
         Vector3 direction = new Vector3 (x, 0, z);
-        movement = direction * definition.speed * speedPenalty;
+        movement = direction * baseSpeed * definition.speed * speedPenalty;
 
         // Change ball position
         const float deadZone = 0.5f;
@@ -349,9 +351,9 @@ public class PlayerScript : MonoBehaviour
       return;
 
     // Shooooot
-    Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
+    Vector3 shootDirection = new Vector3 (ballDirection.x, 0.25f * definition.lobForce, ballDirection.z);
 
-    Shooting (shootDirection, 1000f);
+    Shooting (shootDirection, 350f, false);
 
     ball = null;
   }
@@ -371,7 +373,7 @@ public class PlayerScript : MonoBehaviour
 
     Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
 
-    Shooting (shootDirection, 100f);
+    Shooting (shootDirection, 40f, false);
   }
 
   private void Pass()
@@ -385,16 +387,17 @@ public class PlayerScript : MonoBehaviour
     {
       // Small targeted shoot
       Vector3 direction = (nearest.transform.position - this.transform.position);
+      direction.Normalize();
 
-      Vector3 shootDirection = new Vector3 (direction.x, 0.15f * definition.lobForce, direction.z);
+      Vector3 shootDirection = new Vector3 (direction.x, 0.15f, direction.z);
 
-      Shooting(shootDirection, 50f);
+      Shooting(shootDirection, 200f, true);
 
       ball = null;
     }
   }
 
-  private void Shooting(Vector3 direction, float forceBase)
+  private void Shooting(Vector3 direction, float forceBase, bool pass)
   {
     Vector3 force = direction * forceBase * definition.shootForce;
 
@@ -404,7 +407,7 @@ public class PlayerScript : MonoBehaviour
       b = FindObjectOfType<BallScript>();
     }
   
-    b.Launch (force);
+    b.Launch (force, pass);
 
     SoundsScript.Play ("balle", this.transform.position);
 

@@ -7,7 +7,7 @@ public class BallCamera : MonoBehaviour
 
   private BallScript ball;
 
-  private float speed = 0.07f;
+  private float speed = 0.04f;
   private float speedZ = 1f;
   private float speedBoost = 1f;
   private float directionX, directionSign;
@@ -17,9 +17,14 @@ public class BallCamera : MonoBehaviour
   void Start()
   {
     ball = FindObjectOfType<BallScript> ();
-    ball.OnShoot += () => 
+    ball.OnShoot += (shoot, pass) => 
     {
-      speedBoost = 10f;
+      if(pass) {
+        speedBoost = 5f;
+      }
+      else {
+        speedBoost = 10f;
+      }
     };
     ball.BallReset += () =>  
     {
