@@ -1,34 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SelectionScreenScript : MonoBehaviour 
 {
-  public SelectionScreenItemScript prefab;
-  public List<PlayerDefinition> defs;
-
-  private SelectionScreenItemScript[] selectionPanels;
-  private SelectionScreenItemScript currentSelection;
+  public Button button;
 
   void Awake()
   {
-    selectionPanels = FindObjectsOfType<SelectionScreenItemScript> ();
-
-    Select (selectionPanels [0]);
   }
 
-  private void Select(SelectionScreenItemScript s)
+  void Update()
   {
-    if (currentSelection != null) 
-    {
-      currentSelection.Deselect();
+    if (button.interactable) {
+      if(Input.anyKey)
+      {
+        StartGame();
+      }
     }
-    currentSelection = s;
-    currentSelection.Select ();
   }
 
 	public void StartGame()
   {
+    button.interactable = false;
     Application.LoadLevel ("Main");
   }
 }

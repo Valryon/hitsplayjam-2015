@@ -23,6 +23,16 @@ public class TitleScreenScript : MonoBehaviour
     }));
   }
 
+  void Update()
+  {
+    if (button.interactable) {
+      if(Input.anyKey)
+      {
+        StartSelection();
+      }
+    }
+  }
+
 	public void StartSelection()
   {
     SoundsScript.Play ("play", Vector3.zero);
