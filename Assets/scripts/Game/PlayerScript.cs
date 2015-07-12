@@ -183,25 +183,31 @@ public class PlayerScript : MonoBehaviour
       dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
     else
       dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
-
+    var target = Vector3.zero;
     var side = Mathf.Sign (startPosition.z );
     var dz = Mathf.Sign (b.z - transform.position.z);
-    var z = Mathf.Abs (transform.position.z);
-    if (side <0){
-      if(p.z<-19)
-        dz = 1;
-      else if(p.z>-1)
-        dz = -1;
-    }
-    else{
-      if(p.z>19)
-        dz = -1;
-      else if(p.z<1)
-        dz = 1;
-    }
 
+    var z = Mathf.Abs (transform.position.z);
+    if(ball != null && ball.lastTeamTouch != definition.team){
+      dz = 0;
+
+    }
+    {
+      if (side <0){
+        if(p.z<-19)
+          dz = 1;
+        else if(p.z>-1)
+          dz = -1;
+      }
+      else{
+        if(p.z>19)
+          dz = -1;
+        else if(p.z<1)
+          dz = 1;
+      }
+    }
     if(startPosition.x>0){
-      if(p.x<0)
+      if(p.x<0 )
         dx =1;
       else if (p.x>30)
         dx = -1;
@@ -210,6 +216,25 @@ public class PlayerScript : MonoBehaviour
         dx =-1;
       else if (p.x < -30)
         dx = 1;
+    }
+
+    target.z = b.z;
+    if (side <0){
+      if(p.z<-19)
+        target.z = -19;
+      else if(p.z>-1)
+        target.z = -1;
+    }
+    else{
+      if(p.z>19)
+        target.z = 19;
+      else if(p.z<1)
+        target.z = 1;
+    }
+
+    dz = Mathf.Sign (p.z - target.z);
+    if (target.z - p.z < definition.speed) {
+      dz = 0;
     }
 
 
@@ -255,20 +280,38 @@ public class PlayerScript : MonoBehaviour
     var dz = Mathf.Sign (b.z - transform.position.z);
     var z = Mathf.Abs (transform.position.z);
     if (side <0){
-      if(p.z<-19)
+      if(p.z<-10)
         dz = 1;
-      else if(p.z>-1)
+      else if(p.z>-10)
         dz = -1;
     }
     else{
-      if(p.z>19)
+      if(p.z>10)
         dz = -1;
-      else if(p.z<1)
+      else if(p.z<10)
         dz = 1;
     }
-    if (  definition.team == 1) {
+    if (definition.team == 1) {
+      if(p.x>0){
+        dx=-1;
+
+      }
+      if(p.x<-28)
+        dx= 1;
+
+
+
+    } else {
+      if(p.x>0){
+        dx=1;
+        
+      }
+      if(p.x>28)
+        dx= -1;
+      
 
     }
+
 
 
    
@@ -285,13 +328,16 @@ public class PlayerScript : MonoBehaviour
     var p = transform.position;
     var dx = 0;
 
-    if (p.x != side * 32) {
-      dx = side;
+    //31 ligne de but
+    if (p.x != side * 31) {
+      if(Mathf.Abs(p.x -side * 31) > definition.speed )
+        dx = side;
     }
 
     var dz = 0f;
+
     if (Mathf.Abs (p.z) < 5)
-      dz = Mathf.Sign (b.z);
+      dz = Mathf.Sign (b.z- p.z);
     else {
       dz = Mathf.Sign (p.z) * -1;
     }
