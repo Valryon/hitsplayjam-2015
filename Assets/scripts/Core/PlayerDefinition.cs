@@ -28,4 +28,5 @@ public class PlayerDefinition : ScriptableObject
   public Sprite avatarMenuNb;
   public string shiityName;
   public string biography;
+  public AudioClip sound;
 }

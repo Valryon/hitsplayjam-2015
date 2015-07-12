@@ -22,4 +22,7 @@ MonoBehaviour:
   avatarMenu: {fileID: 21300000, guid: 019cbb5d96b8b4426a0d56c15fe39e80, type: 3}
   avatarMenuNb: {fileID: 21300000, guid: 821733c1ea1e84293b2cdcd5aa25d65a, type: 3}
   shiityName: "G\xE9rard Mulot"
-  biography: 
+  biography: "Choriste de son \xE9tat, il r\xEAve en secret de bronzer \xE0 No\xEBl,
+    m\xEAme s\u2019il n\u2019oppose pas beaucoup de r\xE9sistance \xE0 l\u2019\xE9quipe
+    adverse, avec laquelle il n\u2019h\xE9sitera pas \xE0 collaborer."
+  sound: {fileID: 8300000, guid: ea9936c9626b94dca82901e85a4a101e, type: 3}

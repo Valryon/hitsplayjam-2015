@@ -22,4 +22,7 @@ MonoBehaviour:
   avatarMenu: {fileID: 21300000, guid: 93666d7d54a124847a4113d454d39065, type: 3}
   avatarMenuNb: {fileID: 21300000, guid: 5d4baaa9fc7284a49a7383009b3b7edc, type: 3}
   shiityName: Pascal le Narval
-  biography: 
+  biography: "Pascal a toujours voulu \xEAtre un Digimon. Un jour, s\u2019\xE9criant
+    \xAB C\u2019est assez ! \xBB, il a quitt\xE9 le bassin d\u2019Arcachon pour s\u2019engager
+    dans l\u2019EAG, et toucher son r\xEAve du doigt \u2013non !- de la corne."
+  sound: {fileID: 8300000, guid: e91c927f18e6a465987093dedf1250e1, type: 3}

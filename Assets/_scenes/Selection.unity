@@ -1679,7 +1679,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Passe la souris sur un joueur pour d\xE9couvrir son histoire.\n\nAppui
+  m_Text: "Passe la souris sur un joueur pour d\xE9couvrir son histoire.\n\nAppuie
     sur JOUER quand tu es pr\xEAt !"
 --- !u!222 &1210198857
 CanvasRenderer:
@@ -2475,11 +2475,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dc00902669e3e47e39b3977eb38e346b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .25
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Priority: 128
+  Priority: 225
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
