@@ -78,7 +78,6 @@ public class BallCamera : MonoBehaviour
     }
 
     float speedToUse = (ball.linkedPlayer != null ? speedWithPlayer : speed);
-    Debug.Log (speedToUse);
 
     float currentX = this.transform.position.x + (directionX * speedToUse * speedBoost);
 

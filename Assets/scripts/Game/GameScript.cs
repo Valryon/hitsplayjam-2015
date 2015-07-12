@@ -12,8 +12,12 @@ public class GameScript : MonoBehaviour
 
   public float time = 60f;
 
+  public AudioSource crowd;
+
   public List<PlayerScript> team1;
   public List<PlayerScript> team2;
+  public GoalScript goal1;
+  public GoalScript goal2;
 
   public PlayerScript player1, player2;
   private int player1Index, player2Index;
@@ -60,6 +64,9 @@ public class GameScript : MonoBehaviour
     foreach (GoalScript g in  FindObjectsOfType<GoalScript>()) 
     {
       g.OnGoal += GOAL;
+
+      if(g.team == TEAM1) goal1 = g;
+      else if(g.team == TEAM2) goal2 = g;
     }
   }
 
@@ -150,6 +157,17 @@ public class GameScript : MonoBehaviour
       GameUIScript.SetTimerValue(timeLeft);
 
       InputHandleSelection (false);
+
+      // Crowd sound volume related to ball distance
+      float distance1 = Vector3.Distance (goal1.transform.position, ball.transform.position);
+      float distance2 = Vector3.Distance (goal2.transform.position, ball.transform.position);
+
+      float distance = Mathf.Min(distance1, distance2);
+
+      float percent = 1f - (distance / 30f);
+      percent = Mathf.Min(1f, percent);
+
+      crowd.volume = 0.2f + (0.8f * percent);
     }
 	}
 
