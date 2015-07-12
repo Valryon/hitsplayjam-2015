@@ -63,14 +63,13 @@ public class BallScript : MonoBehaviour
       linkedPlayer.BallLost();
       linkedPlayer = null;
     }
+    DisableFor (3f);
 
     this.transform.position = startPosition;
 		lastTeamTouch = 0;
 
     rbody.velocity = Vector3.zero;
     rbody.angularVelocity = Vector3.zero;
-
-    DisableFor (1.25f);
 
     if (BallReset != null)
       BallReset ();
