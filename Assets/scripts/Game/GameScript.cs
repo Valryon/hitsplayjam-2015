@@ -57,6 +57,8 @@ public class GameScript : MonoBehaviour
       };
     }
 
+    mire1.SetActive (false);
+    mire2.SetActive (false);
     team1 = players.Where (p => p.definition.team == TEAM1).ToList ();
     team2 = players.Where (p => p.definition.team == TEAM2).ToList ();
 
@@ -71,8 +73,7 @@ public class GameScript : MonoBehaviour
       else if(g.team == TEAM2) goal2 = g;
     }
 
-    mire1.SetActive (false);
-    mire2.SetActive (false);
+   
   }
 
  
@@ -310,6 +311,8 @@ public class GameScript : MonoBehaviour
     {
       // Always allow change
       if (p == player1 || p == player2)
+        continue;
+      if( p.definition.role ==ROLE.Keeper)
         continue;
 
       var distance = Vector3.Distance (p.transform.position, from.transform.position);

@@ -152,12 +152,15 @@ public class PlayerScript : MonoBehaviour
       {
 
         //Skynet prend le controle :) 
-        if(definition.role == ROLE.Defense)
-          Defending();
-        if(definition.role == ROLE.Attack)
-          Attacking();
-        if(definition.role == ROLE.Keeper)
+        if(definition.role == ROLE.Defense){
+          //Defending();
+        }
+        if(definition.role == ROLE.Attack){
+          //Attacking();
+        }
+        if(definition.role == ROLE.Keeper){
           Keeping();
+        }
 
 
       }
@@ -173,7 +176,7 @@ public class PlayerScript : MonoBehaviour
 
 
   private void Defending()
-  {
+  {/*
     var gs = GameObject.FindObjectOfType<GameScript> ();
     var b = gs.ball.transform.position;
     var dx = 0f;
@@ -236,10 +239,26 @@ public class PlayerScript : MonoBehaviour
     if (target.z - p.z < definition.speed) {
       dz = 0;
     }
+    */
+    var gs = GameObject.FindObjectOfType<GameScript> ();
+    var b = gs.ball.transform.position;
+    var dx = 0f;
+    var p = transform.position;
+    Vector3 tgt = Vector3.zero;
+
+    //equipe 1
+    if (definition.team == 1) {
+      var dist  = Vector3.Distance(b, transform.position);
+      if(dist >1){
 
 
+      }
 
-    movement = definition.speed * new Vector3 (dx,0,dz);
+
+    }
+    
+
+    movement = definition.speed * new Vector3 (dx,0,0);
   }
 
   private void UpdateFlip ()
