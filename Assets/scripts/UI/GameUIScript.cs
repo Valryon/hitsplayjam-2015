@@ -7,11 +7,13 @@ public class GameUIScript : MonoBehaviour
   private static GameUIScript instance;
 
   [Header("Bindings")]
+  public Animator animator;
   public Text score1;
   public Text score2;
   public Text timer;
   public Text player1;
   public Text player2;
+  public GameObject butPanel;
 
 	void Awake () 
   {
@@ -30,6 +32,8 @@ public class GameUIScript : MonoBehaviour
 
   private void Goal(GoalScript g)
   {
+    animator.SetTrigger ("but" + Random.Range (1, 4));
+
     if (g.team == GameScript.TEAM1) 
     {
       score1.text = g.score.ToString();
