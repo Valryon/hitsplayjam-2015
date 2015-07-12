@@ -36,7 +36,7 @@ public class BallCamera : MonoBehaviour
       this.transform.position = new Vector3(ball.transform.position.x, this.transform.position.y, this.transform.position.z);
     };
 
-    diffZ = this.transform.position.z - ball.transform.position.z;
+    diffZ = this.transform.position.z ;
   }
 
 	void Update () 

@@ -63,6 +63,8 @@ public class GameScript : MonoBehaviour
     }
   }
 
+ 
+
   private PlayerScript getPlayer(List<PlayerScript> team, ROLE role){
     foreach(PlayerScript p in team){
       Debug.Log(p.name + "  role "+ p.definition.role + "  init "+ p.initialized);
@@ -111,7 +113,7 @@ public class GameScript : MonoBehaviour
         ep,
         4f,
         step => p.transform.position = step,
-        ()=> p.IsActive = true
+        ()=> {p.IsActive = true; BallCamera.FollowBall= true; }
       ));
     }
   }
@@ -120,7 +122,7 @@ public class GameScript : MonoBehaviour
   {
     var t = Random.Range (1, 3);
 
-
+    BallCamera.FollowBall = false;
     timeLeft = time;
     //placing players
     GameObject place1 = GameObject.FindGameObjectsWithTag ("Places1")[0];
@@ -128,8 +130,8 @@ public class GameScript : MonoBehaviour
     GameObject place2 = GameObject.FindGameObjectsWithTag ("Places2")[0];
     positionPlayers (team2, place2, t == 2);
 
-
-
+    Debug.Log ("balll ? ");
+    StartCoroutine( Timer.Start (4f, ball.Reset));
 	}
 	
 	void Update () 

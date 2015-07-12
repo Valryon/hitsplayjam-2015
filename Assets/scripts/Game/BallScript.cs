@@ -21,7 +21,7 @@ public class BallScript : MonoBehaviour
     collidr = GetComponent<Collider> ();
 
     IsPickable = true;
-    startPosition = this.transform.position;
+    startPosition = new Vector3(0,5,0);
 
     this.setActive (true);
   }
@@ -58,12 +58,13 @@ public class BallScript : MonoBehaviour
 
   public void Reset()
   {
+    Debug.Log ("Reset ball");
     if (linkedPlayer != null) 
     {
       linkedPlayer.BallLost();
       linkedPlayer = null;
     }
-    DisableFor (3f);
+    //DisableFor (3f);
 
     this.transform.position = startPosition;
 		lastTeamTouch = 0;
