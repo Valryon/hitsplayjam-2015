@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - Places1
+  - Places2
   layers:
   - Default
   - TransparentFX

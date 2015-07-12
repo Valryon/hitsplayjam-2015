@@ -29,9 +29,11 @@ public class PlayerScript : MonoBehaviour
   private GameScript gameScript;
   private SimpleAnimator animator;
   private Vector3 ballDirection;
-  private Vector3 startPosition;
+  public Vector3 startPosition;
   private float flip;
   private bool touchingBall;
+
+  public bool initialized = false;
 
 	void Awake()
 	{
@@ -57,7 +59,7 @@ public class PlayerScript : MonoBehaviour
     BallRelativePosition = Vector3.Scale(ballDirection, ballDistance);
 
     IsActive = true;
-    startPosition = this.transform.position;
+
 
     flip = (team == GameScript.TEAM1 ? -1 : 1);
     this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y, this.transform.localScale.z);
