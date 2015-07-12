@@ -12,14 +12,14 @@ public class BallScript : MonoBehaviour
   public event System.Action<bool, bool> OnShoot; 
 
   private Rigidbody rbody;
-  private Collider collidr;
+//  private Collider collidr;
   private Vector3 startPosition;
   private float rotationSpeed;
 	
   void Awake()
   {
     rbody = GetComponent<Rigidbody> ();
-    collidr = GetComponent<Collider> ();
+//    collidr = GetComponent<Collider> ();
 
     IsPickable = true;
     startPosition = new Vector3(0,5,0);
