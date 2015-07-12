@@ -244,19 +244,34 @@ public class PlayerScript : MonoBehaviour
     var gs = GameObject.FindObjectOfType<GameScript> ();
     var b = gs.ball.transform.position;
     var dx = 0f;
-
+    var p = transform.position;
     if (gs.attacking == definition.team)
       dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
     else
       dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
 
-    var side = (transform.position.z < 0) ? -1 : 1; 
-    var dz = Random.Range(-1f,1f);
+   
+    var side = Mathf.Sign (startPosition.z );
+    var dz = Mathf.Sign (b.z - transform.position.z);
+    var z = Mathf.Abs (transform.position.z);
+    if (side <0){
+      if(p.z<-19)
+        dz = 1;
+      else if(p.z>-1)
+        dz = -1;
+    }
+    else{
+      if(p.z>19)
+        dz = -1;
+      else if(p.z<1)
+        dz = 1;
+    }
+    if (  definition.team == 1) {
 
-    if (side == 1)
-      dz = Mathf.Max (0, dz);
-    else
-      dz = Mathf.Min (0, dz);
+    }
+
+
+   
 
     movement = definition.speed * new Vector3 (dx,0,dz);
   }

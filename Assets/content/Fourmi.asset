@@ -11,10 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Fourmi
   m_EditorClassIdentifier: 
-  role: 1
+  team: 1
+  role: 0
   speed: 5
   shootForce: 1
-  lobForce: 1
+  passForce: 200
+  lobForceFactor: 1
+  attackForce: 40
   avatar: {fileID: 21300000, guid: 212d0f195196b4792b472025e4287105, type: 3}
   avatarBg: {fileID: 21300000, guid: 4109c68ac51aa4d55bd586a0a91bf028, type: 3}
   avatarBgNb: {fileID: 21300000, guid: dd03622d8c2e244a59a9cad7fe274436, type: 3}
