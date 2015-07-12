@@ -2296,7 +2296,7 @@ Transform:
   - {fileID: 592369705}
   - {fileID: 432877815}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!82 &478018768
 AudioSource:
   m_ObjectHideFlags: 0

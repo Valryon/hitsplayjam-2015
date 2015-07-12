@@ -153,17 +153,15 @@ public class PlayerScript : MonoBehaviour
       } // Selected
       else 
       {
-        var gs  = GameObject.FindObjectOfType<GameScript>();
-        if(gs.attacking !=0)
-        {
-          //Skynet prend le controle :) 
-          if(definition.role == ROLE.Defense)
-            Defending();
-          if(definition.role == ROLE.Attack)
-            Attacking();
-          if(definition.role == ROLE.Keeper)
-            Keeping();
-        }
+
+        //Skynet prend le controle :) 
+        if(definition.role == ROLE.Defense)
+          Defending();
+        if(definition.role == ROLE.Attack)
+          Attacking();
+        if(definition.role == ROLE.Keeper)
+          Keeping();
+
 
       }
     } // Active
@@ -190,11 +188,17 @@ public class PlayerScript : MonoBehaviour
 
     var side = (transform.position.z < 0) ? -1 : 1; 
     var dz = Mathf.Sign (b.z - transform.position.z);
+    
 
+
+  
     if (side == 1)
       dz = Mathf.Max (0, dz);
     else
       dz = Mathf.Min (0, dz);
+    if (gs.attacking == team) {
+      dz = 0;
+    }
 
     movement = definition.speed * new Vector3 (dx,0,dz);
   }
