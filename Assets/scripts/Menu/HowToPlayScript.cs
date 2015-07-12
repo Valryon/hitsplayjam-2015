@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class SelectionScreenScript : MonoBehaviour 
+public class HowToPlayScript : MonoBehaviour 
 {
   public Button button;
 
@@ -18,6 +18,6 @@ public class SelectionScreenScript : MonoBehaviour
 	public void StartGame()
   {
     button.interactable = false;
-    Application.LoadLevel ("HowToPlay");
+    Application.LoadLevel ("Main");
   }
 }

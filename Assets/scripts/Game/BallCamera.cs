@@ -30,6 +30,10 @@ public class BallCamera : MonoBehaviour
 
       decreaseSpeedBoostCooldown = 1.5f;
     };
+    ball.BallPicked += (p) => 
+    {
+      speedBoost = 1f;
+    };
     ball.BallReset += () =>  
     {
       speedBoost = 1f;

@@ -47,12 +47,12 @@ public class GameUIScript : MonoBehaviour
   {
     animator.SetTrigger ("but" + Random.Range (1, 4));
 
-    if (g.team == GameScript.TEAM1) 
+    if (g.GoalTeam == GameScript.TEAM1) 
     {
       score1.text = g.score.ToString();
       instance.butImage.sprite = gameScript.player1.definition.avatar;
     } 
-    else if (g.team == GameScript.TEAM2) 
+    else if (g.GoalTeam == GameScript.TEAM2) 
     {
       score2.text = g.score.ToString();
       instance.butImage.sprite = gameScript.player2.definition.avatar;
