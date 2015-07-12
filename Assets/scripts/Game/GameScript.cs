@@ -206,6 +206,8 @@ public class GameScript : MonoBehaviour
 
   private void GOAL(GoalScript goalScript)
   {
+    paused = true;
+
     SoundsScript.Play ("but", goalScript.transform.position);
 
     // Text, particles, juice
@@ -228,12 +230,25 @@ public class GameScript : MonoBehaviour
       ball.Reset();
       BallCamera.FollowBall = true;
       CameraShaker.Clean();
+
+      paused = false;
     }));
   }
 
   private void GameOver()
   {
+    paused = true;
 
+    foreach (var p in team1) 
+    {
+      p.IsActive = false;
+    }
+    foreach (var p in team2) 
+    {
+      p.IsActive = false;
+    }
+
+    GameUIScript.GameOver ();
   }
 
   public PlayerScript GetNearestPlayer (List<PlayerScript> ps, GameObject from)

@@ -6,14 +6,21 @@ public class GameUIScript : MonoBehaviour
 {
   private static GameUIScript instance;
 
-  [Header("Bindings")]
   public Animator animator;
+
+  [Header("Bindings: HUD")]
   public Text score1;
   public Text score2;
   public Text timer;
   public Text player1;
   public Text player2;
+
+  [Header("Bindings: But")]
   public GameObject butPanel;
+  public Image butImage;
+
+  [Header("Bindings: Game Over")]
+  public GameObject gameOverPanel;
 
 	void Awake () 
   {
@@ -28,6 +35,8 @@ public class GameUIScript : MonoBehaviour
     score2.text = "0";
     player1.text = "";
     player2.text = "";
+
+    instance.gameOverPanel.SetActive (false);
 	}
 
   private void Goal(GoalScript g)
@@ -49,6 +58,16 @@ public class GameUIScript : MonoBehaviour
 	
 	}
 
+  public void RestartGame()
+  {
+    Application.LoadLevel ("TitleScreen");
+  }
+
+  public void ExitGame()
+  {
+    Application.Quit ();
+  }
+
   public static void SetTimerValue(float t)
   {
     if (instance != null) 
@@ -64,6 +83,13 @@ public class GameUIScript : MonoBehaviour
     } else {
       instance.player2.text = p.definition.shiityName;
     }
+
+    instance.butImage.sprite = p.definition.avatar;
+  }
+
+  public static void GameOver()
+  {
+    instance.gameOverPanel.SetActive (true);
   }
 
 
