@@ -77,8 +77,10 @@ public class GameScript : MonoBehaviour
     
   }
 
-  private void positionPlayers(List<PlayerScript> team, GameObject place){
+  private void positionPlayers(List<PlayerScript> team, GameObject place, bool engament){
 
+    int i = 0;
+    var eng = GameObject.FindGameObjectsWithTag ("Engament");
     foreach (Transform pos in place.transform) {
 
       Debug.Log (pos);
@@ -92,28 +94,39 @@ public class GameScript : MonoBehaviour
         role = ROLE.Attack;
       
       var p = getPlayer (team, role);
-      p.startPosition  = pos.position;
+
+      var ep = pos.position;
+      if (engament && role == ROLE.Attack){
+          ep = eng[i].transform.position;
+          i++;
+      }
+
+
+      p.startPosition  = ep;
       p.initialized = true;
+      p.IsActive = false;
       StartCoroutine (Interpolators.Curve (
         Interpolators.EaseOutCurve,
         p.transform.position,
-        pos.position,
+        ep,
         4f,
         step => p.transform.position = step,
-        null
+        ()=> p.IsActive = true
       ));
     }
   }
 
   void Start () 
   {
+    var t = Random.Range (1, 3);
+
 
     timeLeft = time;
     //placing players
     GameObject place1 = GameObject.FindGameObjectsWithTag ("Places1")[0];
-    positionPlayers (team1, place1);
+    positionPlayers (team1, place1, t == 1);
     GameObject place2 = GameObject.FindGameObjectsWithTag ("Places2")[0];
-    positionPlayers (team2, place2);
+    positionPlayers (team2, place2, t == 2);
 
 
 
