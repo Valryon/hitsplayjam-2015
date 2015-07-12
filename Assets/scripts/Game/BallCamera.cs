@@ -13,6 +13,7 @@ public class BallCamera : MonoBehaviour
   private float directionX, directionSign;
 
   private float targetZ, diffZ;
+  private float decreaseSpeedBoostCooldown;
 
   void Start()
   {
@@ -20,11 +21,13 @@ public class BallCamera : MonoBehaviour
     ball.OnShoot += (shoot, pass) => 
     {
       if(pass) {
-        speedBoost = 5f;
+        speedBoost = 3f;
       }
       else {
         speedBoost = 10f;
       }
+
+      decreaseSpeedBoostCooldown = 1.5f;
     };
     ball.BallReset += () =>  
     {
@@ -49,9 +52,13 @@ public class BallCamera : MonoBehaviour
     else if (directionSign < 0f && directionX > 0f)
       directionX = 0f;
 
-    speedBoost -= 0.1f;
-    if (speedBoost < 1f)
-      speedBoost = 1f;
+    decreaseSpeedBoostCooldown -= Time.deltaTime;
+
+    if (decreaseSpeedBoostCooldown <= 0f) {
+      speedBoost -= 0.1f;
+      if (speedBoost < 1f)
+        speedBoost = 1f;
+    }
 
     // Rect on screen. If ball is outside, follow it.
     Vector3 viewportCoords = Camera.main.WorldToViewportPoint (ball.transform.position);

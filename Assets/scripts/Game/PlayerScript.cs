@@ -310,6 +310,20 @@ public class PlayerScript : MonoBehaviour
 
   void OnTriggerEnter(Collider c)
   {
+    HandleBallCollision (c);
+
+  }
+
+  void OnTriggerStay(Collider c)
+  {
+    HandleBallCollision (c);
+  }
+
+  void HandleBallCollision (Collider c)
+  {
+    if (this.ball != null)
+      return;
+
     BallScript b = c.GetComponent<BallScript> ();
 
     // Touching the ball
@@ -318,17 +332,17 @@ public class PlayerScript : MonoBehaviour
       touchingBall = true;
 
       // Link?
-      if(b.linkedPlayer == null && b.IsPickable)
+      if (b.linkedPlayer == null && b.IsPickable) 
       {
         b.linkedPlayer = this;
         this.ball = b;
 
         // Reset ball direction
-        ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
+        ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0);
 
-        if(OnBallPick != null)
+        if (OnBallPick != null) 
         {
-          OnBallPick(this);
+          OnBallPick (this);
         }
       }
     }
@@ -356,6 +370,8 @@ public class PlayerScript : MonoBehaviour
     Shooting (shootDirection, 350f, false);
 
     ball = null;
+
+    CameraShaker.ShakeCamera (0.2f, 0.3f);
   }
 
   public void BallLost ()
@@ -374,6 +390,8 @@ public class PlayerScript : MonoBehaviour
     Vector3 shootDirection = new Vector3 (ballDirection.x, 0.15f, ballDirection.z);
 
     Shooting (shootDirection, 40f, false);
+
+    CameraShaker.ShakeCamera (0.1f, 0.15f);
   }
 
   private void Pass()
@@ -394,6 +412,8 @@ public class PlayerScript : MonoBehaviour
       Shooting(shootDirection, 200f, true);
 
       ball = null;
+
+      CameraShaker.ShakeCamera (0.1f, 0.15f);
     }
   }
 
