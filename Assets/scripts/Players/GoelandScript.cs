@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GoelandScript : PlayerSpecialScript 
+public class GoelandScript : PlayerScript 
 {
 
 }
