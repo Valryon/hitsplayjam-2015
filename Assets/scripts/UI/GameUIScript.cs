@@ -21,6 +21,7 @@ public class GameUIScript : MonoBehaviour
 
   [Header("Bindings: Game Over")]
   public GameObject gameOverPanel;
+  public Text winners;
 
   private GameScript gameScript;
 
@@ -47,12 +48,12 @@ public class GameUIScript : MonoBehaviour
   {
     animator.SetTrigger ("but" + Random.Range (1, 4));
 
-    if (g.GoalTeam == GameScript.TEAM1) 
+    if (g.team == GameScript.TEAM1) 
     {
       score1.text = g.score.ToString();
       instance.butImage.sprite = gameScript.player1.definition.avatar;
     } 
-    else if (g.GoalTeam == GameScript.TEAM2) 
+    else if (g.team == GameScript.TEAM2) 
     {
       score2.text = g.score.ToString();
       instance.butImage.sprite = gameScript.player2.definition.avatar;
@@ -94,9 +95,16 @@ public class GameUIScript : MonoBehaviour
     }
   }
 
-  public static void GameOver()
+  public static void GameOver(int winners)
   {
     instance.gameOverPanel.SetActive (true);
+
+    if (winners == 0) {
+      instance.winners.text = "EX-AEQUO";
+    }
+    else{
+      instance.winners.text = "TEAM " + winners + "TEAM A GAGNE";
+    }
   }
 
 

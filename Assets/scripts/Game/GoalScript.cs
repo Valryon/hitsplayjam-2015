@@ -25,7 +25,6 @@ public class GoalScript : MonoBehaviour
     BallScript ball = c.gameObject.GetComponent<BallScript> ();
     if (ball != null) 
     {
-      GoalTeam = ball.lastTeamTouch;
       Goal ();
     }
   }
@@ -44,10 +43,5 @@ public class GoalScript : MonoBehaviour
     StartCoroutine(Timer.Start(5f, () => {
       col.enabled = true;
     }));
-  }
-
-  public int GoalTeam {
-    get;
-    private set;
   }
 }

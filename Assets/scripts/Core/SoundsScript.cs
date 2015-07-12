@@ -11,8 +11,15 @@ public class SoundsScriptEntry
 public class SoundsScript : MonoBehaviour 
 {
   public SoundsScriptEntry[] list;
-	
+
   private static SoundsScript instance;
+
+  private static System.Random betterRandom;
+
+  static SoundsScript()
+  {
+    betterRandom = new System.Random (System.DateTime.Now.Millisecond);
+  } 
 
   void Awake()
   {
@@ -21,20 +28,31 @@ public class SoundsScript : MonoBehaviour
 
   public static AudioClip Play(string name, Vector3 position)
   {
+    AudioClip c = Get (name);
+
+    if (c != null) 
+    {
+      PlayClip (c, position);
+    }
+
+    return c;
+  }
+
+  public static AudioClip Get (string name)
+  {
     if (instance == null)
       return null;
-
+    
     foreach (var e in instance.list) 
     {
       if(e.name.ToLower() == name.ToLower())
       {
-        var c = e.clips[Random.Range(0, e.clips.Length)];
-        PlayClip(c, position);
-
+        var c = e.clips[betterRandom.Next(0, e.clips.Length)];
+        
         return c;
       }
     }
-
+    
     return null;
   }
 
