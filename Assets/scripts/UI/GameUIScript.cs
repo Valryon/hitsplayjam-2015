@@ -22,9 +22,13 @@ public class GameUIScript : MonoBehaviour
   [Header("Bindings: Game Over")]
   public GameObject gameOverPanel;
 
+  private GameScript gameScript;
+
 	void Awake () 
   {
     instance = this;
+
+    gameScript = FindObjectOfType<GameScript> ();
 
     foreach (var goal in FindObjectsOfType<GoalScript>()) 
     {
@@ -46,10 +50,12 @@ public class GameUIScript : MonoBehaviour
     if (g.team == GameScript.TEAM1) 
     {
       score1.text = g.score.ToString();
+      instance.butImage.sprite = gameScript.player1.definition.avatar;
     } 
     else if (g.team == GameScript.TEAM2) 
     {
       score2.text = g.score.ToString();
+      instance.butImage.sprite = gameScript.player2.definition.avatar;
     }
   }
 	
@@ -78,13 +84,14 @@ public class GameUIScript : MonoBehaviour
 
   public static void SetPlayer(int team, PlayerScript p)
   {
-    if (team == GameScript.TEAM1) {
+    if (team == GameScript.TEAM1) 
+    {
       instance.player1.text = p.definition.shiityName;
-    } else {
+    } 
+    else 
+    {
       instance.player2.text = p.definition.shiityName;
     }
-
-    instance.butImage.sprite = p.definition.avatar;
   }
 
   public static void GameOver()

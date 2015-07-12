@@ -294,6 +294,8 @@ public class GameScript : MonoBehaviour
       p.IsActive = false;
     }
 
+    SoundsScript.Play ("tatata", Vector3.zero);
+
     GameUIScript.GameOver ();
   }
 
