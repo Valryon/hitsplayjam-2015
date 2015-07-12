@@ -32,6 +32,7 @@ public class PlayerScript : MonoBehaviour
   public Vector3 startPosition;
   private float flip;
   private bool touchingBall;
+  public bool IAActive = false;
 
   public bool initialized = false;
 
@@ -180,25 +181,42 @@ public class PlayerScript : MonoBehaviour
     var gs = GameObject.FindObjectOfType<GameScript> ();
     var b = gs.ball.transform.position;
     var dx = 0f;
+    var p = transform.position;
 
     if (team == 2)
       dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
     else
       dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x-transform.position.x);
 
-    var side = (transform.position.z < 0) ? -1 : 1; 
+    var side = Mathf.Sign (startPosition.z );
     var dz = Mathf.Sign (b.z - transform.position.z);
-    
-
-
-  
-    if (side == 1)
-      dz = Mathf.Max (0, dz);
-    else
-      dz = Mathf.Min (0, dz);
-    if (gs.attacking == team) {
-      dz = 0;
+    var z = Mathf.Abs (transform.position.z);
+    if (side <0){
+      if(p.z<-19)
+        dz = 1;
+      else if(p.z>-1)
+        dz = -1;
     }
+    else{
+      if(p.z>19)
+        dz = -1;
+      else if(p.z<1)
+        dz = 1;
+    }
+
+    if(startPosition.x>0){
+      if(p.x<0)
+        dx =1;
+      else if (p.x>30)
+        dx = -1;
+    }else {
+      if(p.x>0)
+        dx =-1;
+      else if (p.x < -30)
+        dx = 1;
+    }
+
+
 
     movement = definition.speed * new Vector3 (dx,0,dz);
   }

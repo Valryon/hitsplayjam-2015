@@ -18,6 +18,8 @@ public class GameScript : MonoBehaviour
   public List<PlayerScript> team2;
   public GoalScript goal1;
   public GoalScript goal2;
+  public GameObject mire1;
+  public GameObject mire2;
 
   public PlayerScript player1, player2;
   private int player1Index, player2Index;
@@ -68,6 +70,9 @@ public class GameScript : MonoBehaviour
       if(g.team == TEAM1) goal1 = g;
       else if(g.team == TEAM2) goal2 = g;
     }
+
+    mire1.SetActive (false);
+    mire2.SetActive (false);
   }
 
  
@@ -113,6 +118,7 @@ public class GameScript : MonoBehaviour
 
       p.startPosition  = ep;
       p.initialized = true;
+      p.IAActive = false;
       p.IsActive = false;
       StartCoroutine (Interpolators.Curve (
         Interpolators.EaseOutCurve,
@@ -120,7 +126,7 @@ public class GameScript : MonoBehaviour
         ep,
         4f,
         step => p.transform.position = step,
-        ()=> {p.IsActive = true; BallCamera.FollowBall= true; }
+        ()=> {p.IsActive = true; BallCamera.FollowBall= true;  p.IAActive = true;}
       ));
     }
   }
@@ -223,6 +229,10 @@ public class GameScript : MonoBehaviour
       }
       player1 = p;
       player1.IsSelected = true;
+
+      mire1.SetActive(true);
+      mire1.transform.parent = player1.transform;
+      mire1.transform.position = new Vector3(player1.transform.position.x, -1.4f, player1.transform.position.z);
     } 
     else if (team == TEAM2) 
     {
@@ -232,6 +242,10 @@ public class GameScript : MonoBehaviour
       }
       player2 = p;
       player2.IsSelected = true;
+
+      mire2.SetActive(true);
+      mire2.transform.parent = player2.transform;
+      mire2.transform.position = new Vector3(player2.transform.position.x, -1.4f, player2.transform.position.z);
     }
 
     GameUIScript.SetPlayer(team, p);
@@ -280,6 +294,8 @@ public class GameScript : MonoBehaviour
     {
       p.IsActive = false;
     }
+
+    SoundsScript.Play ("tatata", Vector3.zero);
 
     GameUIScript.GameOver ();
   }

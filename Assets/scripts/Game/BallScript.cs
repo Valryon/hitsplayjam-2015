@@ -53,7 +53,10 @@ public class BallScript : MonoBehaviour
 
   public void ApplyBallPosition ()
   {
-    this.transform.position = new Vector3 (linkedPlayer.transform.position.x + linkedPlayer.BallRelativePosition.x, this.transform.position.y, linkedPlayer.transform.position.z + linkedPlayer.BallRelativePosition.z);
+    if (linkedPlayer != null) 
+    {
+      this.transform.position = new Vector3 (linkedPlayer.transform.position.x + linkedPlayer.BallRelativePosition.x, this.transform.position.y, linkedPlayer.transform.position.z + linkedPlayer.BallRelativePosition.z);
+    }
   }
 
   public void Reset()
