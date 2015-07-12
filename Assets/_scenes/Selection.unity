@@ -132,7 +132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22467574, guid: 211aae833df72428895f481dfb2d7c44, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 71
+      value: 92.3000031
       objectReference: {fileID: 0}
     - target: {fileID: 22467574, guid: 211aae833df72428895f481dfb2d7c44, type: 2}
       propertyPath: m_SizeDelta.x
@@ -201,8 +201,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d93f321fd8f2400b8a46f3ab5d57655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionPanels: []
-  currentSelection: {fileID: 0}
+  prefab: {fileID: 1877118647}
+  defs:
+  - {fileID: 11400000, guid: 7d522a14e0dbe48c9a0fe8ecb109bdec, type: 2}
+  - {fileID: 11400000, guid: a2eed3b685a8a4c1993e270f42372add, type: 2}
+  - {fileID: 11400000, guid: 651d3895e8fb84d0b921ba5aa1c1d85f, type: 2}
+  - {fileID: 11400000, guid: f8ca84ca6f985436698e83b836745cb8, type: 2}
+  - {fileID: 11400000, guid: fbaeee5ab820249b0b2d4b1a2910aef9, type: 2}
+  - {fileID: 11400000, guid: f2485ab06e8f844f8b76169634976e4e, type: 2}
+  - {fileID: 11400000, guid: bac1c204880d240f3bc61cdd08e53faf, type: 2}
+  - {fileID: 11400000, guid: 8e3d39831abe24012a4687a422cc1727, type: 2}
 --- !u!4 &310866621
 Transform:
   m_ObjectHideFlags: 0
@@ -705,3 +713,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1877118647 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11491416, guid: 211aae833df72428895f481dfb2d7c44,
+    type: 2}
+  m_PrefabInternal: {fileID: 280553230}
+  m_Script: {fileID: 11500000, guid: f787de760648d43af9a37c0769b2d30a, type: 3}

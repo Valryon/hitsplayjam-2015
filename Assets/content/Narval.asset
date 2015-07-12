@@ -11,26 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Narval
   m_EditorClassIdentifier: 
+  role: 0
+  speed: 1
+  shootForce: 5
+  lobForce: 5
   avatar: {fileID: 21300000, guid: d8a0ca1a6baa24ff8bf87e5e061f1e24, type: 3}
   avatarBg: {fileID: 21300000, guid: d6c1af4eb8b784ffda95128816668b45, type: 3}
   avatarBgNb: {fileID: 21300000, guid: 2b38ad0c403464ccfad33a04105723dc, type: 3}
   shiityName: Pascal le Narval
   biography: 
-  defaultAnimationTeam1: {fileID: 11400000, guid: 75460736f3f6f44e0ac5be9436ae0062,
-    type: 2}
-  animationsTeam1:
-  - {fileID: 11400000, guid: 75460736f3f6f44e0ac5be9436ae0062, type: 2}
-  - {fileID: 11400000, guid: fb7be7f9f85e54204bf450a28ea391ed, type: 2}
-  defaultAnimationTeam2: {fileID: 11400000, guid: d734d06d97ef94320af2fc9b8c8d14e8,
-    type: 2}
-  animationsTeam2:
-  - {fileID: 11400000, guid: d734d06d97ef94320af2fc9b8c8d14e8, type: 2}
-  - {fileID: 11400000, guid: 659f402a12e314835b5e9670cc74823c, type: 2}
-  isGoalKeeper: 0
-  role: 0
-  scaleX: 3.5
-  scaleY: 1.5
-  speed: 1
-  shootForce: 5
-  lobForce: 1
   specialScriptName: NarvalScript

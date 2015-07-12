@@ -11,23 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Mulot
   m_EditorClassIdentifier: 
+  role: 1
+  speed: 3
+  shootForce: 3
+  lobForce: 2
   avatar: {fileID: 0}
+  avatarBg: {fileID: 0}
+  avatarBgNb: {fileID: 0}
   shiityName: Joe le Mulot
   biography: 
-  defaultAnimationTeam1: {fileID: 11400000, guid: 6ff2552e23ca4471894334cb4f69d359,
-    type: 2}
-  animationsTeam1:
-  - {fileID: 11400000, guid: 6ff2552e23ca4471894334cb4f69d359, type: 2}
-  - {fileID: 11400000, guid: aa8bd25117236448c9443784a7b13d52, type: 2}
-  defaultAnimationTeam2: {fileID: 11400000, guid: 123081d39052146bf95964471885230e,
-    type: 2}
-  animationsTeam2:
-  - {fileID: 11400000, guid: 123081d39052146bf95964471885230e, type: 2}
-  - {fileID: 11400000, guid: 7ec0d4d7367db4bb1bf09468f2acccf5, type: 2}
-  isGoalKeeper: 0
-  scaleX: 1
-  scaleZ: 1
-  speed: 5
-  shootForce: 1
-  lobForce: 1
   specialScriptName: MulotScript

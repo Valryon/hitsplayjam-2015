@@ -11,26 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Paresseux
   m_EditorClassIdentifier: 
+  role: 2
+  speed: 1
+  shootForce: 1
+  lobForce: 1
   avatar: {fileID: 21300000, guid: f424d7837e654428c9d31ba63505bd30, type: 3}
   avatarBg: {fileID: 21300000, guid: 53263ac63c1b84d59997b4b2dca3b177, type: 3}
   avatarBgNb: {fileID: 21300000, guid: 5611085438c334660807d368ad46c151, type: 3}
   shiityName: Joe le Paresseux
   biography: 
-  defaultAnimationTeam1: {fileID: 11400000, guid: 853c2c65cb92c4b0bb26611dc3c81d95,
-    type: 2}
-  animationsTeam1:
-  - {fileID: 11400000, guid: 853c2c65cb92c4b0bb26611dc3c81d95, type: 2}
-  - {fileID: 11400000, guid: 3175c154322cb49e8b417498790f1fae, type: 2}
-  defaultAnimationTeam2: {fileID: 11400000, guid: aec9b42604b1342c2ac6583a9e3689ae,
-    type: 2}
-  animationsTeam2:
-  - {fileID: 11400000, guid: aec9b42604b1342c2ac6583a9e3689ae, type: 2}
-  - {fileID: 11400000, guid: dc1fe173bad0447098cecaee772710c0, type: 2}
-  isGoalKeeper: 1
-  role: 0
-  scaleX: 2.5
-  scaleY: 2.5
-  speed: 1
-  shootForce: 5
-  lobForce: 1
   specialScriptName: ParesseuxScript

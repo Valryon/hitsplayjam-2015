@@ -11,26 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Goeland
   m_EditorClassIdentifier: 
+  role: 1
+  speed: 2
+  shootForce: 2
+  lobForce: 2
   avatar: {fileID: 21300000, guid: e892c0d670e484d15a40375032d47e71, type: 3}
   avatarBg: {fileID: 21300000, guid: 0d7e5b6e88dae4d8bb1efcdf066c27d1, type: 3}
   avatarBgNb: {fileID: 21300000, guid: a6dcba5821be4458ea7011b28eb2e4b7, type: 3}
   shiityName: Ronan Goeland
   biography: 
-  defaultAnimationTeam1: {fileID: 11400000, guid: ccee0d2adffb046e39af72dba5579d99,
-    type: 2}
-  animationsTeam1:
-  - {fileID: 11400000, guid: ccee0d2adffb046e39af72dba5579d99, type: 2}
-  - {fileID: 11400000, guid: 10955975cae8146aeb63853d6f1cdf9d, type: 2}
-  defaultAnimationTeam2: {fileID: 11400000, guid: 008c2cbfd74cc46d59506502433c4ab7,
-    type: 2}
-  animationsTeam2:
-  - {fileID: 11400000, guid: 008c2cbfd74cc46d59506502433c4ab7, type: 2}
-  - {fileID: 11400000, guid: b250e4018fe2c44dc87ff303fd3e1d33, type: 2}
-  isGoalKeeper: 0
-  role: 0
-  scaleX: .75
-  scaleY: 1
-  speed: 5
-  shootForce: 1
-  lobForce: 1
   specialScriptName: GoelandScript

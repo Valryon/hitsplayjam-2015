@@ -11,24 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e51f74bdf1b24746914e1aa8c13773b, type: 3}
   m_Name: Panda
   m_EditorClassIdentifier: 
-  avatar: {fileID: 0}
-  shiityName: Nicolas le Panda
-  biography: 
-  defaultAnimationTeam1: {fileID: 11400000, guid: 45e8893cb78904994ae4aa605ff65126,
-    type: 2}
-  animationsTeam1:
-  - {fileID: 11400000, guid: 45e8893cb78904994ae4aa605ff65126, type: 2}
-  - {fileID: 11400000, guid: 581e00c04f4494330a77e30aeda3f4c6, type: 2}
-  defaultAnimationTeam2: {fileID: 11400000, guid: adf5808baa7744991b6fb7ad54159258,
-    type: 2}
-  animationsTeam2:
-  - {fileID: 11400000, guid: 72896375a7a52485c8772055d0cd288c, type: 2}
-  - {fileID: 11400000, guid: adf5808baa7744991b6fb7ad54159258, type: 2}
-  isGoalKeeper: 1
-  role: 0
-  scaleX: 2.5
-  scaleY: 2.5
+  role: 2
   speed: 1
   shootForce: 5
-  lobForce: 1
+  lobForce: 5
+  avatar: {fileID: 0}
+  avatarBg: {fileID: 0}
+  avatarBgNb: {fileID: 0}
+  shiityName: Nicolas le Panda
+  biography: 
   specialScriptName: NarvalScript

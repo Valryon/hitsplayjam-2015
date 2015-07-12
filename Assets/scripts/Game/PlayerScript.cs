@@ -3,14 +3,20 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour 
 {
-  public const float BALL_DISTANCE_FROM_PLAYER = 1.25f;
+  public PlayerDefinition definition;
+  public Vector3 ballDistance = new Vector3(2f, 0f, 1f);
 
+  [Header("Team 1")]
+  public SimpleAnimation defaultAnimationTeam1;
+  public SimpleAnimation[] animationsTeam1;
+  
+  [Header("Team 2")]
+  public SimpleAnimation defaultAnimationTeam2;
+  public SimpleAnimation[] animationsTeam2;
 
-
-
+  [Header("Affectation")]
   public int team = 1;
   public int number = 1;
-  public PlayerDefinition definition;
 
   public event System.Action<PlayerScript> OnBallPick;
   public event System.Action<PlayerScript> OnShoot;
@@ -40,21 +46,21 @@ public class PlayerScript : MonoBehaviour
     gameScript = FindObjectOfType<GameScript> ();
 
     if (team == GameScript.TEAM1) {
-      animator.defaultAnimation = definition.defaultAnimationTeam1;
-      animator.clips = definition.animationsTeam1;
+      animator.defaultAnimation = defaultAnimationTeam1;
+      animator.clips = animationsTeam1;
     } else {
-      animator.defaultAnimation = definition.defaultAnimationTeam2;
-      animator.clips = definition.animationsTeam2;
+      animator.defaultAnimation = defaultAnimationTeam2;
+      animator.clips = animationsTeam2;
     }
 
     ballDirection = new Vector3 (team == GameScript.TEAM1 ? -1 : 1, 0, 0); 
-    BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
+    BallRelativePosition = Vector3.Scale(ballDirection, ballDistance);
 
     IsActive = true;
     startPosition = this.transform.position;
 
-    flip = (team == GameScript.TEAM1 ? 1 : -1);
-    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip * definition.scaleX, this.transform.localScale.y* definition.scaleY, this.transform.localScale.z);
+    flip = (team == GameScript.TEAM1 ? -1 : 1);
+    this.transform.localScale = new Vector3 (this.transform.localScale.x * flip, this.transform.localScale.y, this.transform.localScale.z);
 
     // Add special scripts
     if (string.IsNullOrEmpty (definition.specialScriptName) == false) {
@@ -204,16 +210,16 @@ public class PlayerScript : MonoBehaviour
 
     if (ball != null) 
     {
-      BallRelativePosition = ballDirection * BALL_DISTANCE_FROM_PLAYER;
+      BallRelativePosition = Vector3.Scale(ballDirection, ballDistance);
     }
 
     float previousFlip = flip;
 
     // Auto flip
     if (movement.x > 0)
-      flip = -1f;
-    else if (movement.x < 0)
       flip = 1f;
+    else if (movement.x < 0)
+      flip = -1f;
 
     if (movement.magnitude > 0) 
     {
@@ -297,7 +303,7 @@ public class PlayerScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		rbody.velocity = movement;
+    rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
 	}
 
   void OnTriggerEnter(Collider c)
