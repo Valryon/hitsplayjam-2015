@@ -240,25 +240,25 @@ public class PlayerScript : MonoBehaviour
       dz = 0;
     }
     */
-    var gs = GameObject.FindObjectOfType<GameScript> ();
-    var b = gs.ball.transform.position;
-    var dx = 0f;
-    var p = transform.position;
-    Vector3 tgt = Vector3.zero;
+//    var gs = GameObject.FindObjectOfType<GameScript> ();
+//    var b = gs.ball.transform.position;
+//    var dx = 0f;
+//    var p = transform.position;
+//    Vector3 tgt = Vector3.zero;
+//
+//    //equipe 1
+//    if (definition.team == 1) {
+//      var dist  = Vector3.Distance(b, transform.position);
+//      if(dist >1){
+//
+//
+//      }
+//
+//
+//    }
+//    
 
-    //equipe 1
-    if (definition.team == 1) {
-      var dist  = Vector3.Distance(b, transform.position);
-      if(dist >1){
-
-
-      }
-
-
-    }
-    
-
-    movement = definition.speed * new Vector3 (dx,0,0);
+//    movement = definition.speed * new Vector3 (dx,0,0);
   }
 
   private void UpdateFlip ()
@@ -297,7 +297,7 @@ public class PlayerScript : MonoBehaviour
    
     var side = Mathf.Sign (startPosition.z );
     var dz = Mathf.Sign (b.z - transform.position.z);
-    var z = Mathf.Abs (transform.position.z);
+//    var z = Mathf.Abs (transform.position.z);
     if (side <0){
       if(p.z<-10)
         dz = 1;

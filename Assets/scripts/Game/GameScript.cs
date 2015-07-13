@@ -298,7 +298,14 @@ public class GameScript : MonoBehaviour
 
     SoundsScript.Play ("gameover", Vector3.zero);
 
-    GameUIScript.GameOver ();
+    int winners = 0;
+    if (goal1.score > goal2.score) {
+      winners = 1;
+    } else if (goal2.score > goal1.score) {
+      winners = 2;
+    }
+
+    GameUIScript.GameOver (winners);
   }
 
   public PlayerScript GetNearestPlayer (List<PlayerScript> ps, GameObject from)
@@ -399,5 +406,12 @@ public class GameScript : MonoBehaviour
     ball.linkedPlayer = null;
   }
 
+  public bool Paused 
+  {
+    get
+    {
+      return paused;
+    }
+  }
 }
   

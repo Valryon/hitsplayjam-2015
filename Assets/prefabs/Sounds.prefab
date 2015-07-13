@@ -49,21 +49,19 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 36352c2a7a18144cd846e805821e376d, type: 3}
     - {fileID: 8300000, guid: 5f116aa22897442ef846f978ca06ddb4, type: 3}
     - {fileID: 8300000, guid: 6ae839133129f4c8193a9944c51ad2a3, type: 3}
-  - name: oh
-    clips:
-    - {fileID: 8300000, guid: d35265058fec44105998e65cf4c2f81d, type: 3}
-  - name: panda
-    clips:
-    - {fileID: 8300000, guid: 25604b44ecb164a1e89a42d7615d49cc, type: 3}
-  - name: narval
-    clips:
-    - {fileID: 8300000, guid: e91c927f18e6a465987093dedf1250e1, type: 3}
   - name: balle
     clips:
     - {fileID: 8300000, guid: d132ca00772ff49cb98129adfa2f6b3e, type: 3}
-  - name: tatata
+  - name: random
     clips:
     - {fileID: 8300000, guid: 76a55e434800947d4b8e67f948b99da8, type: 3}
+    - {fileID: 8300000, guid: eb2662f3c63104f9aa4fd16bf935f2cc, type: 3}
+    - {fileID: 8300000, guid: 31bcc88d783b54a2699e22ff46d45d3d, type: 3}
+    - {fileID: 8300000, guid: c78c557c80b1b443ba8c5666b19f09d9, type: 3}
+    - {fileID: 8300000, guid: e7f1eab1022cd41d4999afad26d7ab9a, type: 3}
+    - {fileID: 8300000, guid: 5ad1ffdcc9d6f4dc4bef0cbb69e3cbf1, type: 3}
+    - {fileID: 8300000, guid: 58b4baa5f97384458aa1e4f45b45ed25, type: 3}
+    - {fileID: 8300000, guid: 0f398e12da044448b92464048e973701, type: 3}
   - name: play
     clips:
     - {fileID: 8300000, guid: e964677993f774ef78036c5082b8843d, type: 3}
