@@ -76,7 +76,7 @@ public class GameScript : MonoBehaviour
    
   }
 
- 
+  //c'est pas vrai en fait :)  
 
   private PlayerScript getPlayer(List<PlayerScript> team, ROLE role){
     foreach(PlayerScript p in team){
