@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GoalScript : MonoBehaviour 
+public class GoalScript : MonoBehaviour
 {
   public int team = 0;
   public int score = 0;
@@ -10,22 +10,22 @@ public class GoalScript : MonoBehaviour
 
   private Collider col;
 
-	void Start () 
+  void Start()
   {
-    col = GetComponent<Collider> ();
-	}
-	
-	void Update () 
+    col = GetComponent<Collider>();
+  }
+
+  void Update()
   {
-	
-	}
+
+  }
 
   void OnTriggerEnter(Collider c)
   {
-    BallScript ball = c.gameObject.GetComponent<BallScript> ();
-    if (ball != null) 
+    BallScript ball = c.gameObject.GetComponent<BallScript>();
+    if (ball != null)
     {
-      Goal ();
+      Goal();
     }
   }
 
@@ -35,12 +35,13 @@ public class GoalScript : MonoBehaviour
 
     col.enabled = false;
 
-    if (OnGoal != null) 
+    if (OnGoal != null)
     {
-      OnGoal (this);
+      OnGoal(this);
     }
 
-    StartCoroutine(Timer.Start(5f, () => {
+    StartCoroutine(Timer.Start(5f, () =>
+    {
       col.enabled = true;
     }));
   }

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class GameUIScript : MonoBehaviour 
+public class GameUIScript : MonoBehaviour
 {
   private static GameUIScript instance;
 
@@ -25,13 +25,13 @@ public class GameUIScript : MonoBehaviour
 
   private GameScript gameScript;
 
-	void Awake () 
+  void Awake()
   {
     instance = this;
 
-    gameScript = FindObjectOfType<GameScript> ();
+    gameScript = FindObjectOfType<GameScript>();
 
-    foreach (var goal in FindObjectsOfType<GoalScript>()) 
+    foreach (var goal in FindObjectsOfType<GoalScript>())
     {
       goal.OnGoal += Goal;
     }
@@ -41,29 +41,29 @@ public class GameUIScript : MonoBehaviour
     player1.text = "";
     player2.text = "";
 
-    instance.gameOverPanel.SetActive (false);
-	}
+    instance.gameOverPanel.SetActive(false);
+  }
 
   private void Goal(GoalScript g)
   {
-    animator.SetTrigger ("but" + Random.Range (1, 4));
+    animator.SetTrigger("but" + Random.Range(1, 4));
 
-    if (g.team == GameScript.TEAM1) 
+    if (g.team == GameScript.TEAM1)
     {
       score1.text = g.score.ToString();
       instance.butImage.sprite = gameScript.player1.definition.avatar;
-    } 
-    else if (g.team == GameScript.TEAM2) 
+    }
+    else if (g.team == GameScript.TEAM2)
     {
       score2.text = g.score.ToString();
       instance.butImage.sprite = gameScript.player2.definition.avatar;
     }
   }
-	
-	void Update () 
+
+  void Update()
   {
-	
-	}
+
+  }
 
   public void RestartGame()
   {
@@ -72,12 +72,12 @@ public class GameUIScript : MonoBehaviour
 
   public void ExitGame()
   {
-    Application.Quit ();
+    Application.Quit();
   }
 
   public static void SetTimerValue(float t)
   {
-    if (instance != null) 
+    if (instance != null)
     {
       instance.timer.text = t.ToString("00.00");
     }
@@ -85,11 +85,11 @@ public class GameUIScript : MonoBehaviour
 
   public static void SetPlayer(int team, PlayerScript p)
   {
-    if (team == GameScript.TEAM1) 
+    if (team == GameScript.TEAM1)
     {
       instance.player1.text = p.definition.shiityName;
-    } 
-    else 
+    }
+    else
     {
       instance.player2.text = p.definition.shiityName;
     }
@@ -97,12 +97,14 @@ public class GameUIScript : MonoBehaviour
 
   public static void GameOver(int winners)
   {
-    instance.gameOverPanel.SetActive (true);
+    instance.gameOverPanel.SetActive(true);
 
-    if (winners == 0) {
+    if (winners == 0)
+    {
       instance.winners.text = "EX-AEQUO";
     }
-    else{
+    else
+    {
       instance.winners.text = "TEAM " + winners + "TEAM A GAGNE";
     }
   }

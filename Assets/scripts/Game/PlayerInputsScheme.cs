@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerInputsScheme  
+public class PlayerInputsScheme
 {
   /// <summary>
   /// Swap or pass
   /// </summary>
   public static KeyCode Player1Action1 = KeyCode.L;
-  
+
   /// <summary>
   /// Shoot or attack
   /// </summary>
@@ -17,7 +17,7 @@ public class PlayerInputsScheme
   /// Swap or pass
   /// </summary>
   public static KeyCode Player2Action1 = KeyCode.E;
-  
+
   /// <summary>
   /// Shoot or attack
   /// </summary>

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CanicheScript : PlayerScript 
+public class CanicheScript : PlayerScript
 {
 
 }

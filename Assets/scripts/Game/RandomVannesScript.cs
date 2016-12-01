@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RandomVannesScript : MonoBehaviour 
+public class RandomVannesScript : MonoBehaviour
 {
   public AudioSource source;
 
   private float cooldown;
   private GameScript gameScript;
 
-	void Awake()
+  void Awake()
   {
-    cooldown = Random.Range (5f, 10f);
+    cooldown = Random.Range(5f, 10f);
 
-    gameScript = FindObjectOfType<GameScript> ();
+    gameScript = FindObjectOfType<GameScript>();
   }
 
   void Update()
@@ -22,9 +22,9 @@ public class RandomVannesScript : MonoBehaviour
 
     cooldown -= Time.deltaTime;
 
-    if(cooldown < 0)
+    if (cooldown < 0)
     {
-      cooldown = Random.Range (10f, 20f);
+      cooldown = Random.Range(10f, 20f);
 
       var clip = SoundsScript.Get("random");
       source.clip = clip;

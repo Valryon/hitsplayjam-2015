@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class HowToPlayScript : MonoBehaviour 
+public class HowToPlayScript : MonoBehaviour
 {
   public Button button;
 
@@ -12,10 +12,10 @@ public class HowToPlayScript : MonoBehaviour
   }
 
   void Update()
-   {
+  {
   }
 
-	public void StartGame()
+  public void StartGame()
   {
     button.interactable = false;
 

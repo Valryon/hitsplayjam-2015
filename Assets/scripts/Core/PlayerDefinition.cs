@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ROLE
+public enum Role
 {
   Defense,
   Attack,
@@ -15,7 +15,7 @@ public class PlayerDefinition : ScriptableObject
   public int team = 1;
 
   [Header("Stats")]
-  public ROLE role = ROLE.Defense;
+  public Role role = Role.Defense;
   public int speed = 1;
   public int shootForce = 350;
   public int passForce = 200;

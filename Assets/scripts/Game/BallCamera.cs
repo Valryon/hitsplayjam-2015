@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BallCamera : MonoBehaviour 
+public class BallCamera : MonoBehaviour
 {
   public static bool FollowBall = true;
 
@@ -18,32 +18,34 @@ public class BallCamera : MonoBehaviour
 
   void Start()
   {
-    ball = FindObjectOfType<BallScript> ();
-    ball.OnShoot += (shoot, pass) => 
+    ball = FindObjectOfType<BallScript>();
+    ball.OnShoot += (shoot, pass) =>
     {
-      if(pass) {
+      if (pass)
+      {
         speedBoost = 3f;
       }
-      else {
+      else
+      {
         speedBoost = 10f;
       }
 
       decreaseSpeedBoostCooldown = 1.5f;
     };
-    ball.BallPicked += (p) => 
+    ball.BallPicked += (p) =>
     {
       speedBoost = 1f;
     };
-    ball.BallReset += () =>  
+    ball.BallReset += () =>
     {
       speedBoost = 1f;
       this.transform.position = new Vector3(ball.transform.position.x, this.transform.position.y, this.transform.position.z);
     };
 
-    diffZ = this.transform.position.z ;
+    diffZ = this.transform.position.z;
   }
 
-	void Update () 
+  void Update()
   {
     if (ball == null || FollowBall == false)
       return;
@@ -59,23 +61,24 @@ public class BallCamera : MonoBehaviour
 
     decreaseSpeedBoostCooldown -= Time.deltaTime;
 
-    if (decreaseSpeedBoostCooldown <= 0f) {
+    if (decreaseSpeedBoostCooldown <= 0f)
+    {
       speedBoost -= 0.1f;
       if (speedBoost < 1f)
         speedBoost = 1f;
     }
 
     // Rect on screen. If ball is outside, follow it.
-    Vector3 viewportCoords = Camera.main.WorldToViewportPoint (ball.transform.position);
+    Vector3 viewportCoords = Camera.main.WorldToViewportPoint(ball.transform.position);
 
     const float zoneSize = 0.1f;
-   
-    if (viewportCoords.x < (0.5f - zoneSize)) 
+
+    if (viewportCoords.x < (0.5f - zoneSize))
     {
       directionX = -1f;
       directionSign = -1f;
-    } 
-    else if (viewportCoords.x > (0.5f + zoneSize)) 
+    }
+    else if (viewportCoords.x > (0.5f + zoneSize))
     {
       directionX = 1f;
       directionSign = 1f;
@@ -88,7 +91,7 @@ public class BallCamera : MonoBehaviour
     targetZ = ball.transform.position.z + diffZ;
 
     // Bad interpolation
-    float currentZ = Mathf.Lerp (this.transform.position.z, targetZ, Time.deltaTime * speedZ);
-    this.transform.position = new Vector3 (currentX, this.transform.position.y, currentZ);
-	}
+    float currentZ = Mathf.Lerp(this.transform.position.z, targetZ, Time.deltaTime * speedZ);
+    this.transform.position = new Vector3(currentX, this.transform.position.y, currentZ);
+  }
 }
