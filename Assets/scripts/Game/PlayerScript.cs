@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
 
   private Vector3 movement;
   private Rigidbody rbody;
+  private MeshRenderer meshRenderer;
 
   public BallScript ball;
 
@@ -36,6 +37,7 @@ public class PlayerScript : MonoBehaviour
   {
     rbody = GetComponent<Rigidbody>();
     animator = GetComponentInChildren<SimpleAnimator>();
+    meshRenderer = GetComponent<MeshRenderer>();
 
     if (definition == null)
     {
@@ -59,10 +61,8 @@ public class PlayerScript : MonoBehaviour
     BallRelativePosition = Vector3.Scale(ballDirection, ballDistance);
 
     IsActive = true;
-
-
-    flip = (definition.team == GameScript.TEAM1 ? -1 : 1);
-    this.transform.localScale = new Vector3(this.transform.localScale.x * flip, this.transform.localScale.y, this.transform.localScale.z);
+    
+    UpdateFlip(definition.team == GameScript.TEAM1 ? -1 : 1);
 
     this.gameObject.name = definition.name;
   }
@@ -194,77 +194,77 @@ public class PlayerScript : MonoBehaviour
 
   private void Defending()
   {
-    var gs = GameObject.FindObjectOfType<GameScript>();
-    var b = gs.ball.transform.position;
-    var dx = 0f;
-    var p = transform.position;
+    //var gs = GameObject.FindObjectOfType<GameScript>();
+    //var b = gs.ball.transform.position;
+    //var dx = 0f;
+    //var p = transform.position;
 
-    if (definition.team == 2)
-      dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x - transform.position.x);
-    else
-      dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x - transform.position.x);
-    var target = Vector3.zero;
-    var side = Mathf.Sign(startPosition.z);
-    var dz = Mathf.Sign(b.z - transform.position.z);
+    //if (definition.team == 2)
+    //  dx = (transform.position.x > 0) ? 0 : Mathf.Sign(b.x - transform.position.x);
+    //else
+    //  dx = (transform.position.x < 0) ? 0 : Mathf.Sign(b.x - transform.position.x);
+    //var target = Vector3.zero;
+    //var side = Mathf.Sign(startPosition.z);
+    //var dz = Mathf.Sign(b.z - transform.position.z);
 
-    var z = Mathf.Abs(transform.position.z);
-    if (ball != null && ball.lastTeamTouch != definition.team)
-    {
-      dz = 0;
+    ////var z = Mathf.Abs(transform.position.z);
+    //if (ball != null && ball.lastTeamTouch != definition.team)
+    //{
+    //  dz = 0;
 
-    }
-    {
-      if (side < 0)
-      {
-        if (p.z < -19)
-          dz = 1;
-        else if (p.z > -1)
-          dz = -1;
-      }
-      else
-      {
-        if (p.z > 19)
-          dz = -1;
-        else if (p.z < 1)
-          dz = 1;
-      }
-    }
-    if (startPosition.x > 0)
-    {
-      if (p.x < 0)
-        dx = 1;
-      else if (p.x > 30)
-        dx = -1;
-    }
-    else
-    {
-      if (p.x > 0)
-        dx = -1;
-      else if (p.x < -30)
-        dx = 1;
-    }
+    //}
+    //{
+    //  if (side < 0)
+    //  {
+    //    if (p.z < -19)
+    //      dz = 1;
+    //    else if (p.z > -1)
+    //      dz = -1;
+    //  }
+    //  else
+    //  {
+    //    if (p.z > 19)
+    //      dz = -1;
+    //    else if (p.z < 1)
+    //      dz = 1;
+    //  }
+    //}
+    //if (startPosition.x > 0)
+    //{
+    //  if (p.x < 0)
+    //    dx = 1;
+    //  else if (p.x > 30)
+    //    dx = -1;
+    //}
+    //else
+    //{
+    //  if (p.x > 0)
+    //    dx = -1;
+    //  else if (p.x < -30)
+    //    dx = 1;
+    //}
 
-    target.z = b.z;
-    if (side < 0)
-    {
-      if (p.z < -19)
-        target.z = -19;
-      else if (p.z > -1)
-        target.z = -1;
-    }
-    else
-    {
-      if (p.z > 19)
-        target.z = 19;
-      else if (p.z < 1)
-        target.z = 1;
-    }
+    //target.z = b.z;
+    //if (side < 0)
+    //{
+    //  if (p.z < -19)
+    //    target.z = -19;
+    //  else if (p.z > -1)
+    //    target.z = -1;
+    //}
+    //else
+    //{
+    //  if (p.z > 19)
+    //    target.z = 19;
+    //  else if (p.z < 1)
+    //    target.z = 1;
+    //}
 
-    dz = Mathf.Sign(p.z - target.z);
-    if (target.z - p.z < definition.speed)
-    {
-      dz = 0;
-    }
+    //dz = Mathf.Sign(p.z - target.z);
+    //if (target.z - p.z < definition.speed)
+    //{
+    //  dz = 0;
+    //}
 
     //var gs = GameObject.FindObjectOfType<GameScript>();
     //var b = gs.ball.transform.position;
@@ -289,7 +289,7 @@ public class PlayerScript : MonoBehaviour
     //movement = definition.speed * new Vector3(dx, 0, 0);
   }
 
-  private void UpdateFlip()
+  private void UpdateFlip(int forceFlipX = 0)
   {
     float previousFlip = flip;
 
@@ -305,9 +305,15 @@ public class PlayerScript : MonoBehaviour
       animator.Play("walk");
     }
 
+    if(forceFlipX != 0)
+    {
+      flip = forceFlipX;
+    }
+
     if (previousFlip != flip)
     {
-      this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x) * flip, this.transform.localScale.y, this.transform.localScale.z);
+      //this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x) * flip, this.transform.localScale.y, this.transform.localScale.z);
+      meshRenderer.material.mainTextureScale = new Vector2(-flip, meshRenderer.material.mainTextureScale.y);
     }
   }
 
