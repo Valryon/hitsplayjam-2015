@@ -18,6 +18,7 @@ public class HowToPlayScript : MonoBehaviour
 	public void StartGame()
   {
     button.interactable = false;
-    Application.LoadLevel ("Main");
+
+    UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
   }
 }

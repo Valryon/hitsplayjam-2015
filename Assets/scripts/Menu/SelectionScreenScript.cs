@@ -18,6 +18,6 @@ public class SelectionScreenScript : MonoBehaviour
 	public void StartGame()
   {
     button.interactable = false;
-    Application.LoadLevel ("HowToPlay");
+    UnityEngine.SceneManagement.SceneManager.LoadScene("HowToPlay");
   }
 }

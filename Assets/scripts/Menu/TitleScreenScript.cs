@@ -40,7 +40,7 @@ public class TitleScreenScript : MonoBehaviour
     button.interactable = false;
 
     StartCoroutine (Timer.Start (0.35f, () => {
-      Application.LoadLevel ("Selection");
+      UnityEngine.SceneManagement.SceneManager.LoadScene("Selection");
     }));
   }
 }

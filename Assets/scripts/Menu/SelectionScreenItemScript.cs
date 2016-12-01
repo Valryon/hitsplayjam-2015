@@ -10,8 +10,9 @@ public class SelectionScreenItemScript : Selectable
   public GameObject popup;
   public Text popupName, popupBio;
 
-  void Awake()
+  protected override void Start()
   {
+    base.Start();
     SpriteState s = button.spriteState;
 
     s.highlightedSprite = null;

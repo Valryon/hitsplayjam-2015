@@ -67,7 +67,7 @@ public class GameUIScript : MonoBehaviour
 
   public void RestartGame()
   {
-    Application.LoadLevel ("TitleScreen");
+    UnityEngine.SceneManagement.SceneManager.LoadScene("TitleScreen");
   }
 
   public void ExitGame()
